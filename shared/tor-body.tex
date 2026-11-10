@@ -1,0 +1,114 @@
+\section*{1. Tujuan Pekerjaan}
+Kerja praktik bertujuan membantu PT Akhdani Reka Solusi dalam pengembangan dan penjaminan kualitas sistem pengelolaan alur kerja berbasis web. Mahasiswa berkontribusi pada fitur yang ditugaskan serta mempelajari proses kerja, komunikasi, dan tanggung jawab profesional dalam tim perangkat lunak.
+
+Tujuan teknis pekerjaan meliputi pengembangan dasbor, pengelolaan peran dan hak akses, penyajian riwayat proses, serta pemeriksaan perilaku fitur. Pelaksanaan juga mencakup penyesuaian implementasi ketika terjadi perubahan kebutuhan dan teknologi layanan aplikasi.
+
+\section*{2. Lingkup Pekerjaan}
+Lingkup pekerjaan mahasiswa pengembang meliputi:
+\begin{enumerate}[label=\alph*)]
+\item mempelajari kebutuhan fitur, struktur kode, dan alur data pada aplikasi;
+\item mengembangkan komponen serta halaman dasbor menggunakan layanan data simulasi;
+\item mengembangkan antarmuka dan layanan pengelolaan peran, pengguna terkait, serta hak akses;
+\item mengintegrasikan riwayat alur kerja dan memperbaiki penyajian aktivitas, pelaksana, komentar, serta transisi;
+\item melakukan perbaikan navigasi, penanganan kesalahan, konsistensi penamaan, dan komponen pendukung;
+\item menyusun pengujian komponen dan pemeriksaan akses data sesuai kebutuhan fitur; dan
+\item mempelajari teknologi baru, mengadaptasi fitur ke layanan Go, serta menyusun rancangan layar pengelolaan dasbor.
+\end{enumerate}
+Lingkup mahasiswa penjaminan kualitas adalah pemeriksaan kualitas fitur yang ditugaskan. \IsianFrederiko{fitur yang menjadi tanggung jawab QA, jenis pengujian, pencatatan temuan, dan pengujian ulang}.
+
+\section*{3. Hasil Pekerjaan}
+Hasil yang ditargetkan adalah perubahan kode dan rancangan pada bagian sistem yang menjadi penugasan mahasiswa. Keluaran meliputi antarmuka dasbor dengan layanan simulasi, fitur pengelolaan peran, riwayat alur kerja, perbaikan fitur pendukung, serta kasus uji untuk bagian yang dikembangkan. Untuk penyesuaian teknologi, keluaran berupa adaptasi pengelolaan peran dan akses data pada layanan baru serta rancangan layar pengelolaan dasbor.
+
+Hasil disampaikan melalui repositori dan sarana kerja yang digunakan tim. Catatan kegiatan dituangkan dalam logbook, sedangkan rangkuman pelaksanaan disusun dalam laporan akhir. \IsianFrederiko{keluaran QA berupa kasus uji, catatan temuan, laporan pemeriksaan, atau artefak lain sesuai penugasan}.
+
+\section*{4. Batasan}
+\begin{enumerate}[label=\alph*)]
+\item Mahasiswa mengerjakan tugas yang diberikan selama periode kerja praktik dan tidak bertanggung jawab atas keseluruhan proyek.
+\item Implementasi mengikuti struktur kode, konvensi, dan lingkungan pengembangan yang disediakan atau ditentukan tim.
+\item Penyelesaian suatu perubahan kode tidak dengan sendirinya menyatakan seluruh sistem selesai, siap produksi, atau diterima pengguna.
+\item Data simulasi digunakan untuk pengembangan tampilan dan pengujian yang memerlukan pengganti layanan.
+\item Penyesuaian kebutuhan dan teknologi dapat mengubah urutan maupun lingkup tugas dengan mengikuti arahan tim.
+\item Identitas klien, nama proyek internal, kredensial, dan rincian teknis rahasia tidak dimuat dalam dokumen akademik. Ilustrasi menggunakan penyederhanaan dan data contoh.
+\end{enumerate}
+
+\section*{5. Asumsi}
+Pelaksanaan pekerjaan bergantung pada tersedianya penugasan, akses kode, lingkungan pengembangan, dan arahan dari tim perusahaan. Mahasiswa memerlukan kesempatan berkoordinasi untuk memahami kebutuhan serta menindaklanjuti perubahan. Pemeriksaan integrasi yang menggunakan basis data bergantung pada ketersediaan lingkungan dan data pengujian yang sesuai.
+
+Kerja praktik dilaksanakan pada \PeriodeKP. Pola kerja reguler adalah WFO pada Senin sampai Kamis dan WFH pada Jumat. Kegiatan khusus mengikuti pengaturan perusahaan dan dicatat pada logbook.
+
+\section*{6. Metodologi Pekerjaan}
+Pekerjaan dilaksanakan secara bertahap dan disesuaikan dengan kebutuhan fitur. Tahapan yang digunakan adalah:
+\begin{enumerate}[label=\roman*)]
+\item memahami tugas, kebutuhan, dan struktur kode yang berkaitan;
+\item merancang perubahan antarmuka, alur data, dan pembagian komponen;
+\item mengimplementasikan perubahan serta mengintegrasikannya dengan bagian aplikasi lain;
+\item menyiapkan pemeriksaan dan memperbaiki perilaku yang belum sesuai; serta
+\item menyampaikan perkembangan, menindaklanjuti arahan, dan mencatat hasil kegiatan.
+\end{enumerate}
+Ketika teknologi berubah, tahapan diawali kembali dengan pembelajaran dan penyiapan lingkungan, kemudian dilanjutkan pemetaan serta adaptasi fitur. Pendekatan QA yang digunakan perlu dilengkapi berdasarkan pelaksanaan oleh mahasiswa terkait: \IsianFrederiko{metode dan tahapan pengujian}.
+
+\section*{7. Lingkungan Pengembangan}
+Pada tahap awal, antarmuka dikembangkan menggunakan Vue dan TypeScript, dengan Node.js serta Express pada layanan aplikasi. Bagian data relasional menggunakan PostgreSQL dan Prisma; lingkungan repositori juga memuat komponen MongoDB. Pengujian komponen menggunakan Vitest dan Vue Test Utils.
+
+Pada tahap penyesuaian Agustus, layanan menggunakan Go, Fiber v2, dan \texttt{sqlx}, dengan mekanisme migrasi serta data awal yang mengikuti struktur proyek baru. Git digunakan untuk pengelolaan perubahan, Docker untuk pekerjaan penyiapan lingkungan lokal, dan Visily untuk rancangan layar pada akhir periode. Komunikasi penugasan menggunakan WhatsApp atau Microsoft 365.
+
+\Isian{spesifikasi perangkat pengembangan Ra'if jika disyaratkan}. \IsianFrederiko{spesifikasi perangkat dan alat pengujian yang digunakan}.
+
+\section*{8. Jadwal}
+Periode kerja praktik adalah \PeriodeKP. Tabel~\ref{tab:tor-jadwal} menunjukkan pengelompokan tahapan pengembangan dan penyesuaian yang terjadi selama pelaksanaan. Minggu 1 dimulai pada 22 Juni; minggu 6 berakhir pada 31 Juli; minggu 7--10 mencakup 3--28 Agustus. Aktivitas 31 Agustus masih perlu dilengkapi.
+
+\begin{table}[htbp]
+\caption{Jadwal tahapan pekerjaan pengembangan}\label{tab:tor-jadwal}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\newcommand{\Aktif}{\cellcolor{shade}\rule{0.23cm}{0.12cm}}
+\begin{tabular}{@{}P{4.4cm}*{10}{c}@{}}
+\toprule
+\textbf{Tahapan / minggu} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\\midrule
+Orientasi dan dasbor & \Aktif & \Aktif & & & & & & & & \\
+Pengelolaan peran & & & \Aktif & \Aktif & \Aktif & \Aktif & & & & \\
+Riwayat dan fitur pendukung & & & & & \Aktif & \Aktif & & & & \\
+Pengujian komponen & & & & & & \Aktif & & & & \\
+Pembelajaran Go & & & & & & & \Aktif & \Aktif & & \\
+Adaptasi layanan dan lingkungan & & & & & & & & \Aktif & \Aktif & \Aktif\\
+Rancangan layar lanjutan & & & & & & & & & & \Aktif\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Jadwal awal berfokus pada aplikasi dengan layanan Node.js. Perubahan kebutuhan setelah Juli diikuti pembelajaran Go dan adaptasi fitur selama Agustus. Penanda pada tabel menggambarkan kelompok waktu kegiatan, bukan pernyataan bahwa setiap tahap telah selesai sepenuhnya pada akhir minggu tersebut. \IsianFrederiko{tambahkan tahapan dan rentang jadwal QA}.
+
+\section*{9. Penugasan Staf}
+\begin{enumerate}[label=\alph*)]
+\item \NamaPembimbingPerusahaan{}, \JabatanPembimbingPerusahaan, menjadi pembimbing perusahaan dan penanda tangan persetujuan kerangka acuan kerja praktik.
+\item \NamaPembimbingTeknis{}, \JabatanPembimbingTeknis, mendampingi pekerjaan teknis mahasiswa.
+\item \NamaRaif{} (\NIMRaif), \textit{Software Engineer Intern}, mengerjakan pengembangan antarmuka, layanan, integrasi, pengujian komponen, dan adaptasi fitur sesuai penugasan.
+\item \NamaFrederiko{} (\NIMFrederiko), \textit{Quality Assurance Intern}, mengerjakan penjaminan kualitas. \IsianFrederiko{rincian tanggung jawab}.
+\end{enumerate}
+Pembimbing akademik adalah \NamaDosenPembimbing{} dari Program Studi Teknik Informatika Institut Teknologi Bandung.
+
+\section*{10. Mekanisme Pengendalian dan Pemantauan}
+Tugas atau tiket berkaitan dengan fitur sistem disampaikan melalui WhatsApp atau Microsoft 365. Rapat mingguan dilaksanakan setiap Selasa pukul 09.30 untuk membahas perkembangan dan kebutuhan koordinasi. Perubahan kode dikelola melalui Git, sedangkan kegiatan serta hasil harian dicatat dalam logbook.
+
+Pemantauan diarahkan pada kesesuaian pekerjaan dengan tugas, masalah yang menghambat, dan penyesuaian yang diperlukan. Penyampaian hasil akhir meliputi laporan serta logbook kerja praktik. \Isian{jadwal presentasi atau penyerahan akhir apabila ditetapkan perusahaan atau program studi}.
+
+\section*{11. Pengelolaan Risiko}
+Risiko pekerjaan meliputi perubahan kebutuhan, perbedaan struktur data antarlapisan, pergantian teknologi, serta ketergantungan pada lingkungan pengujian. Penanganannya dilakukan melalui klarifikasi tugas, penyesuaian pemetaan data, pembelajaran bertahap, dan pemisahan pengujian komponen dari pemeriksaan yang memerlukan layanan nyata. Risiko pengungkapan informasi ditangani melalui anonimisasi dokumen akademik dan penggunaan ilustrasi yang tidak menyalin artefak internal.
+
+\section*{12. Lain-lain dan Persetujuan}
+Mahasiswa menjaga kerahasiaan informasi yang diperoleh selama kerja praktik. Penyajian hasil dalam laporan akademik mengikuti ketentuan perusahaan. Perubahan yang memengaruhi tugas mahasiswa dikomunikasikan dalam koordinasi pekerjaan.
+
+\noindent\begin{minipage}{\textwidth}
+\begin{center}
+Bandung, \TanggalPengesahan\\[0.5cm]
+Disetujui oleh,\\
+Pembimbing Perusahaan\\[1.6cm]
+\underline{\NamaPembimbingPerusahaan}\\
+\JabatanPembimbingPerusahaan\\[0.6cm]
+Mahasiswa Kerja Praktik\\[1.6cm]
+\begin{tabular}{cc}
+\NamaRaif & \NamaFrederiko\\
+\NIMRaif & \NIMFrederiko
+\end{tabular}
+\end{center}
+\end{minipage}

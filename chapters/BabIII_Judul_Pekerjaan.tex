@@ -1,46 +1,139 @@
-\chapter{Judul Pekerjaan}
+\chapter{Pengembangan Sistem Pengelolaan Alur Kerja}
+Bab ini membahas pekerjaan pengembangan yang dilakukan selama kerja praktik, mulai dari kebutuhan fitur, rancangan antarmuka dan layanan, proses implementasi, hingga pengujian serta kendala yang dihadapi. Pembahasan difokuskan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja. Bagian akhir menjelaskan penyesuaian pekerjaan setelah pergantian teknologi layanan aplikasi.
 
-Bab III ini membahas tahapan dan dinamika pelaksanaan pekerjaan di tempat kerja praktik. Ada beberapa jenis pekerjaan yang mungkin dilakukan oleh mahasiswa pada saat KP, misalnya:
+\section{Analisis Permasalahan dan Kebutuhan}
+\subsection{Deskripsi Permasalahan}
+Sistem pengelolaan alur kerja perlu menyajikan informasi yang berbeda sesuai fungsi pengguna. Sebagian informasi ditampilkan sebagai ringkasan pada dasbor, sedangkan informasi lain diperlukan untuk mengatur akses atau menelusuri pelaksanaan suatu pekerjaan. Fitur-fitur tersebut saling berkaitan karena data yang diperoleh dari layanan aplikasi harus ditampilkan dengan konteks dan kewenangan yang sesuai.
 
-\begin{enumerate}
-\item Pekerjaan penyelesaian suatu proyek atau pembuatan produk. Jenis pekerjaan seperti ini biasanya diberikan oleh perusahaan. Proyek atau produk yang dikerjakan dapat lebih dari satu macam. Untuk jenis pekerjaan seperti ini, ceritakan proses atau tahapan pekerjaan, kegiatan profesionalisme yang dilakukan, kegiatan-kegiatan sampingan, masalah, tantangan, keputusan-keputusan yang diambil, konflik, dan sebagainya selama proses penyelesaian proyek atau produk.
-\item Pekerjaan yang tidak tetap dan dapat berubah setiap hari atau setiap saat tergantung kebutuhan saat itu. Laporkan kegiatan harian ini, termasuk tugas, dinamika, masalah, dan solusi penyelesaian masalah harian tersebut.
-\item Pekerjaan yang inisiasinya dari mahasiswa. Jelaskan semua proses pekerjaan ini sejak inisiasi hingga penyelesaiannya, termasuk motivasi, masalah, keputusan-keputusan profesional yang diambil, interaksi dengan pemangku kepentingan, dan lain-lain.
-\end{enumerate}
+Pada tahap awal, pekerjaan dasbor memerlukan komponen visual yang dapat menggunakan data dari layanan tanpa menempatkan seluruh data langsung di dalam komponen. Fitur pengelolaan peran membutuhkan hubungan yang konsisten antara informasi peran, pengguna, dan hak aksesnya. Sementara itu, riwayat proses perlu menjelaskan urutan kejadian beserta pelaksana dan perpindahan tahapnya agar pengguna dapat memahami perkembangan pekerjaan.
 
-Usahakan penjelasan disertai dengan ilustrasi atau foto agar pembaca memiliki gambaran tentang pekerjaan yang dilakukan dan bagaimana lingkungan kerjanya. Sampaikan tindakan-tindakan profesional dan etika profesi yang dijalani saat KP. Pembagian subbab dibebaskan, tidak kaku, tergantung kompleksitas penjelasan.
+Persoalan pengembangan tidak hanya berada pada penambahan halaman. Terdapat pula kebutuhan untuk menyeragamkan nama atribut, menyesuaikan struktur respons, mengelola perubahan keadaan halaman, serta menampilkan pesan ketika permintaan tidak berhasil. Hal-hal tersebut menjadi bagian pekerjaan integrasi dan perbaikan sepanjang pelaksanaan kerja praktik.
 
-\section{Rencana Kerja}
-Bab III menceritakan dinamika pekerjaan sehari-hari di tempat kerja, termasuk interaksi dengan orang lain, pertemuan-pertemuan rutin maupun tidak rutin, masalah-masalah teknis pekerjaan dan komunikasi interpersonal, keputusan penyelesaian masalah yang Anda ambil, ketidaknyamanan yang terjadi, hal-hal yang menghambat penyelesaian pekerjaan, konflik, dan semua aktivitas atau kejadian lain selama bekerja di tempat tersebut. Jadi, bab ini tidak hanya sekadar menceritakan hasil pekerjaan.
+\subsection{Kebutuhan Fungsional}
+Kebutuhan pada Tabel~\ref{tab:kebutuhan} merangkum fungsi yang berkaitan dengan penugasan pengembangan. Pengelompokan ini digunakan untuk menjelaskan hubungan antara kebutuhan dan implementasinya tanpa mencantumkan istilah bisnis internal.
+\begin{table}[htbp]
+\caption{Kebutuhan fungsional dalam lingkup pengembangan}\label{tab:kebutuhan}
+\small
+\begin{tabularx}{\textwidth}{@{}P{1.2cm}P{3cm}Y@{}}
+\toprule\textbf{Kode} & \textbf{Bagian} & \textbf{Kebutuhan}\\\midrule
+F-01 & Dasbor & Menampilkan ringkasan informasi melalui komponen grafik dan tabel yang memperoleh data dari layanan.\\
+F-02 & Pengelolaan peran & Menampilkan daftar, membuat, melihat detail, menyunting, dan menghapus peran.\\
+F-03 & Pengguna dan hak akses & Menampilkan pengguna terkait peran dan memperbarui penetapan hak akses.\\
+F-04 & Riwayat alur kerja & Menampilkan urutan proses, keadaan, pelaksana, komentar, dan perpindahan tahap suatu pekerjaan.\\
+F-05 & Navigasi pendukung & Menyesuaikan tautan kembali, penunjuk lokasi halaman, konfirmasi keluar, serta akses panduan pengguna.\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
-\subsection{Pembahasan Rencana Kerja}
-Tahap awal pekerjaan dimulai dengan rapat penjelasan \textit{requirement}. Rapat dipimpin oleh manajer proyek dan dihadiri oleh tim pengembang. Hasil rapat adalah sebagai berikut:
-\begin{enumerate}[label=\alph*)]
-\item Pekerjaan dilakukan di lokasi klien;
-\item Membuat \textit{Gantt Chart}; dan
-\item Presentasi pekerjaan.
-\end{enumerate}
+Selain fungsi tersebut, pengembangan memperhatikan kemudahan pemeliharaan dan konsistensi penggunaan. Pemakaian kembali komponen formulir dan tabel membantu mengurangi perbedaan perilaku antarlayar. Penanganan keadaan memuat, data kosong, dan kesalahan membantu pengguna membedakan proses yang masih berjalan dari permintaan yang gagal.
 
-\subsection{Verifikasi \textit{User Requirement}}
-Pada hari ketiga, kami berkunjung ke klien untuk melakukan tahapan pertama pekerjaan, yaitu verifikasi \textit{user requirement}, untuk memastikan sekali lagi bahwa tidak ada perubahan \textit{requirement}. Hasil pertemuan adalah:
-\begin{enumerate}[label=\alph*)]
-\item Masih perlu ada penambahan fitur;
-\item \textit{Milestone} pertama digeser dua hari.
-\end{enumerate}
+\section{Perancangan Sistem dan Fitur}
+\subsection{Gambaran Umum dan Lingkungan Teknologi}\label{sec:lingkungan}
+Sistem terdiri atas antarmuka web yang berkomunikasi dengan layanan aplikasi melalui API (\textit{application programming interface}). Layanan memproses permintaan dan menggunakan lapisan akses data untuk membaca atau memperbarui informasi. Pembagian ini memungkinkan perubahan tampilan dan pemrosesan data dilakukan pada bagian yang sesuai.
 
-\begin{figure}[H]
+Pada tahap awal, antarmuka menggunakan Vue dan TypeScript. Vue mendukung pembangunan antarmuka secara deklaratif melalui komponen dan keadaan reaktif \citep{vue}. Layanan aplikasi menggunakan Node.js dan Express untuk penanganan rute serta \textit{middleware} \citep{express}. Akses data relasional terkait peran menggunakan Prisma dan PostgreSQL. Repositori juga memiliki komponen penyimpanan berbasis MongoDB yang dipelajari saat orientasi.
+
+Setelah perubahan teknologi, layanan baru menggunakan Go dengan Fiber v2 dan \texttt{sqlx}. Pustaka \texttt{sqlx} menyediakan perluasan fasilitas akses data SQL di Go \citep{sqlx}. Gin, GORM, dan konsep konkurensi dipelajari selama masa adaptasi, sedangkan implementasi pemindahan fitur yang dibahas menggunakan struktur layanan dan pustaka akses data yang tersedia pada proyek baru.
+
+Gambar~\ref{fig:arsitektur} memperlihatkan pembagian tanggung jawab komponen secara konseptual. Diagram tersebut menyederhanakan hubungan antarkomponen untuk menjelaskan bagian yang dikerjakan selama kerja praktik.
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.75\textwidth]{figures/Diagram_Interaksi_Antarobjek.png}
-\caption{Diagram Interaksi Antarobjek pada Sistem ABC}
-\label{fig:interaksi-antarobjek}
+\begin{tikzpicture}[font=\small,box/.style={draw,align=center,text width=3.3cm,minimum height=1.2cm},>=Stealth]
+\node[box] (ui) {Antarmuka web\\Komponen dan halaman};
+\node[box,right=0.8cm of ui] (api) {Layanan aplikasi\\Permintaan dan logika};
+\node[box,right=0.8cm of api] (db) {Akses data\\Penyimpanan};
+\draw[<->] (ui) -- node[above]{API} (api);
+\draw[<->] (api) -- (db);
+\end{tikzpicture}
+\caption{Pembagian tanggung jawab komponen aplikasi secara konseptual}\label{fig:arsitektur}
 \end{figure}
 
-\section{Perancangan Aplikasi}
-Lorem ipsum.
+\subsection{Rancangan Pengelolaan Peran}
+Fitur pengelolaan peran dirancang dalam halaman daftar, pembuatan, detail, dan penyuntingan. Halaman daftar menjadi titik masuk untuk memilih peran atau menambahkan peran baru. Halaman detail menampilkan informasi peran beserta hubungan pengguna dan hak aksesnya. Halaman penyuntingan menyediakan perubahan informasi serta penetapan hak akses.
 
-Pada saat tahapan merancang \textit{front-end}, beberapa anggota tim diberi tugas ke proyek yang lain sehingga saya harus bekerja sendiri. Hal ini dapat mengganggu waktu penyelesaian pekerjaan tahap kedua.
+Formulir yang digunakan pada beberapa halaman disatukan menjadi komponen bersama. Perbedaan antara pembuatan, detail, dan penyuntingan diatur melalui mode penggunaan komponen. Dengan cara ini, perubahan susunan masukan tidak perlu diterapkan secara terpisah pada setiap halaman. Komponen tabel yang tersedia juga digunakan kembali untuk pencarian, pemuatan data, dan pembagian daftar ke beberapa halaman.
 
-\section{Hasil Pekerjaan}
-Lorem ipsum.
+Di sisi layanan, penanganan permintaan dipisahkan menjadi lapisan pengendali, layanan, dan repositori. Pengendali menerima masukan, layanan mengatur pemrosesan dan pemeriksaan yang diperlukan, sedangkan repositori mengakses data. Pemisahan ini digunakan kembali saat fitur diadaptasi ke layanan berbasis Go.
 
-Berdasarkan perancangan yang telah dijelaskan sebelumnya, maka didapatkan hasil seperti pada Gambar~\ref{fig:interaksi-antarobjek}. Beri penjelasan yang sesuai dengan gambar yang diacu. Pastikan semua gambar yang ada telah diacu pada paragraf penjelas di bagian ini.
+\subsection{Rancangan Riwayat Alur Kerja}
+Riwayat disajikan sebagai urutan kejadian yang berkaitan dengan suatu pekerjaan. Informasi yang ditampilkan meliputi tahapan, keadaan proses, komentar, dan pelaksana. Perpindahan antara tahap turut ditampilkan agar pengguna dapat membedakan aktivitas pada suatu tahap dari perubahan tahap itu sendiri.
+
+Data yang diterima dari layanan perlu disiapkan menjadi urutan elemen tampilan. Dalam pengolahan tersebut, elemen aktivitas dan elemen transisi dibedakan agar masing-masing memiliki penyajian yang sesuai. Halaman juga menyediakan keadaan kosong ketika riwayat belum tersedia serta navigasi kembali ke daftar pekerjaan.
+
+\section{Proses Pengembangan}
+\subsection{Pengembangan Dasbor}\label{sec:dasbor}
+Pekerjaan awal dilakukan dengan membuat halaman dasbor dan komponen grafik. Pada 23 Juni, pengembangan dimulai dari kerangka tiga halaman. Selanjutnya, komponen diperbarui agar memperoleh data melalui layanan simulasi atau \textit{mock API}. Pemisahan tersebut memungkinkan bentuk respons dan alur pengambilan data dikembangkan tanpa menunggu seluruh layanan bisnis tersedia.
+
+Pada tahap berikutnya, fungsi pengambilan data dipindahkan ke layanan yang dapat digunakan komponen. Rute dan menu diperbaiki agar halaman dapat diakses melalui navigasi aplikasi. Komponen tanggal dan pilihan pada bagian atas halaman juga ditambahkan untuk melengkapi interaksi dasbor. Selama proses ini, mahasiswa mempelajari penggunaan Pinia dan menyesuaikan cara pengelolaan keadaan dengan pola aplikasi.
+
+Hasil tahap ini adalah halaman dan komponen dasbor yang menggunakan data simulasi melalui pemanggilan layanan. Hasil tersebut menjadi bagian pengembangan antarmuka; penggunaan data simulasi belum menunjukkan bahwa seluruh sumber data operasional telah terhubung.
+
+\subsection{Pengembangan Pengelolaan Peran dan Hak Akses}
+Pengembangan antarmuka pengelolaan peran dimulai pada 6 Juli. Halaman yang dibuat meliputi daftar, pembuatan, detail, dan penyuntingan peran. Pada tahap awal, halaman menggunakan layanan simulasi. Setelah struktur layanan tersedia, pemanggilan data disesuaikan dengan implementasi layanan aplikasi.
+
+Pada sisi layanan, pekerjaan mencakup fungsi daftar dan detail peran, pembuatan, pembaruan, penghapusan, serta penyediaan data pengguna dan hak akses. Implementasi dilengkapi penanganan peran yang tidak ditemukan dan kode peran yang sudah digunakan. Data awal peran juga disiapkan agar lingkungan pengembangan memiliki data yang diperlukan untuk mencoba fitur.
+
+Selama integrasi, formulir pada beberapa halaman disatukan agar struktur masukan dan tindakannya konsisten. Pemanggilan data yang sebelumnya menggunakan mekanisme kueri tertentu disesuaikan menjadi pemanggilan asinkron sesuai pola yang digunakan tim. Penamaan rute, komponen, dan atribut diperbaiki untuk mengurangi perbedaan antara antarmuka dan layanan.
+
+Pada akhir Juli, tampilan detail dan penyuntingan diperbarui menggunakan tab. Perbaikan juga dilakukan ketika informasi hak akses pada halaman detail masih menampilkan data lama. Persoalan ini menunjukkan bahwa keberhasilan permintaan pembaruan perlu diikuti pemuatan keadaan yang benar ketika pengguna kembali melihat detail peran.
+
+\subsection{Integrasi Riwayat Alur Kerja}
+Pengembangan riwayat alur kerja dilakukan dengan menghubungkan halaman antarmuka ke layanan pengambilan riwayat. Integrasi awal dilanjutkan dengan penyesuaian sumber data dan struktur respons. Informasi komentar, pelaksana, dan unit pelaksana ditambahkan agar setiap kejadian memiliki konteks yang lebih jelas.
+
+Perbaikan berikutnya menyangkut judul pekerjaan, penunjuk lokasi halaman atau \textit{breadcrumb}, dan tujuan tombol kembali. Penyajian riwayat juga perlu mengikuti keadaan pekerjaan; tindakan pemrosesan disembunyikan ketika pekerjaan telah selesai. Perubahan tersebut menghubungkan informasi keadaan dari layanan dengan tindakan yang tersedia pada antarmuka.
+
+Pada 30 Juli, informasi transisi ditambahkan pada layanan dan tampilan riwayat. Elemen transisi menunjukkan perpindahan tahap, sedangkan elemen aktivitas menampilkan pelaksanaan pada tahap terkait. Penambahan ini kemudian menjadi salah satu perilaku yang diperiksa dalam pengujian komponen riwayat.
+
+\subsection{Perbaikan Fitur Pendukung}
+Selain fitur utama, pekerjaan mencakup penyesuaian panduan pengguna agar dapat dibuka melalui tab baru, perubahan referensi berkas menjadi kunci penyimpanan, dan penambahan konfirmasi keluar. Perbaikan dilakukan pula pada pesan kesalahan agar pengguna memperoleh penjelasan yang sesuai dengan kegagalan pemrosesan layanan.
+
+Atribut penanda elemen ditambahkan pada sejumlah komponen untuk membantu pemilihan elemen pada pengujian. Pekerjaan perapian kode meliputi format, konsistensi nama, dan pemakaian kembali komponen penanda status. Walaupun tidak menambah fungsi bisnis baru, perubahan tersebut membantu pemeliharaan dan pemeriksaan fitur yang dikerjakan bersama.
+
+\subsection{Adaptasi ke Layanan Berbasis Go}
+Pada awal Agustus, pekerjaan beralih pada pembelajaran Go. Materi yang dipelajari meliputi tipe data, struktur, antarmuka, komposisi, alur kontrol, dan konkurensi. Pembelajaran juga mencakup kerangka kerja web, penanganan permintaan, serta \textit{middleware}. Setelah itu, mahasiswa menyiapkan proyek lokal dan menelaah struktur kode layanan yang baru.
+
+Pemindahan fitur pengelolaan peran dilakukan dengan memetakan kebutuhan yang sebelumnya tersedia pada layanan Node.js ke struktur pengendali, layanan, dan repositori di Go. Penyesuaian mencakup data permintaan, hubungan pengguna dan peran, pengaturan hak akses, serta data awal. Pada 24 Agustus, perubahan fitur pengelolaan peran dan data awal dicatat dalam repositori layanan baru.
+
+Pada 25 Agustus, fungsi pengambilan peran pengguna disesuaikan dengan skema data baru. Pengujian integrasi juga ditambahkan untuk membandingkan hasil fungsi tersebut dengan hasil kueri serta memeriksa pengguna tanpa peran. Pada 26 Agustus, dependensi pengandar basis data yang tidak lagi digunakan dihapus. Pekerjaan ini menunjukkan bahwa adaptasi melibatkan penyesuaian akses data dan dependensi, selain pemindahan struktur kode.
+
+\subsection{Perancangan Layar Dasbor Lanjutan}
+Pada akhir periode, mahasiswa mempelajari kebutuhan pengelolaan dasbor dan membuat rancangan layar menggunakan Visily. Layar yang dirancang meliputi daftar proses, daftar dasbor, pembuatan dasbor, pengaturan \textit{widget}, serta pembuatan komponen tabular dan non-tabular. Keluaran tahap ini berupa rancangan antarmuka untuk mendukung pembahasan pengembangan berikutnya.
+
+\section{Pengujian dan Hasil Pekerjaan}
+\subsection{Pengujian Komponen}\label{sec:pengujian}
+Pengujian komponen disusun menggunakan Vitest dan Vue Test Utils. Vitest menyediakan fasilitas menjalankan pengujian pada lingkungan pengembangan berbasis Vite \citep{vitest}. Pada pengujian halaman, layanan dan sejumlah komponen diganti dengan \textit{mock} atau \textit{stub} agar perilaku halaman dapat diperiksa secara terpisah.
+
+Enam berkas pengujian ditambahkan untuk halaman pembuatan, detail, penyuntingan, formulir bersama, daftar peran, dan riwayat alur kerja. Tabel~\ref{tab:uji} merangkum perilaku yang dituliskan dalam kasus uji. Pengujian yang disusun mahasiswa pengembang merupakan bagian kontribusi pengembangan dan dibedakan dari kegiatan QA yang perlu dilengkapi Frederiko.
+\begin{table}[htbp]
+\caption{Lingkup kasus uji komponen yang disusun}\label{tab:uji}
+\small
+\begin{tabularx}{\textwidth}{@{}P{3.2cm}Y@{}}
+\toprule\textbf{Bagian} & \textbf{Perilaku yang diperiksa}\\\midrule
+Pembuatan peran & Validasi masukan kosong, pengiriman data, serta penanganan kegagalan layanan.\\
+Detail peran & Keadaan memuat, pemuatan informasi dan tabel, serta kegagalan pengambilan data.\\
+Penyuntingan peran & Pemuatan data awal, validasi nama dan kode, pembaruan hak akses, dan kegagalan pembaruan.\\
+Formulir bersama & Perbedaan mode, perubahan masukan, pengiriman formulir, dan pembatalan.\\
+Daftar peran & Konfigurasi kolom, pengambilan daftar, navigasi, serta penghapusan yang berhasil dan gagal.\\
+Riwayat alur kerja & Data kosong, penyajian aktivitas dan transisi, navigasi kembali, serta kegagalan pengambilan riwayat.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Kasus uji integrasi pengambilan peran pada layanan Go memerlukan koneksi basis data. Keberadaan berkas pengujian tersebut menunjukkan penyiapan pemeriksaan fungsi; hasil pelaksanaannya perlu dibedakan dari sekadar tersedianya kode uji. Laporan ini tidak mencantumkan persentase cakupan atau angka kelulusan pengujian karena rekaman hasilnya belum tersedia.
+
+\subsection{Hasil Pengembangan}
+Hasil pekerjaan meliputi antarmuka dasbor berbasis layanan simulasi, fitur pengelolaan peran pada antarmuka dan layanan awal, riwayat alur kerja yang memuat aktivitas serta transisi, dan kumpulan pengujian komponen. Setelah pergantian teknologi, dihasilkan pula implementasi pengelolaan peran serta penyesuaian pengambilan peran pengguna pada layanan Go. Rancangan layar pengelolaan dasbor menjadi keluaran perancangan pada akhir periode.
+
+Hasil-hasil tersebut merupakan bagian dari sistem yang dikembangkan bersama tim. Dasbor awal masih menggunakan data simulasi, sedangkan rancangan layar akhir belum dinyatakan sebagai antarmuka yang telah diimplementasikan. Penyelesaian keseluruhan sistem dan penerimaan pengguna berada di luar klaim capaian bagian pekerjaan ini.
+
+\subsection{Kegiatan Penjaminan Kualitas}
+\IsianFrederiko{uraikan pendekatan pengujian, fitur yang diperiksa, contoh kasus uji yang telah dianonimkan, temuan, pengujian ulang, hasil, dan umpan balik yang benar-benar diperoleh}.
+
+\section{Kendala dan Penyelesaiannya}
+Kendala pertama adalah penyelarasan bentuk data antara antarmuka dan layanan. Perubahan nama atribut dan struktur respons memengaruhi formulir, tabel, serta penyajian riwayat. Penanganannya dilakukan dengan menyesuaikan pemetaan data pada bagian terkait dan menyeragamkan penamaan agar perubahan tidak berhenti pada satu lapisan saja.
+
+Kendala kedua berkaitan dengan pemeliharaan keadaan halaman. Data hak akses yang belum diperbarui pada halaman detail dan perbedaan navigasi riwayat menunjukkan perlunya memeriksa rangkaian interaksi pengguna, bukan hanya keberhasilan satu permintaan. Perbaikan diarahkan pada pemuatan ulang data, penyelarasan tujuan navigasi, dan pengujian perilaku halaman.
+
+Kendala berikutnya adalah pergantian teknologi di tengah pelaksanaan. Mahasiswa perlu mempelajari bahasa dan pustaka baru sebelum dapat memindahkan fitur. Penyelesaiannya dilakukan secara bertahap melalui pembelajaran dasar Go, percobaan layanan sederhana, penyiapan lingkungan proyek, dan pemetaan kembali fitur pengelolaan peran. Penyesuaian tersebut juga memerlukan pemahaman skema data yang berubah.
+
+Dalam penyusunan pengujian, ketergantungan antarkomponen menjadi pertimbangan. Komponen pengganti digunakan untuk membatasi lingkup pemeriksaan halaman, sedangkan pengujian integrasi tetap membutuhkan lingkungan basis data. Pemisahan ini membantu memperjelas bagian yang diperiksa oleh masing-masing jenis pengujian.

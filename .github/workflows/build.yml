@@ -1,0 +1,39 @@
+name: Build laporan dan ToR
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: latex-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pdf:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install TeX Live dan alat build
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            make python3 latexmk poppler-utils \
+            texlive-latex-extra texlive-fonts-extra texlive-lang-other texlive-science
+      - name: Build dan validasi
+        run: make check
+      - name: Simpan PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: dokumen-kp
+          path: |
+            build/main.pdf
+            build/tor.pdf
+          if-no-files-found: error
+          retention-days: 7

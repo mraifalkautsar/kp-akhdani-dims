@@ -1,0 +1,95 @@
+Tanggal,Kegiatan,Hasil
+22 Juni 2026,"[LEARNED] 
+1. Arsitektur Workflow Engine
+2. Vue.js basics
+3. MongoDB basics
+4. Current state of FE and BE repository
+[ISSUE] 
+1. Belum ada setup Docker baik di FE maupun BE",
+23 Juni 2026,"Briefing terkait proyek dengan Team Leader, pembuatan tiga halaman mock dasbor MDG. Mendalami tech stack.",
+24 Juni 2026,"Belajar lebih banyak terkait tech stack dari aplikasi
+Melanjutkan pengembangan dasbor berdasarkan komponen-komponen yang telah dibuat.",
+25 Juni 2026,"Melakukan pembaruan terhadap beberapa halaman dasbor yang telah dibuat
+Mempelajari cara penggunaan Pinia
+Membuat mock APIs",
+26 Juni 2026,"Refaktor sebagian besar komponen dasbor MDG sehingga melakukan fetch ke mock APIs
+Penyesuaian penggunaan sejumlah komponen pada dasbor MDG",
+29 Juni 2026,"Refaktor berbagai komponen dasbor MDG sehingga melakukan fetching ke mock APIs
+Pembuatan dasbor BPO
+Perbaikan routes",
+30 Juni 2026,"Menghadiri weekly internal meeting
+Refactor dan perbaikan dasbor MDG",
+1 Juli 2026,"Refactor terhadap berbagai komponen dasbor MDG
+Penambahan komponen tanggal dan dropdown terhadap header dasbor MDG
+Riset mengenai mekanisme refresh untuk autentikasi",
+2 Juli 2026,Riset dan pendalaman mengenai workflow engine dari DIMS,
+3 Juli 2026,Implementasi autentikasi untuk backend DIMS,
+6 Juli 2026,"Implementasi UI master role, role edit, role view, dan create new role.",
+7 Juli 2026,"Menambahkan endpoints untuk dasbor BPO, MDG, dan Master Role di backend.",
+8 Juli 2026,"Memindahkan semua endpoint master role ke tempat yang seharusnya.
+Membuat endpoint untuk list semua user.",
+9 Juli 2026,Mengubah semua form untuk master role menjadi satu komponen dan menghilangkan penggunaan useMutation.,
+10 Juli 2026,Menghilangkan semua penggunaan useQuery dan merencanakan implementasi backend.,
+13 Juli 2026,"Implementasi controller, service, dan repository untuk master role pada backend.
+Perencanaan perbaikan SonarQube
+Perencanaan perbaikan frontend untuk master role",
+14 Juli 2026,"Pembuatan role seeder
+Formatting frontend dan penambahan data-cy ke berbagai komponen",
+15 Juli 2026,Penyesuaian tata letak tabel referensi dan role. Perbaikan seeder database.,
+16 Juli 2026,"Refactoring berbagai tempat di kedua repositori untuk merapikan standar penamaan pada routing, API, komponen, dan variabel database. Penyatuan komponen badge tabel di frontend.",
+17 Juli 2026,Analisis  dan refaktor codebase untuk menemukan bagian-bagian yang mungkin belum sesuai dengan naming convention,
+20 Juli 2026,"Perbaikan bug dan merapikan kode. Dilakukan perbaikan migrasi dan penyesuaian tabel transaksi ke PDM, dan dilakukan penanganan pesan error agar sesuai dengan kesalahan yang terjadi di backend",
+21 Juli 2026,Penyambungan frontend workflow history dari frontend ke backend.,
+22 Juli 2026,"Integrasi workflow history ke process business collection, serta penambahan atribut data-cy ke header dan page autentikasi. Penambahan subtitle comment ke tiap flow pada history.",
+23 Juli 2026,"Perbaikan workflow history dan repository untuk menyertakan actor serta divisinya.
+Pengubahan semua case/permohonan/transaksi menjadi work order",
+24 Juli 2026,"- Perbaikan berbagai bug (Bug pada tombol ""kembali"" di riwayat work order, judul work order history seharusnya sesuai dengan probis yang dipilih, breadcrumb ""Collection Work Order > Histori Work Order"", hide tombol ""Process"" jika process status = Completed)
+- Penambahan judul ke workflow history
+- Pengambilan user manual ke bucket S3",
+27 Juli 2026,"- Perubahan path user manual menjadi key
+- Perbaikan user manual supaya membuka tab baru dan bukan download
+- Penambahan logout modal
+- Perbaikan breadcrumbs di history workflow",
+28 Juli 2026,"CATATAN: Pagi hari sakit
+- Implementasi tabs pada role detail dan role edit
+- Perbaikan detail master role menunjukkan data permissions kedaluwarsa.",
+29 Juli 2026,"Analisis keadaan codebase, analisis dan desain untuk implementasi transisi serta pembuatan unit tests, revisi minor terhadap fitur master-role.",
+30 Juli 2026,"Penambahan transisi ke workflow history, pembuatan kasus uji untuk pembuatan unit tests",
+31 Juli 2026,Implementasi unit tests untuk fitur master role dan workflow history,
+3 Agustus 2026,"Belajar Go, mengenai:
+- Basics, paradigma, methods/interfaces, generics, beserta konkurensinya (seperti Goroutine)",
+4 Agustus 2026,"Belajar Go, mengenai:
+- Framework Gin
+- Framework Fiber
+- Pengembangan mock project",
+5 Agustus 2026,"Belajar Go, mengenai:
+- Flow control, for loop, typing
+- Struct interface method",
+6 Agustus 2026,"Belajar Go, mengenai:
+- Composition, goroutines, channel, mutex",
+7 Agustus 2026,"Belajar Go, mengenai:
+- Setup framework fiber",
+10 Agustus 2026,"Belajar Go, mengenai:
+- String processing di Go
+- Implementasi endpoint di Fiber
+- Tes middleware",
+11 Agustus 2026,"Melakukan pull ke backend Golang, setup project, dan test build, serta mempelajari codebase dims-go yang baru.",
+12 Agustus 2026,"Melakukan cloning repository dims-go, setup dims-go, mencoba build, serta menganalisis pemindahan master-role dan workflow history dari Node ke Go.",
+13 Agustus 2026,"Menyusun struktur file untuk memindah master-role dari Node ke Go. Belajar mengenai context di Go dan Fiber, serta cara kerja dari middleware.",
+14 Agustus 2026,Melanjutkan pemindahan master role ke backend Go dan belajar terkait penggunaan GORM dan cara membuat model serta repositori untuk master-role.,
+18 Agustus 2026,Menghadiri lomba 17 Agustus.,
+19 Agustus 2026,Clone dan setup buat repo-repo PLN Click yang baru serta memahami codebase yang baru + akan migrasi master role ke codebase baru,
+20 Agustus 2026,"[Done]
+- Kerangka untuk master role di dims-core
+- Apply migrasi dari branch goose",
+21 Agustus 2026,Pemindahan fitur master-role dari backend express ke dims-core (backend baru berbasis PLN Click.),
+24 Agustus 2026,Mempelajari lebih lanjut terkait autentikasi dari PLN Click serta merefactor fungsi GetRoles supaya sesuai dengan skema database yang baru.,
+26 Agustus 2026,(WFA) Melakukan setup untuk Docker supaya dapat melakukan pengembangan lokal yang containerized.,
+27 Agustus 2026,"Mempelajari lebih lanjut mengenai codebase PLN Click, membaca-baca Proposal serta MoM untuk memahami lebih lanjut, serta merencanakan pembuatan layar Edit Dashboard dan Widget di Visily.",
+28 Agustus 2026,"Membuat halaman-halaman di Visily sebagai berikut:
+- Halaman list probis
+- Halaman list dashboard
+- Halaman create dashboard - utama
+- Halaman create dashboard - widgets
+- Halaman create widget untuk tabular dan non-tabular",
+31 Agustus 2026,-,

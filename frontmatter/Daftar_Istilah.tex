@@ -1,10 +1,15 @@
 \FrontTitle{DAFTAR ISTILAH DAN SINGKATAN}
 \addcontentsline{toc}{chapter}{DAFTAR ISTILAH DAN SINGKATAN}
-
-\begin{center}
-\begin{tabular}{p{3.3cm}p{6cm}p{3cm}}
-\textbf{SINGKATAN} & \textbf{Nama} & \textbf{Pemakaian\newline pertama kali\newline pada halaman} \\
-KP & Kerja Praktik & 1 \\
-TOR & \textit{Term of Reference} & 12 \\
-\end{tabular}
-\end{center}
+\begin{tabularx}{\textwidth}{@{}P{2cm}YP{2cm}@{}}
+\toprule
+\textbf{Istilah} & \textbf{Pengertian} & \textbf{Halaman awal}\\\midrule
+KP & Kerja praktik & \pageref{sec:latar}\\
+API & \textit{Application programming interface}; antarmuka pertukaran data antarkomponen perangkat lunak & \pageref{sec:lingkungan}\\
+QA & \textit{Quality assurance}; penjaminan kualitas & \pageref{sec:unit}\\
+ToR & \textit{Terms of reference}; kerangka acuan pekerjaan & \pageref{sec:sistematika}\\
+WFO & \textit{Work from office}; bekerja dari kantor & \pageref{sec:jadwal}\\
+WFH & \textit{Work from home}; bekerja dari rumah & \pageref{sec:jadwal}\\
+\textit{Mock} & Pengganti layanan atau data untuk simulasi selama pengembangan dan pengujian & \pageref{sec:dasbor}\\
+\textit{Stub} & Pengganti komponen untuk membatasi lingkup pengujian & \pageref{sec:pengujian}\\
+\bottomrule
+\end{tabularx}

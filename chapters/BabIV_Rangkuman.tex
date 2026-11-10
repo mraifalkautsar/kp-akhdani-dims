@@ -1,13 +1,37 @@
-\chapter{Rangkuman}
+\chapter{Penutup}
+Bab ini merangkum hasil kerja praktik di PT Akhdani Reka Solusi serta pembelajaran yang diperoleh selama pelaksanaannya. Evaluasi dan saran disusun berdasarkan pengalaman pengembangan, koordinasi pekerjaan, dan penyesuaian terhadap perubahan teknologi.
 
-\section{Rangkuman Pelaksanaan Pekerjaan}
-Bagian ini menjelaskan rangkuman proses pelaksanaan pekerjaan yang telah dilakukan.
+\section{Kesimpulan}
+Pelaksanaan kerja praktik pada \PeriodeKP{} menghasilkan kontribusi pada beberapa bagian sistem pengelolaan alur kerja. Kesimpulan dari pekerjaan yang telah dilakukan adalah sebagai berikut:
+\begin{enumerate}[label=\arabic*)]
+\item Antarmuka dasbor dikembangkan menggunakan komponen yang memperoleh data melalui layanan simulasi. Pemisahan sumber data dan tampilan memungkinkan pengembangan halaman dilakukan secara bertahap.
+\item Fitur pengelolaan peran dikembangkan pada antarmuka dan layanan aplikasi, termasuk pengelolaan informasi peran, pengguna terkait, serta hak akses. Integrasi fitur memerlukan penyesuaian bentuk data dan penyeragaman penamaan pada beberapa lapisan aplikasi.
+\item Riwayat alur kerja diintegrasikan dengan layanan dan dilengkapi informasi aktivitas, pelaksana, komentar, serta transisi. Perbaikan navigasi dan penyajian keadaan pekerjaan menjadi bagian penting agar informasi tersebut dapat digunakan dengan jelas.
+\item Pengujian komponen disusun untuk memeriksa perilaku halaman pengelolaan peran dan riwayat. Kasus uji mencakup interaksi, validasi, kondisi kosong, serta kegagalan layanan.
+\item Pergantian teknologi diikuti pembelajaran Go dan adaptasi fitur pengelolaan peran serta pengambilan peran pengguna pada layanan baru. Kegiatan tersebut memperlihatkan pentingnya pemahaman perilaku fitur dan struktur data dalam proses pemindahan implementasi.
+\end{enumerate}
+\IsianFrederiko{kesimpulan kegiatan dan hasil penjaminan kualitas}.
 
-\section{Rangkuman Hasil Pekerjaan}
-Tuliskan rangkuman semua hasil pekerjaan, baik yang sudah maupun yang belum diselesaikan. Sampaikan juga hasil pengembangan keprofesian, peningkatan kompetensi, atau keahlian yang diperoleh.
+Di samping hasil teknis, kerja praktik memberikan pengalaman bekerja dengan tugas yang berubah, mempelajari kode tim, dan menyampaikan perkembangan dalam koordinasi mingguan. Dasbor dengan data simulasi dan rancangan layar akhir tetap dibedakan dari fitur yang telah terhubung ke layanan nyata. Capaian mahasiswa merupakan bagian dari pekerjaan proyek secara keseluruhan.
 
 \section{Evaluasi Diri}
-Tuliskan secara jujur kesan, penilaian penerapan profesionalisme dan etika profesi dalam pekerjaan, refleksi keberhasilan dan kegagalan, introspeksi diri, dan hal-hal yang dapat diperbaiki pada diri Anda pada saat pelaksanaan kerja praktik untuk perbaikan ke depan. Evaluasi diri ini ditulis dalam bentuk pernyataan-pernyataan yang positif dan tidak subyektif berdasarkan hasil penilaian pada kinerja dan kemampuan diri sendiri.
+\subsection{Muhammad Ra'if Alkautsar}
+Pekerjaan pengembangan memberikan latihan untuk menelusuri suatu fitur dari antarmuka sampai akses data. Pada awal pelaksanaan, perhatian lebih banyak diarahkan pada pembuatan tampilan. Ketika pekerjaan berkembang menjadi integrasi, diperlukan pemahaman yang lebih lengkap mengenai struktur respons, validasi masukan, serta pengelolaan keadaan halaman. Pengalaman tersebut menjadi dasar untuk membiasakan pemeriksaan alur fitur secara menyeluruh sebelum melakukan perubahan.
 
-\section{Ucapan Terima Kasih}
-Sampaikan ucapan terima kasih kepada pihak-pihak yang relevan dalam pelaksanaan kerja praktik.
+Perbaikan penamaan dan komponen bersama juga memberikan pelajaran mengenai pemeliharaan kode tim. Perubahan kecil pada atribut atau pola pemanggilan data dapat memengaruhi beberapa halaman sekaligus. Untuk pekerjaan berikutnya, pemetaan dampak perubahan dan pencatatan keputusan teknis perlu dilakukan lebih awal agar penyesuaian tidak berulang pada bagian yang berbeda.
+
+Pengujian komponen disusun menjelang akhir tahap pengembangan awal. Pengalaman ini menunjukkan kesempatan perbaikan dalam cara bekerja, yaitu menyusun kasus uji sejak kebutuhan fitur dipahami. Dengan demikian, keadaan gagal dan data kosong dapat dipertimbangkan bersama alur penggunaan utama, bukan setelah implementasi hampir selesai.
+
+Pergantian teknologi menjadi latihan adaptasi yang penting. Pembelajaran dasar Go membantu memahami kode baru, tetapi kegiatan pemindahan fitur tetap membutuhkan penelaahan struktur layanan dan skema data. Untuk meningkatkan efektivitas pembelajaran, latihan yang berkaitan langsung dengan tugas perlu dipadukan dengan pencatatan konsep dan hasil percobaan secara teratur.
+
+\subsection{Frederiko Eldad Mugiyono}
+\IsianFrederiko{evaluasi kemampuan pengujian, komunikasi temuan, pengujian ulang, profesionalisme, serta hal yang perlu ditingkatkan berdasarkan pengalaman pribadi}.
+
+\section{Saran}
+Berdasarkan pelaksanaan kerja praktik, terdapat beberapa saran untuk pengembangan dan cara kerja selanjutnya:
+\begin{enumerate}[label=\arabic*)]
+\item Kesepakatan bentuk permintaan dan respons layanan sebaiknya dicatat sebelum integrasi, terutama ketika atribut atau skema data berubah. Catatan tersebut membantu menyelaraskan pekerjaan antarmuka, layanan, dan pengujian.
+\item Kasus uji sebaiknya disusun bersamaan dengan pemahaman kebutuhan fitur. Pengujian perlu mencakup keadaan gagal, data kosong, dan rangkaian navigasi selain alur penggunaan utama.
+\item Pergantian teknologi sebaiknya disertai pemetaan perilaku fitur yang harus dipertahankan, bagian yang berubah, serta kebutuhan lingkungan pengembangan. Pemetaan ini membantu membedakan pemindahan fitur dari penambahan kebutuhan baru.
+\item Catatan kegiatan dan keputusan teknis perlu diperbarui secara rutin. Selain membantu laporan kemajuan, catatan tersebut memudahkan penelusuran hasil dan penyampaian pekerjaan kepada anggota tim berikutnya.
+\end{enumerate}

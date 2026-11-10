@@ -1,26 +1,41 @@
 \chapter{Pendahuluan}
+Bab ini menjelaskan latar belakang pengembangan sistem, tempat dan waktu pelaksanaan kerja praktik, ruang lingkup pekerjaan, serta tujuan yang ingin dicapai. Pembahasan tersebut menjadi dasar untuk menjelaskan pekerjaan pengembangan dan penjaminan kualitas pada bab-bab berikutnya.
 
-\section{Latar Belakang}
-Tuliskanlah latar belakang dari pelaksanaan kerja praktik (KP) di perusahaan dan substansi yang digeluti berkaitan dengan tujuan, misi, visi atau fungsi perusahaan. Jangan menuliskan tentang pelaksanaan mata kuliah Kerja Praktek seperti yang ditulis di dalam kurikulum.
+\section{Latar Belakang}\label{sec:latar}
+Pengelolaan pekerjaan dalam suatu organisasi melibatkan berbagai tahapan, mulai dari pengajuan, pemeriksaan, pelaksanaan, hingga penyelesaian. Setiap tahapan dapat memiliki pelaksana dan kewenangan yang berbeda. Agar proses tersebut dapat ditelusuri dengan baik, diperlukan sistem yang menghubungkan informasi pekerjaan, pengaturan hak akses, dan riwayat pelaksanaannya dalam satu alur yang konsisten.
 
-Untuk menuliskan paragraf berikutnya berikan jarak satu Enter seperti contoh pada template ini. Sebuah paragraf hendaknya mengandung satu pokok pikiran dan beberapa kalimat gagasan pendukung.
+PT Akhdani Reka Solusi mengembangkan perangkat lunak untuk memenuhi kebutuhan tersebut melalui sistem pengelolaan alur kerja berbasis web. Sistem ini menyediakan fasilitas untuk mengatur proses, menampilkan informasi pemantauan, dan mencatat perkembangan pekerjaan. Dalam pengembangannya, kebutuhan antarmuka dan layanan aplikasi harus diselaraskan agar informasi yang ditampilkan sesuai dengan data serta keadaan proses yang sebenarnya.
 
-\section{Tempat dan Waktu Pelaksanaan}
-Tuliskan tempat atau lokasi dan waktu pelaksanaan kegiatan kerja praktik.
+Pada saat pelaksanaan kerja praktik, terdapat beberapa bagian sistem yang perlu dikembangkan dan disempurnakan. Bagian tersebut mencakup dasbor untuk menyajikan informasi, pengelolaan peran beserta hak akses pengguna, serta halaman riwayat yang menjelaskan tahapan suatu pekerjaan. Pengembangan dilakukan pada kode yang sudah tersedia sehingga perubahan harus mengikuti struktur aplikasi dan berinteraksi dengan komponen yang dikerjakan anggota tim lain.
 
-\section{Ruang Lingkup Pekerjaan}
-Tuliskan ruang lingkup pekerjaan di tempat KP, bukan lingkup KP seperti dituliskan pada kurikulum. Deskripsi pekerjaan secara lengkap dapat dijelaskan di Bab III.
+Untuk mendukung pekerjaan tersebut, mahasiswa kerja praktik dilibatkan sebagai pengembang perangkat lunak dan pelaksana penjaminan kualitas. Pekerjaan mencakup pemahaman kebutuhan, implementasi, integrasi, dan pemeriksaan fitur yang ditugaskan. Pada pertengahan periode, perubahan kebutuhan juga mengharuskan tim menyesuaikan teknologi layanan aplikasi. Oleh karena itu, pelaksanaan kerja praktik turut mencakup pembelajaran Go dan pemindahan sebagian fitur ke struktur layanan yang baru.
 
-\section{Sistematika Penulisan}
-Tuliskanlah sistematika penulisan laporan hasil kerja praktik ini yang dapat mencakup hal-hal sebagai berikut:
+Melalui kegiatan tersebut, mahasiswa berkesempatan menerapkan pengetahuan pengembangan perangkat lunak pada pekerjaan tim yang nyata. Selain menghasilkan bagian aplikasi, kegiatan ini menuntut kemampuan memahami kode yang sudah ada, mengomunikasikan perkembangan pekerjaan, serta menyesuaikan implementasi terhadap perubahan kebutuhan. Nama proyek dan identitas klien dalam laporan ini disamarkan sesuai ketentuan kerahasiaan perusahaan.
 
+\section{Tempat dan Waktu Kerja Praktik}
+\subsection{Tempat Kerja Praktik}
+Kerja praktik dilaksanakan di \TempatKP{}, yang beralamat di Jalan Cikutra Baru No. 23, Neglasari, Kecamatan Cibeunying Kaler, Kota Bandung. Mahasiswa tergabung dalam tim proyek pengembangan sistem pengelolaan alur kerja.
+
+\subsection{Waktu Kerja Praktik}
+Kerja praktik dilaksanakan pada \PeriodeKP. Pola kerja yang diterapkan adalah bekerja dari kantor pada Senin sampai Kamis dan bekerja dari rumah pada Jumat. Rapat mingguan dilaksanakan setiap Selasa pukul 09.30 untuk membahas perkembangan pekerjaan dan koordinasi tim.
+
+\section{Ruang Lingkup Kerja Praktik}
+Ruang lingkup kerja praktik mencakup pengembangan dan penjaminan kualitas bagian sistem yang ditugaskan kepada mahasiswa. \NamaRaif{} berperan sebagai \textit{Software Engineer Intern}, sedangkan \NamaFrederiko{} berperan sebagai \textit{Quality Assurance Intern}.
+
+Pekerjaan pengembangan meliputi pembuatan antarmuka dasbor, pengembangan fitur pengelolaan peran dan hak akses, integrasi riwayat alur kerja, perbaikan navigasi, serta penyusunan pengujian komponen. Setelah pergantian teknologi, pekerjaan dilanjutkan dengan penyesuaian fitur pengelolaan peran pada layanan berbasis Go dan perancangan layar pengelolaan dasbor.
+
+Dalam pelaksanaannya, mahasiswa perlu memahami struktur aplikasi, menyesuaikan pertukaran data antara antarmuka dan layanan, serta mengikuti konvensi kode yang digunakan tim. Tanggung jawab mahasiswa dibatasi pada tugas yang diberikan selama periode kerja praktik. \IsianFrederiko{tambahkan ruang lingkup penugasan QA, fitur yang diuji, dan jenis pengujian yang dilakukan}.
+
+\section{Tujuan}
+Tujuan kerja praktik adalah berkontribusi pada pengembangan sistem pengelolaan alur kerja di PT Akhdani Reka Solusi sekaligus memperoleh pengalaman bekerja dalam tim perangkat lunak. Secara lebih rinci, tujuan pekerjaan meliputi:
 \begin{enumerate}[label=\arabic*)]
-\item Bab I Pendahuluan\\
-Bab ini \ldots
-\item Bab II Organisasi atau Lingkungan Kerja Praktik\\
-Bab ini berisi \ldots
-\item Bab III Judul Pekerjaan\\
-Bab ini berisi \ldots
-\item Bab IV Rangkuman\\
-Bab ini berisi \ldots
+\item mengembangkan antarmuka dasbor yang menyajikan informasi melalui komponen dan layanan data yang terpisah;
+\item mengimplementasikan fitur pengelolaan peran, hubungan pengguna dengan peran, dan pengaturan hak akses;
+\item menyajikan riwayat proses agar tahapan, pelaksana, dan perpindahan keadaan pekerjaan dapat dipahami pengguna;
+\item menyusun pengujian untuk memeriksa perilaku fitur yang dikembangkan serta melakukan perbaikan berdasarkan masalah yang ditemukan; dan
+\item menyesuaikan implementasi terhadap perubahan teknologi dan meningkatkan kemampuan koordinasi serta pemecahan masalah dalam pekerjaan profesional.
 \end{enumerate}
+\IsianFrederiko{tambahkan tujuan khusus penjaminan kualitas sesuai penugasan}.
+
+\section{Sistematika Penulisan}\label{sec:sistematika}
+Bab I menjelaskan konteks dan tujuan kerja praktik. Bab II menguraikan lingkungan organisasi, pembagian tugas, tahapan pekerjaan, serta jadwal. Bab III membahas kebutuhan, rancangan, implementasi, pengujian, dan kendala pengembangan sistem. Bab IV memuat kesimpulan, evaluasi diri, serta saran. Laporan dilengkapi kerangka acuan pekerjaan atau \textit{terms of reference} (ToR), logbook, dan bagian yang perlu dilengkapi oleh mahasiswa penjaminan kualitas.

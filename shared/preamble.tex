@@ -1,0 +1,54 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,left=4cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[indonesian]{babel}
+\usepackage{newtxtext,newtxmath}
+\usepackage{setspace,graphicx,array,tabularx,longtable,booktabs,indentfirst}
+\usepackage{caption,tocloft,titlesec,enumitem,etoolbox,float}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds}
+\usepackage[table]{xcolor}
+\usepackage[authoryear,round]{natbib}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{hidelinks,bookmarksnumbered=true}
+\onehalfspacing
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0pt}
+% Kata dipindahkan utuh ke baris berikutnya tanpa pemenggalan dengan tanda hubung.
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\emergencystretch}{3em}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt,topsep=4pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\definecolor{shade}{gray}{0.92}
+\newcommand{\Isian}[1]{\textbf{[ISIAN: #1]}}
+\newcommand{\IsianFrederiko}[1]{\textbf{[ISIAN FREDERIKO: #1]}}
+\newcommand{\FrontTitle}[1]{\phantomsection\begin{center}\bfseries\Large #1\end{center}\vspace{0.1cm}}
+\newcommand{\LogoITB}{\includegraphics[width=3cm]{figures/logo-itb.png}}
+\renewcommand{\chaptername}{Bab}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\titleformat{\chapter}[display]{\centering\normalfont\bfseries\large}{Bab \Roman{chapter}}{0pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{18pt}
+\titleformat{\section}{\normalfont\bfseries\normalsize}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries\normalsize}{\thesubsection}{1em}{}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\captionsetup[figure]{name=Gambar,labelsep=space,justification=centering,position=bottom}
+\captionsetup[table]{name=Tabel,labelsep=space,justification=raggedright,singlelinecheck=false,position=top}
+\addto\captionsindonesian{\renewcommand{\contentsname}{DAFTAR ISI}\renewcommand{\listfigurename}{DAFTAR GAMBAR}\renewcommand{\listtablename}{DAFTAR TABEL}}
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries\Large}
+\renewcommand{\cftaftertoctitle}{\hfill\mbox{}\par}
+\renewcommand{\cftloftitlefont}{\hfill\bfseries\Large}
+\renewcommand{\cftafterloftitle}{\hfill\mbox{}\par}
+\renewcommand{\cftlottitlefont}{\hfill\bfseries\Large}
+\renewcommand{\cftafterlottitle}{\hfill\mbox{}\par}
+\renewcommand{\cftchappresnum}{Bab~}
+\renewcommand{\cftchapaftersnum}{\quad}
+\setlength{\cftchapnumwidth}{4.3em}
+\setlength{\cftsecnumwidth}{3em}
+\setlength{\cftsubsecnumwidth}{4em}
+\newcommand{\NamaBerdua}{\begin{tabular}{c}\NamaRaif\\NIM: \NIMRaif\\[0.6cm]\NamaFrederiko\\NIM: \NIMFrederiko\end{tabular}}

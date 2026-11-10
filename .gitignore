@@ -4,3 +4,13 @@
 *.out
 *.lot
 *.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+/build/
+/generated/
+/.build.lock
+/tor.pdf
+__pycache__/

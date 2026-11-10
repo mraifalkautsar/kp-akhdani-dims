@@ -1,149 +1,35 @@
 \documentclass[12pt,a4paper]{report}
-
-% =====================
-% Paket dasar
-% =====================
-\usepackage[a4paper,left=4cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-\usepackage[indonesian]{babel}
-\usepackage{newtxtext,newtxmath}
-\usepackage{setspace}
-\usepackage{graphicx}
-\usepackage{array}
-\usepackage{tabularx}
-\usepackage{longtable}
-\usepackage{caption}
-\usepackage{tocloft}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{etoolbox}
-\usepackage{hyperref}
-\usepackage{float}
-\usepackage{tikz}
-\usepackage{framed}
-
-\hypersetup{hidelinks}
-\onehalfspacing
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{12pt}
-
-% =====================
-% Metadata laporan
-% =====================
-\newcommand{\JudulLaporan}{JUDUL LAPORAN KERJA PRAKTIK}
-\newcommand{\TempatKP}{PT Akhdani Reka Solusi}
-\newcommand{\NamaMahasiswa}{Frederiko Eldad Mugiyono}
-\newcommand{\NIM}{13523147}
-\newcommand{\Tahun}{2026}
-\newcommand{\Kota}{Bandung}
-\newcommand{\TanggalPengesahan}{\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots}
-\newcommand{\NamaDosenPembimbing}{Hari Purnama}
-\newcommand{\NIPDosenPembimbing}{118110072}
-\newcommand{\KotaPerusahaan}{Bandung}
-\newcommand{\JabatanPembimbingPerusahaan}{<Jabatan penanggung jawab/pembimbing KP di tempat kerja>}
-\newcommand{\NamaInstansi}{<Nama instansi tempat KP>}
-\newcommand{\NamaPembimbingPerusahaan}{<Nama penanggung jawab>}
-\newcommand{\NomorPegawai}{<Nomor pegawai>}
-
-% =====================
-% Format judul bab/subbab seperti template
-% =====================
-\renewcommand{\chaptername}{Bab}
-
-\titleformat{\chapter}[hang]
-{\centering\normalfont\bfseries\Large}
-{Bab \Roman{chapter}}
-{1em}
-{}
-
-\titlespacing*{\chapter}{0pt}{0pt}{18pt}
-\titleformat{\section}{\normalfont\bfseries\normalsize}{\Roman{chapter}.\arabic{section}}{1em}{}
-\titleformat{\subsection}{\normalfont\bfseries\normalsize}{\Roman{chapter}.\arabic{section}.\arabic{subsection}}{1em}{}
-
-% =====================
-% Penomoran gambar/tabel mengikuti Bab Romawi
-% =====================
-\renewcommand{\thefigure}{\Roman{chapter}.\arabic{figure}}
-\renewcommand{\thetable}{\Roman{chapter}.\arabic{section}.\arabic{table}}
-\captionsetup[figure]{name=Gambar,labelsep=space,justification=centering,singlelinecheck=true,position=bottom}
-\captionsetup[table]{name=Tabel,labelsep=space,justification=raggedright,singlelinecheck=false,position=top}
-
-% =====================
-% Daftar isi/gambar/tabel
-% =====================
-\renewcommand{\contentsname}{DAFTAR ISI}
-\renewcommand{\listfigurename}{DAFTAR GAMBAR}
-\renewcommand{\listtablename}{DAFTAR TABEL}
-
-\addto\captionsindonesian{%
-  \renewcommand{\contentsname}{DAFTAR ISI}%
-  \renewcommand{\listfigurename}{DAFTAR GAMBAR}%
-  \renewcommand{\listtablename}{DAFTAR TABEL}%
-}
-
-\renewcommand{\cfttoctitlefont}{\hfill\bfseries\Large}
-\renewcommand{\cftaftertoctitle}{\hfill\mbox{}\par}
-\renewcommand{\cftloftitlefont}{\hfill\bfseries\Large}
-\renewcommand{\cftafterloftitle}{\hfill\mbox{}\par}
-\renewcommand{\cftlottitlefont}{\hfill\bfseries\Large}
-\renewcommand{\cftafterlottitle}{\hfill\mbox{}\par}
-
-% Mengubah label chapter di daftar isi menjadi Bab I, Bab II, dst.
-\renewcommand{\cftchappresnum}{Bab~}
-\renewcommand{\cftchapaftersnum}{\quad}
-\setlength{\cftchapnumwidth}{4em}
-
-% =====================
-% Helper halaman khusus
-% =====================
-\newcommand{\FrontTitle}[1]{%
-  \begin{center}\bfseries\Large #1\end{center}\vspace{0.1cm}%
-}
-\newcommand{\PlaceholderLogo}{%
-\IfFileExists{figures/logo-itb.png}{\includegraphics[width=3.0cm]{figures/logo-itb.png}}{\fbox{\parbox[c][3cm][c]{3cm}{\centering Logo\\ITB}}}%
-}
-
+\input{shared/preamble}
+\input{shared/metadata}
+\hypersetup{pdftitle={\JudulLaporan},pdfauthor={\NamaRaif; \NamaFrederiko},pdfsubject={Laporan Kerja Praktik Bersama}}
 \begin{document}
-
-% Cover tidak bernomor
+\hypersetup{pageanchor=false}
 \pagenumbering{gobble}
 \input{frontmatter/Cover}
-
-% Lembar pengesahan tidak ditampilkan di daftar isi dan tidak bernomor
 \input{frontmatter/Lembar_Pengesahan_Dosen}
 \input{frontmatter/Lembar_Pengesahan_Perusahaan}
-
-% Bagian awal bernomor romawi mulai abstrak
 \clearpage
 \pagenumbering{roman}
-\setcounter{page}{1}
+\hypersetup{pageanchor=true}
 \input{frontmatter/Abstrak}
 \input{frontmatter/Kata_Pengantar}
-
-\clearpage
-\tableofcontents
-
-\clearpage
-\listoffigures
-
-\clearpage
-\listoftables
-
-\clearpage
-\input{frontmatter/Daftar_Lampiran}
-
-\clearpage
-\input{frontmatter/Daftar_Istilah}
-
-% Isi laporan bernomor arabic
-\clearpage
-\pagenumbering{arabic}
-\setcounter{page}{1}
+\clearpage\phantomsection\tableofcontents
+\clearpage\phantomsection\listoffigures
+\clearpage\phantomsection\listoftables
+\clearpage\input{frontmatter/Daftar_Lampiran}
+\clearpage\input{frontmatter/Daftar_Istilah}
+\clearpage\pagenumbering{arabic}
 \input{chapters/BabI_Pendahuluan}
 \input{chapters/BabII_Organisasi_dan_LKP}
 \input{chapters/BabIII_Judul_Pekerjaan}
 \input{chapters/BabIV_Rangkuman}
-
 \input{backmatter/Referensi}
+\appendix
+\titleformat{\chapter}[display]{\centering\normalfont\bfseries\large}{Lampiran \Alph{chapter}}{0pt}{}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Lampiran~}\protect\setlength{\protect\cftchapnumwidth}{7em}}
+\renewcommand{\thetable}{\Alph{chapter}.\arabic{table}}
+\renewcommand{\thefigure}{\Alph{chapter}.\arabic{figure}}
 \input{appendices/TOR}
-
+\input{appendices/Logbook}
+\input{appendices/Kontribusi_Frederiko}
 \end{document}

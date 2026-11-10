@@ -1,63 +1,72 @@
 \chapter{Organisasi atau Lingkungan Kerja Praktik}
+Dalam pelaksanaan kerja praktik, mahasiswa menjadi bagian dari tim proyek PT Akhdani Reka Solusi. Bab ini menjelaskan peran yang berkaitan dengan pekerjaan mahasiswa, pembagian tanggung jawab, tahapan pekerjaan, dan jadwal pelaksanaannya.
 
-\section{Struktur Organisasi}
-Tuliskanlah struktur organisasi perusahaan KP dan jelaskan posisi tim KP pada struktur organisasi tersebut. Dalam gambar struktur organisasi, unit atau divisi tempat melaksanakan kerja praktik dibedakan dari unit lain dengan penambahan \textit{shading} atau garis putus-putus.
+\section{Struktur dan Hubungan Kerja}
+Pembimbing perusahaan dalam kerja praktik ini adalah \NamaPembimbingPerusahaan{}, yang berperan sebagai \JabatanPembimbingPerusahaan. Pada pekerjaan teknis, mahasiswa didampingi oleh \NamaPembimbingTeknis{} dengan peran \JabatanPembimbingTeknis. Mahasiswa ditempatkan sebagai peserta magang pengembangan perangkat lunak dan penjaminan kualitas dalam tim proyek yang sama.
 
-Perhatikan tata cara penggunaan gambar. Gambar yang Anda buat harus dijelaskan dalam paragraf sebelum gambar tersebut ditampilkan. Gambar~\ref{fig:komponen-dasar-sistem} menunjukkan sebuah gambaran umum dari suatu sistem yang terdiri dari masukan, proses, keluaran, dan umpan balik atau umpan ke depan.
-
-\begin{figure}[H]
+Gambar~\ref{fig:koordinasi} memperlihatkan hubungan koordinasi peran yang berkaitan dengan pelaksanaan kerja praktik. Posisi mahasiswa ditunjukkan dengan arsiran. Bagan tersebut dibatasi pada lingkungan tim proyek dan tidak mencakup seluruh struktur organisasi perusahaan.
+\begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small,>=stealth]
-\node[draw,minimum width=2.8cm,minimum height=0.9cm] (a) at (0,0) {Masukan};
-\node[draw,minimum width=2.8cm,minimum height=0.9cm] (b) at (4,0) {Proses};
-\node[draw,minimum width=2.8cm,minimum height=0.9cm] (c) at (8,0) {Keluaran};
-\draw[->] (a) -- (b);
-\draw[->] (b) -- (c);
-\draw[->] (c.south) .. controls +(0,-1.2) and +(0,-1.2) .. node[below]{Umpan balik/Umpan ke depan} (a.south);
+\begin{tikzpicture}[font=\small,box/.style={draw,align=center,text width=6.2cm,minimum height=1cm},>=Stealth]
+\node[box] (pm) {\NamaPembimbingPerusahaan\\\textit{Project Manager} / pembimbing perusahaan};
+\node[box,below=0.65cm of pm] (senior) {\NamaPembimbingTeknis\\\textit{Senior} / pembimbing teknis};
+\node[box,text width=5.5cm,fill=shade,below left=0.9cm and -2.8cm of senior] (se) {\NamaRaif\\\textit{Software Engineer Intern}};
+\node[box,text width=5.5cm,fill=shade,below right=0.9cm and -2.8cm of senior] (qa) {\NamaFrederiko\\\textit{Quality Assurance Intern}};
+\draw (pm) -- (senior);
+\draw (senior.south) -- ++(0,-0.4) -| (se.north);
+\draw (senior.south) -- ++(0,-0.4) -| (qa.north);
 \end{tikzpicture}
-\caption{Komponen dasar sistem prediksi anomali pada stasiun pengawasan cuaca di Bandung (Kartodirjo 1977)}
-\label{fig:komponen-dasar-sistem}
+\caption{Hubungan koordinasi dalam tim tempat kerja praktik}
+\label{fig:koordinasi}
 \end{figure}
 
-Gambar yang Anda gunakan hendaknya merupakan gambar yang dibuat sendiri, bukan merupakan hasil \textit{copy-paste} dari sumber lain. Meskipun digambar sendiri, jika gambar tersebut diambil dari suatu sumber, tuliskan sumber referensinya seperti pada Gambar~\ref{fig:komponen-dasar-sistem}.
+\section{Lingkup Pekerjaan}\label{sec:unit}
+Tim tempat mahasiswa melaksanakan kerja praktik mengembangkan sistem pengelolaan alur kerja berbasis web. Pekerjaan dibagi menjadi tugas atau tiket yang berkaitan dengan fitur sistem. Penugasan dan komunikasi pekerjaan dilakukan melalui WhatsApp atau Microsoft 365, sedangkan perkembangan pekerjaan dibahas dalam rapat mingguan.
 
-Istilah asing ditulis harus dalam huruf miring, misalnya pada penulisan \textit{copy-paste}. Jika ada istilah asing yang memiliki padanan dalam bahasa Indonesia, terjemahkan istilah tersebut ke dalam bahasa Indonesia, misalnya kata \textit{download} dapat diterjemahkan menjadi unduh.
-
-Jika Anda ingin memerinci sesuatu, gunakan urutan dalam angka atau huruf seperti contoh berikut ini:
-\begin{enumerate}[label=\arabic*)]
-\item mewujudkan suatu produk;
-\item memberikan arah dan pedoman dalam pelaksanaan kerja praktik; dan
-\item mengoptimalkan pelaksanaan kerja praktik.
-\end{enumerate}
-Hindari penggunaan \textit{bullet point} dalam pemerincian.
-
-\section{Unit Kerja}
-
-\subsection{<Tambahkan Subbab Jika Diperlukan>}
-Tuliskan lingkup pekerjaan divisi atau bagian tempat Anda melaksanakan KP secara ringkas. Kemudian, kaitkan lingkup pekerjaan divisi tersebut dengan lingkup pekerjaan Anda yang sesuai dengan lingkup dari divisi tersebut.
-
-\subsection{<Tambahkan Subbab Jika Diperlukan>}
-Untuk membuat tabel, Anda dibebaskan untuk membuat \textit{layout} tabel yang Anda inginkan. Perhatikan bahwa judul tabel ditulis di atas tabel dan diposisikan sedemikian rupa agar terlihat rapi. Tabel~\ref{tab:kelebihan-kekurangan} memperlihatkan contoh peletakan tabel.
-
-\begin{table}[H]
-\caption{Kelebihan dan kekurangan jenis-jenis soal ujian di kalangan sekolah menengah tingkat atas}
-\label{tab:kelebihan-kekurangan}
-\centering
-\begin{tabularx}{\textwidth}{|p{3.2cm}|X|X|}
-\hline
-\textbf{Tipe} & \textbf{Kelebihan} & \textbf{Kekurangan} \\
-\hline
-Pilihan Ganda & Dapat menilai sesuatu & Cenderung hanya sesuatu \\
-\hline
-Benar-Salah & Menilai sesuatu & Sulit untuk melakukan sesuatu \\
-\hline
-Ujian Interpretasi & Dapat menilai sesuatu & Sulit untuk mengarahkan sesuatu \\
-\hline
+Tabel~\ref{tab:pembagian} menunjukkan pembagian tanggung jawab kedua mahasiswa. Mahasiswa pengembang menangani perubahan antarmuka dan layanan aplikasi, sedangkan mahasiswa \textit{quality assurance} (QA) ditempatkan pada fungsi penjaminan kualitas. Rincian pekerjaan QA perlu dilengkapi oleh mahasiswa yang bersangkutan agar pembagian tugas dapat menggambarkan kontribusi masing-masing.
+\begin{table}[htbp]
+\caption{Pembagian tugas mahasiswa kerja praktik}\label{tab:pembagian}
+\begin{tabularx}{\textwidth}{@{}P{4.7cm}Y@{}}
+\toprule\textbf{Mahasiswa} & \textbf{Tanggung jawab}\\\midrule
+\NamaRaif{} (\NIMRaif) & Pengembangan dasbor, pengelolaan peran dan hak akses, riwayat alur kerja, pengujian komponen, serta adaptasi layanan ke Go.\\
+\NamaFrederiko{} (\NIMFrederiko) & Penjaminan kualitas. \IsianFrederiko{rincian fitur, pengujian, dan pelaporan temuan}.\\
+\bottomrule
 \end{tabularx}
 \end{table}
 
-\section{Deskripsi Pekerjaan}
-Tuliskan deskripsi setiap tahap pekerjaan yang dilakukan dilengkapi dengan deskripsi pekerjaan mahasiswa KP terkait dengan organisasi tempat mahasiswa bekerja.
+Mahasiswa tidak mengembangkan keseluruhan sistem dari awal. Sejumlah komponen, aturan penamaan, dan struktur data telah tersedia ketika pekerjaan dimulai. Oleh karena itu, pengembangan fitur juga mencakup penyesuaian terhadap kode yang sudah ada dan integrasi dengan pekerjaan anggota tim lainnya.
 
-\section{Jadwal Kerja}
-Tuliskan gambaran jadwal kegiatan selama KP, rinciannya mengacu ke lampiran \textit{Log Activity}.
+\section{Deskripsi Pekerjaan}
+\subsection{Pemahaman Kebutuhan dan Kode Aplikasi}
+Tahap awal dilakukan dengan mengikuti penjelasan proyek, mempelajari alur kerja sistem, dan menelaah struktur kode antarmuka serta layanan aplikasi. Pada tahap ini, mahasiswa juga mempelajari Vue, pengelolaan keadaan aplikasi, dan teknologi penyimpanan data yang digunakan dalam repositori.
+
+\subsection{Pengembangan Antarmuka dan Integrasi Data}
+Pekerjaan antarmuka dimulai dari pembuatan halaman dasbor dan komponen penyajian informasi. Data simulasi digunakan untuk mengembangkan tampilan sebelum seluruh layanan tersedia. Pekerjaan dilanjutkan dengan halaman daftar, pembuatan, detail, dan penyuntingan peran, serta penyajian riwayat alur kerja. Integrasi dilakukan dengan menyesuaikan permintaan dan respons API yang digunakan setiap halaman.
+
+\subsection{Pengembangan Layanan dan Akses Data}
+Pada layanan aplikasi, pekerjaan mencakup penanganan permintaan pengelolaan peran, penyediaan data pengguna, pengaturan hak akses, dan pengambilan riwayat proses. Pengembangan juga melibatkan penyesuaian data awal, penamaan atribut, dan pesan kesalahan agar perilaku antarmuka sesuai dengan hasil pemrosesan layanan.
+
+\subsection{Pengujian dan Perbaikan}
+Mahasiswa pengembang menyusun pengujian komponen untuk halaman pengelolaan peran dan riwayat alur kerja. Perbaikan dilakukan terhadap masalah tampilan, navigasi, data yang belum diperbarui, serta penanganan kegagalan layanan. \IsianFrederiko{jelaskan tahapan pengujian QA dan hubungan tindak lanjut temuannya dengan pekerjaan pengembang}.
+
+\subsection{Adaptasi Teknologi dan Perancangan Lanjutan}
+Pergantian teknologi pada Agustus diikuti pembelajaran Go, penyiapan lingkungan layanan baru, dan pemindahan fitur pengelolaan peran. Pada akhir periode, pekerjaan juga mencakup penyiapan Docker untuk pengembangan lokal dan pembuatan rancangan layar pengelolaan dasbor serta \textit{widget} menggunakan Visily.
+
+\section{Jadwal Kerja}\label{sec:jadwal}
+Pelaksanaan kerja praktik berlangsung pada \PeriodeKP. Mahasiswa bekerja secara \textit{work from office} (WFO) pada Senin sampai Kamis dan \textit{work from home} (WFH) pada Jumat. Rapat mingguan dijadwalkan setiap Selasa pukul 09.30. Tabel~\ref{tab:tahapan} merangkum tahapan pekerjaan pengembangan selama periode tersebut.
+\begin{table}[htbp]
+\caption{Jadwal kegiatan pengembangan selama kerja praktik}\label{tab:tahapan}
+\small
+\begin{tabularx}{\textwidth}{@{}P{3.1cm}Y@{}}
+\toprule\textbf{Periode} & \textbf{Kegiatan}\\\midrule
+22 Juni--3 Juli & Orientasi, pembelajaran teknologi, pengembangan dasbor dan data simulasi, serta pendalaman autentikasi dan alur kerja.\\
+6--17 Juli & Implementasi pengelolaan peran, integrasi layanan, penyiapan data awal, dan penyeragaman kode.\\
+20--31 Juli & Pengembangan riwayat alur kerja, perbaikan navigasi dan panduan pengguna, serta pengujian komponen.\\
+3--14 Agustus & Pembelajaran Go dan kerangka kerja web, penyiapan proyek, serta analisis pemindahan fitur.\\
+18--28 Agustus & Adaptasi pengelolaan peran, penyesuaian autentikasi, penyiapan lingkungan lokal, dan rancangan layar.\\
+31 Agustus & \Isian{aktivitas hari terakhir}.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Di luar pekerjaan teknis, mahasiswa mengikuti kegiatan internal perusahaan dalam rangka peringatan kemerdekaan pada 18 Agustus. Catatan harian pekerjaan Ra'if disajikan pada Lampiran~\ref{app:logbook}. \IsianFrederiko{lengkapi jadwal QA dan logbook pribadi pada Lampiran C}.
