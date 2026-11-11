@@ -46,7 +46,7 @@ Tabel~\ref{tab:pembagian} menunjukkan pembagian tanggung jawab kedua mahasiswa. 
 \begin{tabularx}{\textwidth}{@{}P{4.7cm}Y@{}}
 \toprule\textbf{Mahasiswa} & \textbf{Tanggung jawab}\\\midrule
 \NamaRaif{} (\NIMRaif) & Pengembangan dasbor, pengelolaan peran dan hak akses, riwayat alur kerja, pengujian komponen, serta adaptasi layanan ke Go.\\
-\NamaFrederiko{} (\NIMFrederiko) & Penjaminan kualitas. \IsianFrederiko{rincian fitur, pengujian, dan pelaporan temuan}.\\
+\NamaFrederiko{} (\NIMFrederiko) & Perancangan skenario uji, otomasi pengujian antarmuka dan API (dasbor pemantauan, master data, proses bisnis, autentikasi), pelaporan temuan, serta pengujian regresi.\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -64,7 +64,9 @@ Pekerjaan antarmuka dimulai dari pembuatan halaman dasbor dan komponen penyajian
 Pada layanan aplikasi, pekerjaan mencakup penanganan permintaan pengelolaan peran, penyediaan data pengguna, pengaturan hak akses, dan pengambilan riwayat proses. Pengembangan juga melibatkan penyesuaian data awal, penamaan atribut, dan pesan kesalahan agar perilaku antarmuka sesuai dengan hasil pemrosesan layanan.
 
 \subsection{Pengujian dan Perbaikan}
-Mahasiswa pengembang menyusun pengujian komponen untuk halaman pengelolaan peran dan riwayat alur kerja. Perbaikan dilakukan terhadap masalah tampilan, navigasi, data yang belum diperbarui, serta penanganan kegagalan layanan. \IsianFrederiko{jelaskan tahapan pengujian QA dan hubungan tindak lanjut temuannya dengan pekerjaan pengembang}.
+Mahasiswa pengembang menyusun pengujian komponen untuk halaman pengelolaan peran dan riwayat alur kerja. Perbaikan dilakukan terhadap masalah tampilan, navigasi, data yang belum diperbarui, serta penanganan kegagalan layanan.
+
+Mahasiswa penjaminan kualitas melaksanakan pengujian independen melalui pendekatan kotak abu-abu yang memadukan pengujian antarmuka ujung ke ujung berbasis Cypress dan pengujian langsung ke antarmuka pemrograman aplikasi (API). Tahapan pengujian diawali dengan analisis spesifikasi alur kerja, perancangan skenario uji positif dan negatif, pemetaan kode sumber untuk mengidentifikasi rute layanan dan selektor pengujian, hingga implementasi skrip otomasi pengujian. Setiap anomali teknis, seperti celah otorisasi pada endpoint peran, ketidakkonsistenan penamaan atribut selektor pengujian, serta keterbatasan interaksi menu navigasi, dicatat dan dikomunikasikan secara berkala kepada mahasiswa pengembang dan tim proyek. Hasil perbaikan yang diimplementasikan pengembang kemudian diuji kembali secara regresi untuk memastikan stabilitas fungsionalitas sistem.
 
 \subsection{Adaptasi Teknologi dan Perancangan Lanjutan}
 Pergantian teknologi pada Agustus diikuti pembelajaran Go, penyiapan lingkungan layanan baru, dan pemindahan fitur pengelolaan peran. Pada akhir periode, pekerjaan juga mencakup penyiapan Docker untuk pengembangan lokal dan pembuatan rancangan layar pengelolaan dasbor serta \textit{widget} menggunakan Visily.
@@ -86,4 +88,20 @@ Pelaksanaan kerja praktik berlangsung pada \PeriodeKP. Mahasiswa bekerja secara 
 \end{tabularx}
 \end{table}
 
-Di luar pekerjaan teknis, mahasiswa mengikuti kegiatan internal perusahaan dalam rangka peringatan kemerdekaan pada 18 Agustus. Catatan harian pekerjaan Muhammad Ra'if Alkautsar disajikan pada Lampiran~\ref{app:logbook}. \IsianFrederiko{lengkapi jadwal QA dan logbook pribadi pada Lampiran C}.
+Di luar pekerjaan teknis, kedua mahasiswa mengikuti kegiatan internal perusahaan dalam rangka peringatan kemerdekaan pada 18 Agustus. Catatan harian pekerjaan Muhammad Ra'if Alkautsar disajikan pada Lampiran~\ref{app:logbook}, sedangkan catatan harian dan artefak pengujian Frederiko Eldad Mugiyono disajikan pada Lampiran~\ref{app:frederiko}.
+
+Tabel~\ref{tab:tahapan-qa} merangkum tahapan kegiatan penjaminan kualitas selama periode kerja praktik.
+\begin{table}[htbp]
+\caption{Jadwal kegiatan penjaminan kualitas selama kerja praktik}\label{tab:tahapan-qa}
+\small
+\begin{tabularx}{\textwidth}{@{}P{3.1cm}Y@{}}
+\toprule\textbf{Periode} & \textbf{Kegiatan}\\\midrule
+22 Juni--3 Juli & Orientasi lingkungan kerja, analisis alur proses bisnis, penyusunan skenario awal, dan implementasi otomasi pengujian dasbor operasional.\\
+6--17 Juli & Perumusan konvensi selektor pengujian (\textit{data-cy}), perancangan kasus uji negatif, serta implementasi otomasi antarmuka dan API master peran.\\
+20--31 Juli & Otomasi pengujian master entitas, konfigurasi sistem, data referensi, autentikasi, master pengguna, dan modul proses bisnis.\\
+3--14 Agustus & Penyesuaian skenario terhadap pembaruan alur proses rilis pertama, analisis purwarupa antarmuka di Visily, dan perincian kasus uji negatif alur kerja.\\
+18--28 Agustus & Pengujian kasus batas validasi masukan formulir, penyesuaian skrip otomasi terhadap lingkungan penerapan baru, dan penyusunan panduan kerangka uji.\\
+31 Agustus & Presentasi laporan akhir kerja praktik di hadapan pembimbing perusahaan dan tim proyek.\\
+\bottomrule
+\end{tabularx}
+\end{table}

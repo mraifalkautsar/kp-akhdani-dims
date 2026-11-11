@@ -14,12 +14,12 @@ Lingkup pekerjaan mahasiswa pengembang meliputi:
 \item menyusun pengujian komponen dan pemeriksaan akses data sesuai kebutuhan fitur; dan
 \item mempelajari teknologi baru, mengadaptasi fitur ke layanan Go, serta menyusun rancangan layar pengelolaan dasbor.
 \end{enumerate}
-Lingkup mahasiswa penjaminan kualitas adalah pemeriksaan kualitas fitur yang ditugaskan. \IsianFrederiko{fitur yang menjadi tanggung jawab QA, jenis pengujian, pencatatan temuan, dan pengujian ulang}.
+Lingkup mahasiswa penjaminan kualitas mencakup perancangan skenario pengujian fungsional dan kasus negatif, pengembangan skrip otomatisasi pengujian, pencatatan temuan dan anomali teknis, serta pengujian regresi terhadap fitur sistem yang ditugaskan. Fitur yang diperiksa meliputi dasbor pemantauan dan analitik, pengelolaan data master (peran, akun pengguna, entitas organisasi, dan konfigurasi sistem), koleksi proses bisnis, serta alur autentikasi dan notifikasi. Pengujian dilakukan melalui pengujian antarmuka ujung ke ujung (\textit{end-to-end}) dan pengujian antarmuka pemrograman aplikasi (API).
 
 \section*{3. Hasil Pekerjaan}
 Hasil yang ditargetkan adalah perubahan kode dan rancangan pada bagian sistem yang menjadi penugasan mahasiswa. Keluaran meliputi antarmuka dasbor dengan layanan simulasi, fitur pengelolaan peran, riwayat alur kerja, perbaikan fitur pendukung, serta kasus uji untuk bagian yang dikembangkan. Untuk penyesuaian teknologi, keluaran berupa adaptasi pengelolaan peran dan akses data pada layanan baru serta rancangan layar pengelolaan dasbor.
 
-Hasil disampaikan melalui repositori dan sarana kerja yang digunakan tim. Catatan kegiatan dituangkan dalam logbook, sedangkan rangkuman pelaksanaan disusun dalam laporan akhir. \IsianFrederiko{keluaran QA berupa kasus uji, catatan temuan, laporan pemeriksaan, atau artefak lain sesuai penugasan}.
+Hasil disampaikan melalui repositori dan sarana kerja yang digunakan tim. Catatan kegiatan dituangkan dalam logbook, sedangkan rangkuman pelaksanaan disusun dalam laporan akhir. Keluaran penjaminan kualitas meliputi kumpulan dokumen skenario pengujian fungsional dan kasus negatif, lembar kerja induk (\textit{mastersheet}) pengujian pada media penyimpanan kolaboratif internal (Microsoft SharePoint), 23 berkas spesifikasi pengujian otomatis berbasis Cypress (antarmuka dan API), modul pembantu otomatisasi berbasis Page Object Model (\textit{TableHelper}), pencatatan temuan teknis (seperti celah otorisasi dan anomali interaksi), serta laporan eksekusi pengujian otomatis dalam format HTML dan JSON menggunakan Mochawesome Reporter.
 
 \section*{4. Batasan}
 \begin{enumerate}[label=\alph*)]
@@ -45,14 +45,23 @@ Pekerjaan dilaksanakan secara bertahap dan disesuaikan dengan kebutuhan fitur. T
 \item menyiapkan pemeriksaan dan memperbaiki perilaku yang belum sesuai; serta
 \item menyampaikan perkembangan, menindaklanjuti arahan, dan mencatat hasil kegiatan.
 \end{enumerate}
-Ketika teknologi berubah, tahapan diawali kembali dengan pembelajaran dan penyiapan lingkungan, kemudian dilanjutkan pemetaan serta adaptasi fitur. Pendekatan QA yang digunakan perlu dilengkapi berdasarkan pelaksanaan oleh mahasiswa terkait: \IsianFrederiko{metode dan tahapan pengujian}.
+Ketika teknologi berubah, tahapan diawali kembali dengan pembelajaran dan penyiapan lingkungan, kemudian dilanjutkan pemetaan serta adaptasi fitur.
+
+Metodologi penjaminan kualitas menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) dengan tahapan yang meliputi:
+\begin{enumerate}[label=\alph*)]
+\item menganalisis spesifikasi kebutuhan bisnis dan alur proses alur kerja;
+\item menelaah kode sumber antarmuka dan layanan untuk mengidentifikasi rute API, struktur muatan, dan selektor elemen (\textit{data-cy});
+\item merancang skenario pengujian positif, batas masukan, penanganan galat, serta celah otorisasi;
+\item mengimplementasikan skrip pengujian otomatis menggunakan pola \textit{Page Object Model}; serta
+\item mengeksekusi pengujian secara berkala, melaporkan temuan kepada pengembang, dan memverifikasi perbaikan melalui pengujian regresi.
+\end{enumerate}
 
 \section*{7. Lingkungan Pengembangan}
 Pada tahap awal, antarmuka dikembangkan menggunakan Vue dan TypeScript, dengan Node.js serta Express pada layanan aplikasi. Bagian data relasional menggunakan PostgreSQL dan Prisma; lingkungan repositori juga memuat komponen MongoDB. Pengujian komponen menggunakan Vitest dan Vue Test Utils.
 
 Pada tahap penyesuaian Agustus, layanan menggunakan Go, Fiber v2, dan \texttt{sqlx}, dengan mekanisme migrasi serta data awal yang mengikuti struktur proyek baru. Git digunakan untuk pengelolaan perubahan, Docker untuk pekerjaan penyiapan lingkungan lokal, dan Visily untuk rancangan layar pada akhir periode. Komunikasi penugasan menggunakan WhatsApp atau Microsoft 365.
 
-\Isian{spesifikasi perangkat pengembangan Ra'if jika disyaratkan}. \IsianFrederiko{spesifikasi perangkat dan alat pengujian yang digunakan}.
+\Isian{spesifikasi perangkat pengembangan Ra'if jika disyaratkan}. Pengujian penjaminan kualitas dijalankan pada komputer jinjing bersistem operasi Linux, menggunakan kerangka kerja otomasi Cypress, pustaka pelaporan Mochawesome, linter dan pemformat kode Biome, serta peramban web Chromium dan Google Chrome.
 
 \section*{8. Jadwal}
 Periode kerja praktik adalah \PeriodeKP. Tabel~\ref{tab:tor-jadwal} menunjukkan pengelompokan tahapan pengembangan dan penyesuaian yang terjadi selama pelaksanaan. Minggu 1 dimulai pada 22 Juni; minggu 6 berakhir pada 31 Juli; minggu 7--10 mencakup 3--28 Agustus. Aktivitas 31 Agustus masih perlu dilengkapi.
@@ -76,14 +85,33 @@ Rancangan layar lanjutan & & & & & & & & & & \Aktif\\
 \end{tabular}
 \end{table}
 
-Jadwal awal berfokus pada aplikasi dengan layanan Node.js. Perubahan kebutuhan setelah Juli diikuti pembelajaran Go dan adaptasi fitur selama Agustus. Penanda pada tabel menggambarkan kelompok waktu kegiatan, bukan pernyataan bahwa setiap tahap telah selesai sepenuhnya pada akhir minggu tersebut. \IsianFrederiko{tambahkan tahapan dan rentang jadwal QA}.
+Jadwal awal berfokus pada aplikasi dengan layanan Node.js. Perubahan kebutuhan setelah Juli diikuti pembelajaran Go dan adaptasi fitur selama Agustus. Penanda pada tabel menggambarkan kelompok waktu kegiatan, bukan pernyataan bahwa setiap tahap telah selesai sepenuhnya pada akhir minggu tersebut. Tahapan kegiatan penjaminan kualitas selama periode kerja praktik dirangkum pada Tabel~\ref{tab:tor-jadwal-qa}.
+
+\begin{table}[htbp]
+\caption{Jadwal tahapan pekerjaan penjaminan kualitas}\label{tab:tor-jadwal-qa}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\newcommand{\AktifQA}{\cellcolor{shade}\rule{0.23cm}{0.12cm}}
+\begin{tabular}{@{}P{4.4cm}*{10}{c}@{}}
+\toprule
+\textbf{Tahapan / minggu} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\\midrule
+Orientasi dan analisis proses & \AktifQA & \AktifQA & & & & & & & & \\
+Otomasi dasbor pemantauan & & \AktifQA & \AktifQA & \AktifQA & & & & & & \\
+Konvensi selektor dan uji peran & & & \AktifQA & \AktifQA & & & & & & \\
+Otomasi master data dan proses & & & & & \AktifQA & \AktifQA & & & & \\
+Penyesuaian skenario rilis v1 & & & & & & & \AktifQA & \AktifQA & & \\
+Uji kasus batas dan purwarupa & & & & & & & & \AktifQA & \AktifQA & \\
+Adaptasi lingkungan dan laporan & & & & & & & & & \AktifQA & \AktifQA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section*{9. Penugasan Staf}
 \begin{enumerate}[label=\alph*)]
 \item \NamaPembimbingPerusahaan{}, \JabatanPembimbingPerusahaan, menjadi pembimbing perusahaan dan penanda tangan persetujuan kerangka acuan kerja praktik.
 \item \NamaPembimbingTeknis{}, \JabatanPembimbingTeknis, mendampingi pekerjaan teknis mahasiswa.
 \item \NamaRaif{} (\NIMRaif), \textit{Software Engineer Intern}, mengerjakan pengembangan antarmuka, layanan, integrasi, pengujian komponen, dan adaptasi fitur sesuai penugasan.
-\item \NamaFrederiko{} (\NIMFrederiko), \textit{Quality Assurance Intern}, mengerjakan penjaminan kualitas. \IsianFrederiko{rincian tanggung jawab}.
+\item \NamaFrederiko{} (\NIMFrederiko), \textit{Quality Assurance Intern}, mengerjakan penjaminan kualitas, mencakup perancangan skenario pengujian fungsional dan negatif, implementasi otomatisasi pengujian antarmuka dan API, pelaporan temuan teknis, serta verifikasi regresi sistem.
 \end{enumerate}
 Pembimbing akademik adalah \NamaDosenPembimbing{} dari Program Studi Teknik Informatika Institut Teknologi Bandung.
 
