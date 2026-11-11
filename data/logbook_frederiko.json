@@ -1,0 +1,290 @@
+[
+  {
+    "tanggal": "2026-06-22",
+    "kegiatan": "Mengikuti pengenalan lingkungan kerja perusahaan, penjelasan awal proyek bersama pemimpin tim, serta penyiapan repositori lokal dan lingkungan pengujian berbasis kontainer. Mempelajari struktur kode sumber aplikasi untuk memahami arsitektur sistem.",
+    "hasil": "Lingkungan pengujian lokal berhasil dikonfigurasi dan struktur dasar kode sumber aplikasi dipahami sebagai persiapan penyusunan kasus uji.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-06-23",
+    "kegiatan": "Mengikuti pengarahan lanjutan terkait alur proses bisnis bersama pemimpin tim, menelaah diagram alur proses kerja pada modul alur pengajuan, serta menerjemahkan tahapan alur kerja tersebut ke dalam skenario pengujian fungsional.",
+    "hasil": "Tersusun rancangan awal skenario pengujian fungsional berdasarkan diagram alur proses kerja untuk modul alur pengajuan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-06-24",
+    "kegiatan": "Melengkapi dan menyempurnakan skenario pengujian alur kerja pengajuan proses bisnis. Memeriksa kriteria penerimaan setiap tahapan pengajuan dan mendokumentasikan langkah pengujian.",
+    "hasil": "Dokumen skenario pengujian fungsional untuk modul alur pengajuan dilengkapi dengan langkah pengujian dan kriteria penerimaan yang jelas.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-06-25",
+    "kegiatan": "Menganalisis kebutuhan modul dasbor pemantauan utama dan menyusun skenario pengujian untuk memeriksa komponen grafik, ringkasan metrik, serta status permohonan pekerjaan.",
+    "hasil": "Tersedia draf skenario pengujian untuk modul dasbor pemantauan utama yang mencakup penyajian data ringkasan dan status pekerjaan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-06-26",
+    "kegiatan": "Melanjutkan perincian skenario pengujian pada modul dasbor pemantauan utama, mencakup pengujian filter parameter, navigasi detail, dan keterkaitan data ringkasan dengan daftar permohonan.",
+    "hasil": "Skenario pengujian modul dasbor pemantauan utama bertambah lengkap dengan cakupan interaksi filter dan navigasi data.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-06-29",
+    "kegiatan": "Menyelaraskan urutan dan struktur skenario pengujian modul alur pengajuan hingga dasbor pemantauan dengan dokumen kebutuhan bisnis dan alur proses bisnis yang telah disepakati.",
+    "hasil": "Struktur dan urutan skenario pengujian telah diselaraskan dengan dokumen spesifikasi kebutuhan bisnis tim proyek.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-06-30",
+    "kegiatan": "Menghadiri rapat koordinasi mingguan bersama tim pengembang dan manajer proyek. Melanjutkan penyusunan skenario pengujian antarmuka untuk fitur dasbor alur pengajuan dan dasbor pemantauan utama.",
+    "hasil": "Catatan progres pengujian disampaikan dalam rapat mingguan dan skenario pengujian fitur antarmuka dasbor selesai dirumuskan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-02",
+    "kegiatan": "Menyusun skenario pengujian modul dasbor pemantauan hingga modul informasi anggaran serta menambahkan skenario pengujian negatif. Memperbaiki fungsi masuk (login) pada kerangka kerja Cypress agar modular dan membuat skrip otomasi pengujian diagram donat pada dasbor operasional.",
+    "hasil": "Penambahan skenario uji negatif pada modul pemantauan, fungsi masuk Cypress yang modular, serta tersedianya skrip pengujian otomatis pertama untuk diagram donat dasbor operasional.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-03",
+    "kegiatan": "Menyusun spesifikasi dan skrip otomasi pengujian untuk tabel daftar pekerjaan, daftar permohonan, tindakan tertunda, tabel ringkasan, dan status permohonan pada dasbor operasional. Membangun struktur Page Object Model (POM) untuk komponen antarmuka umum dan halaman dasbor operasional, serta menambahkan perintah kustom Cypress.",
+    "hasil": "Rangkaian skrip pengujian otomatis untuk modul dasbor operasional berhasil diimplementasikan bersama pola Page Object Model dan perintah pembantu interaksi tombol.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-06",
+    "kegiatan": "Memperbaiki fungsi masuk Cypress untuk mendukung berbagai kondisi pengujian termasuk penanganan kegagalan kredensial. Mengimplementasikan skrip otomasi pengujian untuk tampilan ringkasan pada dasbor pemantauan utama.",
+    "hasil": "Fungsi autentikasi Cypress mampu menangani skenario positif dan negatif secara andal, serta tersedianya skrip pengujian otomatis untuk halaman ringkasan dasbor pemantauan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-07",
+    "kegiatan": "Mengikuti rapat mingguan proyek, merumuskan pedoman penamaan atribut pengujian (data-cy) untuk diajukan ke tim pengembang, menyusun skenario pengujian indikator KPI evaluasi, serta mengonfigurasi alat pemformatan kode di repositori pengujian.",
+    "hasil": "Tersedia draf konvensi atribut selektor pengujian antarmuka, skenario pengujian KPI evaluasi, dan repositori pengujian memiliki konfigurasi pemformatan kode otomatis.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-08",
+    "kegiatan": "Menganalisis skema formulir dinamis dan menyusun skenario pengujian fungsional untuk modul pembangkit formulir, meliputi pengujian berbagai tipe bidang masukan dan aturan validasi.",
+    "hasil": "Tersusun dokumen skenario pengujian terperinci untuk komponen pembangkit formulir dinamis.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-09",
+    "kegiatan": "Menyusun skenario pengujian untuk modul transaksi formulir dan modul notifikasi. Merancang kasus uji negatif tambahan untuk memverifikasi ketahanan fitur dasbor terhadap masukan tidak valid atau kegagalan pemuatan data.",
+    "hasil": "Tersedia skenario pengujian transaksi formulir dan notifikasi, serta daftar kasus uji negatif untuk pengujian ketahanan fitur dasbor.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-10",
+    "kegiatan": "Melengkapi skenario pengujian negatif yang mencakup pengujian batas masukan, respons galat jaringan, dan kondisi data kosong pada modul dasbor hingga modul notifikasi.",
+    "hasil": "Dokumen skenario pengujian negatif lengkap untuk seluruh modul dasbor dan notifikasi.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-13",
+    "kegiatan": "Mengikuti sosialisasi penyesuaian kebutuhan alur proses bisnis bersama tim analis. Memperbarui Page Object Model Cypress dan skrip pengujian dasbor operasional agar memanfaatkan atribut selektor pengujian data-cy terstandarisasi.",
+    "hasil": "Skrip otomasi pengujian dasbor operasional diselaraskan dengan konvensi selektor data-cy untuk meningkatkan stabilitas pengujian.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-14",
+    "kegiatan": "Menghadiri rapat mingguan tim proyek dan memperluas dokumentasi konvensi penamaan selektor pengujian untuk elemen aksi berkas seperti ekspor, pratinjau, pengunduhan, dan impor data.",
+    "hasil": "Dokumentasi panduan atribut data-cy diperluas dengan konvensi elemen interaksi berkas dan disosialisasikan kepada tim pengembang.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-15",
+    "kegiatan": "Memperbarui skrip otomasi pengujian modul dasbor pemantauan utama agar sepenuhnya menggunakan konvensi atribut selektor data-cy.",
+    "hasil": "Rangkaian pengujian otomatis modul dasbor pemantauan utama berhasil diperbarui dengan selektor yang lebih stabil dan tahan perubahan tampilan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-16",
+    "kegiatan": "Menyusun skrip pengujian otomatis untuk validasi pemuatan diagram donat pada dasbor pemantauan utama dan mengimplementasikan pengujian otomatis untuk daftar notifikasi pengguna.",
+    "hasil": "Tersedia skrip otomasi pengujian diagram analitik dasbor dan fitur daftar notifikasi antarmuka.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-17",
+    "kegiatan": "Mengembangkan skrip otomasi pengujian untuk submenu realisasi pada dasbor pemantauan, menyusun pengujian antarmuka untuk fitur master peran, serta menulis pengujian API terotomatisasi untuk rute pengelolaan peran (keamanan, validasi muatan, CRUD, dan batas performa).",
+    "hasil": "Tersedia rangkaian pengujian antarmuka untuk submenu realisasi dan master peran, serta pengujian API komprehensif yang mengidentifikasi ketiadaan middleware otorisasi pada endpoint peran.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-20",
+    "kegiatan": "Menyiapkan lembar pelacakan pengujian API, mengembangkan pengujian API dan antarmuka untuk modul master entitas organisasi (unit dan divisi), membuat pengujian otomatis daftar proses bisnis, serta menambahkan pengujian interaksi notifikasi (baca, belum baca, dan hapus).",
+    "hasil": "Pengujian otomatis untuk master entitas organisasi, daftar proses bisnis, dan pengelolaan status notifikasi berhasil diimplementasikan beserta dokumentasi pelacakan status API.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-21",
+    "kegiatan": "Mengembangkan skrip otomasi pengujian antarmuka untuk fitur master data referensi, mencakup validasi pemuatan tabel referensi, pembacaan detail, dan penyaringan parameter.",
+    "hasil": "Tersedia skrip pengujian otomatis untuk antarmuka pengelolaan data referensi sistem.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-22",
+    "kegiatan": "Mengimplementasikan skrip otomasi pengujian antarmuka untuk fitur konfigurasi sistem, memeriksa tampilan parameter konfigurasi dan operasi pembaruan nilai.",
+    "hasil": "Skrip otomasi pengujian fitur konfigurasi sistem selesai disusun dan diintegrasikan ke dalam rangkaian uji.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-23",
+    "kegiatan": "Menyelaraskan skenario pengujian dengan cakupan rilis pertama berdasarkan hasil perencanaan sprint tim dan mengembangkan skrip otomasi pengujian antarmuka untuk alur masuk dan keluar pengguna.",
+    "hasil": "Skenario uji rilis pertama diselaraskan dengan rencana kerja tim dan rangkaian pengujian alur autentikasi pengguna selesai diimplementasikan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-24",
+    "kegiatan": "Mengembangkan skrip otomasi pengujian antarmuka untuk modul master proses bisnis, koleksi proses bisnis, serta pemeriksaan alur maju pada mesin alur kerja.",
+    "hasil": "Tersedia rangkaian pengujian otomatis untuk modul pengelolaan proses bisnis dan eksekusi alur kerja maju.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-27",
+    "kegiatan": "Meninjau dan memutakhirkan skenario pengujian agar selaras dengan pembaruan antarmuka pengguna terbaru dari tim pengembang, mencakup penyesuaian alur navigasi dan label elemen.",
+    "hasil": "Dokumen skenario pengujian disesuaikan dengan kondisi implementasi antarmuka pengguna terkini.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-28",
+    "kegiatan": "Mengembangkan skrip otomasi pengujian antarmuka untuk memeriksa aksesibilitas dan tautan unduh dokumen panduan pengguna pada aplikasi.",
+    "hasil": "Tersedia skrip pengujian otomatis untuk memverifikasi fungsionalitas fitur panduan pengguna.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-29",
+    "kegiatan": "Merancang skenario pengujian dan mengimplementasikan skrip otomatisasi pengujian API v1 untuk modul inti alur kerja dan layanan master data.",
+    "hasil": "Tersedia skenario dan skrip pengujian otomatis untuk memvalidasi respons dan skema data endpoint API v1.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-30",
+    "kegiatan": "Mengembangkan skrip pengujian otomatis antarmuka untuk modul pengelolaan pengguna serta memperbarui skenario pengujian untuk modul referensi sistem.",
+    "hasil": "Tersedia rangkaian pengujian otomatis untuk master pengguna yang mencakup uji validasi masukan kosong, format surel, dan pencegahan duplikasi data.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-07-31",
+    "kegiatan": "Melakukan pemeriksaan silang hasil pengujian otomatis pada lingkungan penerapan aktif dan memantau status perbaikan isu teknis pada sistem pelacak temuan.",
+    "hasil": "Catatan verifikasi status perbaikan isu pengujian pada lingkungan penerapan berhasil dihimpun untuk evaluasi akhir sprint.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-03",
+    "kegiatan": "Menelaah perubahan ruang lingkup fitur pascaperubahan arsitektur dan menyesuaikan skenario pengujian agar selaras dengan target rilis versi pertama.",
+    "hasil": "Dokumen skenario pengujian diselaraskan dengan cakupan fitur rilis pertama yang disesuaikan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-04",
+    "kegiatan": "Menyesuaikan skenario kasus penggunaan alur proses bisnis serta memperbarui skenario pengujian modul pembangkit formulir dan master tahapan alur kerja.",
+    "hasil": "Skenario pengujian untuk kasus penggunaan alur proses, formulir dinamis, dan master tahapan selesai diperbarui.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-05",
+    "kegiatan": "Melakukan pembersihan dan pemeliharaan skrip otomasi pengujian di repositori sambil menunggu pembaruan build fitur dari tim pengembang.",
+    "hasil": "Struktur repositori pengujian dirapikan dan dependensi pengujian diperiksa untuk memastikan kesiapan eksekusi berikutnya.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-06",
+    "kegiatan": "Memeriksa kestabilan skrip pengujian otomatis terhadap perubahan komponen antarmuka yang sedang berlangsung dan mendokumentasikan catatan kompatibilitas selektor.",
+    "hasil": "Diperoleh catatan evaluasi selektor antarmuka untuk mengantisipasi potensi kerapuhan skrip pengujian pada versi antarmuka baru.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-07",
+    "kegiatan": "Menelaah dokumentasi perancangan teknis baru dan merencanakan adaptasi strategi pengujian menyusul perubahan teknologi layanan backend ke Go.",
+    "hasil": "Rencana penyesuaian strategi pengujian disiapkan untuk menyambut penerapan layanan backend baru.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-10",
+    "kegiatan": "Menyelaraskan rincian skenario pengujian dengan pemetaan modul pada arsitektur baru, khususnya interaksi formulir dan tahapan alur kerja.",
+    "hasil": "Dokumen skenario pengujian dimutakhirkan mengikuti arsitektur sistem yang diperbarui.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-11",
+    "kegiatan": "Menyusun kasus uji negatif tambahan untuk memverifikasi penanganan galat pada masukan formulir dinamis dan kondisi data tidak lengkap pada alur kerja.",
+    "hasil": "Daftar kasus uji negatif bertambah untuk memperkuat cakupan uji ketahanan sistem.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-12",
+    "kegiatan": "Memeriksa kesesuaian skenario pengujian negatif terhadap rancangan purwarupa antarmuka di Visily guna memastikan alur pesan galat sesuai dengan rancangan tampilan.",
+    "hasil": "Skenario pengujian negatif tervalidasi terhadap rancangan purwarupa antarmuka pengguna.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-13",
+    "kegiatan": "Melanjutkan perumusan skenario pengujian negatif pada fitur alur kerja, termasuk pengujian kondisi batas panjang karakter dan kegagalan transmisi data.",
+    "hasil": "Tambahan skenario pengujian negatif terdokumentasi untuk pengujian batas masukan dan anomali jaringan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-14",
+    "kegiatan": "Menyusun skenario pengujian negatif khusus untuk alur penolakan dan pengembalian berkas pekerjaan pada mesin alur kerja.",
+    "hasil": "Skenario pengujian untuk kasus penolakan dan pengembalian alur kerja terdokumentasi secara lengkap.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-18",
+    "kegiatan": "Mengikuti kegiatan internal perusahaan dalam rangka memperingati Hari Kemerdekaan Republik Indonesia bersama seluruh karyawan dan peserta magang.",
+    "hasil": "Partisipasi dalam kegiatan kebersamaan dan pengenalan budaya kerja internal perusahaan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-19",
+    "kegiatan": "Menyusun skenario pengujian untuk memeriksa respons antarmuka dan layanan ketika menerima masukan bidang data dengan format yang tidak valid.",
+    "hasil": "Dokumen kasus uji validasi format masukan tidak valid selesai disusun.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-20",
+    "kegiatan": "Menyusun skenario pengujian untuk memeriksa mekanisme validasi saat pengguna mengosongkan bidang masukan wajib pada formulir proses bisnis.",
+    "hasil": "Tersedia skenario pengujian terstruktur untuk verifikasi penanganan masukan wajib yang kosong.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-21",
+    "kegiatan": "Mengkaji ulang cakupan kasus uji yang telah diimplementasikan dan merangkum temuan pengujian yang belum terselesaikan di sistem pelacakan.",
+    "hasil": "Rekapitulasi temuan pengujian dan evaluasi cakupan kasus uji berhasil disusun.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-24",
+    "kegiatan": "Mempelajari struktur purwarupa antarmuka pengguna yang baru untuk mengidentifikasi perubahan tata letak, komponen masukan, dan rencana penempatan atribut selektor pengujian.",
+    "hasil": "Diperoleh pemahaman terhadap rancangan antarmuka baru untuk persiapan penyesuaian skrip otomasi pengujian.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-26",
+    "kegiatan": "Mengikuti sesi transfer pengetahuan terkait pembaruan sistem dan menyesuaikan skrip pengujian otomatis agar kompatibel dengan lingkungan penerapan terkini.",
+    "hasil": "Skrip pengujian otomatis disesuaikan dengan konfigurasi dan rute lingkungan penerapan baru.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-27",
+    "kegiatan": "Melaksanakan pekerjaan penjaminan kualitas secara jarak jauh (work from anywhere), melakukan peninjauan akhir skrip pengujian, dan menyusun dokumentasi kerangka uji.",
+    "hasil": "Dokumentasi panduan penggunaan dan pemeliharaan kerangka otomatisasi pengujian Cypress selesai dirapikan.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-28",
+    "kegiatan": "Melanjutkan penyesuaian akhir skrip otomasi pengujian di repositori serta mengikuti sesi wawancara akhir bersama manajemen perusahaan.",
+    "hasil": "Seluruh skrip pengujian otomatis diselesaikan dan sesi evaluasi pelaksanaan kerja praktik bersama perusahaan telah terlaksana.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-31",
+    "kegiatan": "Melaksanakan presentasi hasil kerja praktik di hadapan pembimbing perusahaan dan tim proyek, memaparkan kontribusi penjaminan kualitas, temuan pengujian, serta capaian otomasi.",
+    "hasil": "Pemaparan hasil kerja praktik dan demonstrasi pengujian otomatis berhasil disampaikan, serta memperoleh umpan balik evaluasi dari pembimbing perusahaan.",
+    "status": "tercatat"
+  }
+]

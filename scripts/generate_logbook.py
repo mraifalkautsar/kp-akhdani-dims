@@ -15,8 +15,8 @@ MONTHS = ("", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "A
 NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 
 
-def load_entries():
-    entries = json.loads((ROOT / "data/logbook_raif.json").read_text())
+def load_entries(filename="data/logbook_raif.json"):
+    entries = json.loads((ROOT / filename).read_text())
     dates = []
     for entry in entries:
         day = date.fromisoformat(entry["tanggal"])
@@ -111,12 +111,12 @@ def escape_tex(text):
     return "".join(replacements.get(character, character) for character in text)
 
 
-def tex(entries):
-    lines = [r"% Dihasilkan dari data/logbook_raif.json; jangan sunting berkas ini.",
+def tex(entries, caption=r"Logbook kegiatan Muhammad Ra'if Alkautsar", label="tab:logbook-raif"):
+    lines = [r"% Dihasilkan dari data JSON; jangan sunting berkas ini.",
              r"\begingroup\footnotesize\singlespacing\setlength{\tabcolsep}{4pt}",
              r"\setlength{\parindent}{0pt}",
              r"\begin{longtable}{@{}P{1.6cm}P{5.8cm}P{5.8cm}@{}}",
-             r"\caption{Logbook kegiatan Muhammad Ra'if Alkautsar}\label{tab:logbook-raif}\\",
+             f"\\caption{{{caption}}}\\label{{{label}}}\\\\",
              r"\toprule\textbf{Tanggal} & \textbf{Kegiatan} & \textbf{Hasil}\\\midrule\endfirsthead",
              r"\multicolumn{3}{l}{\textit{Logbook kegiatan (lanjutan)}}\\\toprule",
              r"\textbf{Tanggal} & \textbf{Kegiatan} & \textbf{Hasil}\\\midrule\endhead",
@@ -124,8 +124,8 @@ def tex(entries):
              r"\bottomrule\endlastfoot"]
     for entry in entries:
         day = date.fromisoformat(entry["tanggal"])
-        label = f"{day.day} {MONTHS[day.month]}" + r"\newline " + str(day.year)
-        lines.append(label + " & " + escape_tex(entry["kegiatan"]) + " & " + escape_tex(entry["hasil"]) + r"\\[4pt]")
+        day_label = f"{day.day} {MONTHS[day.month]}" + r"\newline " + str(day.year)
+        lines.append(day_label + " & " + escape_tex(entry["kegiatan"]) + " & " + escape_tex(entry["hasil"]) + r"\\[4pt]")
         lines.append(r"\midrule")
     lines.extend([r"\end{longtable}", r"\endgroup", ""])
     return "\n".join(lines).encode()
@@ -140,25 +140,40 @@ def write_if_changed(path, content):
 
 
 def main():
-    entries = load_entries()
-    rows = [HEADERS] + [(entry["tanggal"], entry["kegiatan"], entry["hasil"]) for entry in entries]
-    output = io.StringIO(newline="")
-    csv.writer(output).writerows(rows)
-    write_if_changed(ROOT / "deliverables/logbook_raif.csv", output.getvalue().encode("utf-8-sig"))
-    complete = [HEADERS] + [row for entry, row in zip(entries, rows[1:]) if entry["status"] != "perlu_dilengkapi"]
-    pending = [HEADERS] + [row for entry, row in zip(entries, rows[1:]) if entry["status"] == "perlu_dilengkapi"]
-    instructions = [("Petunjuk penggunaan",), ("Impor hanya sheet Template Logbook; sheet Perlu Dilengkapi bukan data final.",),
-                    ("Tanggal menggunakan YYYY-MM-DD. Kegiatan dan Hasil maksimal 1024 karakter masing-masing.",),
-                    ("Entri 25 Agustus direkonstruksi dari perubahan kode milik mahasiswa. Tinjau sebelum mengunggah.",),
-                    ("Periksa kembali semua entri sebelum impor. Tanggal yang sudah ada pada portal jangan diimpor ulang.",)]
+    entries_raif = load_entries("data/logbook_raif.json")
+    rows_raif = [HEADERS] + [(entry["tanggal"], entry["kegiatan"], entry["hasil"]) for entry in entries_raif]
+    output_raif = io.StringIO(newline="")
+    csv.writer(output_raif).writerows(rows_raif)
+    write_if_changed(ROOT / "deliverables/logbook_raif.csv", output_raif.getvalue().encode("utf-8-sig"))
+    complete_raif = [HEADERS] + [row for entry, row in zip(entries_raif, rows_raif[1:]) if entry["status"] != "perlu_dilengkapi"]
+    pending_raif = [HEADERS] + [row for entry, row in zip(entries_raif, rows_raif[1:]) if entry["status"] == "perlu_dilengkapi"]
+    instructions_raif = [("Petunjuk penggunaan",), ("Impor hanya sheet Template Logbook; sheet Perlu Dilengkapi bukan data final.",),
+                         ("Tanggal menggunakan YYYY-MM-DD. Kegiatan dan Hasil maksimal 1024 karakter masing-masing.",),
+                         ("Entri 25 Agustus direkonstruksi dari perubahan kode milik mahasiswa. Tinjau sebelum mengunggah.",),
+                         ("Periksa kembali semua entri sebelum impor. Tanggal yang sudah ada pada portal jangan diimpor ulang.",)]
     write_if_changed(ROOT / "deliverables/logbook_raif.xlsx", xlsx([
-        ("Template Logbook", complete, True), ("Perlu Dilengkapi", pending, True), ("Petunjuk", instructions, False)]))
+        ("Template Logbook", complete_raif, True), ("Perlu Dilengkapi", pending_raif, True), ("Petunjuk", instructions_raif, False)]))
     write_if_changed(ROOT / "deliverables/template_logbook_frederiko.xlsx", xlsx([
         ("Template Logbook", [HEADERS], True),
         ("Petunjuk", [("Logbook Frederiko Eldad Mugiyono (13523147)",), ("Isi satu baris setiap hari; jangan memasukkan kegiatan Ra'if sebagai kegiatan sendiri.",),
                       ("Kolom: Tanggal (YYYY-MM-DD), Kegiatan, Hasil. Maksimal 1024 karakter per kegiatan dan hasil.",)], False)]))
-    write_if_changed(ROOT / "generated/logbook_raif.tex", tex(entries))
-    print(f"Logbook: {len(entries)} entri; {len(complete)-1} siap ditinjau untuk impor, {len(pending)-1} belum lengkap.")
+    write_if_changed(ROOT / "generated/logbook_raif.tex", tex(entries_raif, "Logbook kegiatan Muhammad Ra'if Alkautsar", "tab:logbook-raif"))
+    print(f"Logbook Ra'if: {len(entries_raif)} entri; {len(complete_raif)-1} siap ditinjau untuk impor, {len(pending_raif)-1} belum lengkap.")
+
+    frederiko_json = ROOT / "data/logbook_frederiko.json"
+    if frederiko_json.exists():
+        entries_frederiko = load_entries("data/logbook_frederiko.json")
+        rows_frederiko = [HEADERS] + [(entry["tanggal"], entry["kegiatan"], entry["hasil"]) for entry in entries_frederiko]
+        output_frederiko = io.StringIO(newline="")
+        csv.writer(output_frederiko).writerows(rows_frederiko)
+        write_if_changed(ROOT / "deliverables/logbook_frederiko.csv", output_frederiko.getvalue().encode("utf-8-sig"))
+        instructions_frederiko = [("Petunjuk penggunaan",),
+                                  ("Logbook Frederiko Eldad Mugiyono (13523147)",),
+                                  ("Tanggal menggunakan YYYY-MM-DD. Kegiatan dan Hasil maksimal 1024 karakter masing-masing.",)]
+        write_if_changed(ROOT / "deliverables/logbook_frederiko.xlsx", xlsx([
+            ("Template Logbook", rows_frederiko, True), ("Petunjuk", instructions_frederiko, False)]))
+        write_if_changed(ROOT / "generated/logbook_frederiko.tex", tex(entries_frederiko, "Logbook kegiatan Frederiko Eldad Mugiyono", "tab:logbook-frederiko"))
+        print(f"Logbook Frederiko: {len(entries_frederiko)} entri berhasil diproses.")
 
 
 if __name__ == "__main__":
