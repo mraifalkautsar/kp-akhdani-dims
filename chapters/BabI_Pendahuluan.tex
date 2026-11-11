@@ -8,7 +8,7 @@ PT Akhdani Reka Solusi mengembangkan perangkat lunak untuk memenuhi kebutuhan te
 
 Pelaksanaan suatu pekerjaan menghasilkan data aktivitas dan perpindahan tahap yang perlu ditelusuri kembali. Karena itu, platform juga memerlukan pengelolaan identitas dan hak akses, penyimpanan berkas, notifikasi, riwayat, serta dasbor. Dalam pengembangannya, kebutuhan antarmuka dan layanan aplikasi harus diselaraskan agar informasi yang ditampilkan sesuai dengan data serta keadaan proses yang sebenarnya.
 
-Pada saat pelaksanaan kerja praktik, terdapat beberapa bagian sistem yang perlu dikembangkan dan disempurnakan. Bagian tersebut mencakup dasbor untuk menyajikan informasi, pengelolaan peran beserta hak akses pengguna, serta halaman riwayat yang menjelaskan tahapan suatu pekerjaan. Pengembangan dilakukan pada kode yang sudah tersedia sehingga perubahan harus mengikuti struktur aplikasi dan berinteraksi dengan komponen yang dikerjakan anggota tim lain.
+Pada saat pelaksanaan kerja praktik, terdapat beberapa bagian sistem yang perlu dikembangkan dan disempurnakan. Bagian tersebut mencakup dasbor untuk menyajikan informasi, pengelolaan peran beserta hak akses pengguna, serta halaman riwayat yang menjelaskan tahapan suatu pekerjaan. Pengembangan dilakukan pada kode yang sudah tersedia sehingga perubahan harus mengikuti struktur aplikasi dan berinteraksi dengan komponen yang dikerjakan oleh anggota tim lain.
 
 Untuk mendukung pekerjaan tersebut, mahasiswa kerja praktik dilibatkan sebagai pengembang perangkat lunak dan pelaksana penjaminan kualitas. Pekerjaan mencakup pemahaman kebutuhan, implementasi, integrasi, dan pemeriksaan fitur yang ditugaskan. Pada pertengahan periode, perubahan kebutuhan juga mengharuskan tim menyesuaikan teknologi layanan aplikasi. Oleh karena itu, pelaksanaan kerja praktik turut mencakup pembelajaran Go dan pemindahan sebagian fitur ke struktur layanan yang baru.
 
@@ -19,28 +19,28 @@ Melalui kegiatan tersebut, mahasiswa berkesempatan menerapkan pengetahuan pengem
 Kerja praktik dilaksanakan di \TempatKP{}, yang beralamat di Jalan Cikutra Baru No. 23, Neglasari, Kecamatan Cibeunying Kaler, Kota Bandung. Mahasiswa tergabung dalam tim proyek pengembangan sistem pengelolaan alur kerja.
 
 \subsection{Waktu Kerja Praktik}
-Kerja praktik dilaksanakan pada \PeriodeKP. Pola kerja yang diterapkan adalah bekerja dari kantor pada Senin sampai Kamis dan bekerja dari rumah pada Jumat. Rapat mingguan dilaksanakan setiap Selasa pukul 09.30 untuk membahas perkembangan pekerjaan dan koordinasi tim.
+Kerja praktik dilaksanakan pada \PeriodeKP. Pola kerja yang diterapkan adalah bekerja dari kantor pada Senin hingga Kamis dan bekerja dari rumah pada Jumat. Rapat mingguan dilaksanakan setiap hari Selasa pukul 09.30 untuk membahas perkembangan pekerjaan dan koordinasi tim.
 
 \section{Ruang Lingkup Kerja Praktik}
 Ruang lingkup kerja praktik mencakup pengembangan dan penjaminan kualitas bagian sistem yang ditugaskan kepada mahasiswa. \NamaRaif{} berperan sebagai \textit{Software Engineer Intern}, sedangkan \NamaFrederiko{} berperan sebagai \textit{Quality Assurance Intern}.
 
 Pekerjaan pengembangan meliputi pembuatan antarmuka dasbor, pengembangan fitur pengelolaan peran dan hak akses, integrasi riwayat alur kerja, perbaikan navigasi, serta penyusunan pengujian komponen. Setelah pergantian teknologi, pekerjaan dilanjutkan dengan penyesuaian fitur pengelolaan peran pada layanan berbasis Go dan perancangan layar pengelolaan dasbor.
 
-Dalam pelaksanaannya, mahasiswa perlu memahami struktur aplikasi, menyesuaikan pertukaran data antara antarmuka dan layanan, serta mengikuti konvensi kode yang digunakan tim. Tanggung jawab mahasiswa dibatasi pada tugas yang diberikan selama periode kerja praktik. Pekerjaan penjaminan kualitas mencakup perancangan skenario pengujian fungsional dan kasus negatif, pengembangan skrip otomatisasi pengujian, serta verifikasi keandalan fungsional dan keamanan sistem. Pengujian difokuskan pada empat kelompok fitur utama, yaitu dasbor pemantauan dan analitik, pengelolaan data master (peran, akun pengguna, entitas organisasi, dan konfigurasi sistem), koleksi proses bisnis, serta autentikasi dan notifikasi. Pengujian dilakukan melalui pengujian antarmuka ujung ke ujung (\textit{end-to-end}) menggunakan Cypress berbasis pola \textit{Page Object Model} dan pengujian langsung ke antarmuka pemrograman aplikasi (\textit{API testing}) untuk memvalidasi fungsionalitas CRUD, batas latensi respons, dan penegakan otorisasi.
+Dalam pelaksanaannya, mahasiswa perlu memahami struktur aplikasi, menyesuaikan pertukaran data antara antarmuka dan layanan, serta mengikuti konvensi kode yang digunakan oleh tim. Tanggung jawab mahasiswa dibatasi pada tugas yang diberikan selama periode kerja praktik. Pekerjaan penjaminan kualitas mencakup perancangan skenario pengujian fungsional dan kasus negatif, pengembangan skrip otomasi pengujian, serta verifikasi keandalan fungsional dan keamanan sistem. Pengujian difokuskan pada empat kelompok fitur utama, yaitu dasbor pemantauan dan analitik, pengelolaan data \textit{master} (peran, akun pengguna, entitas organisasi, dan konfigurasi sistem), koleksi proses bisnis, serta autentikasi dan notifikasi. Pengujian dilakukan melalui pengujian antarmuka ujung ke ujung (\textit{end-to-end}) menggunakan Cypress berbasis pola \textit{Page Object Model} dan pengujian langsung pada antarmuka pemrograman aplikasi (API) untuk memvalidasi fungsionalitas CRUD, batas latensi respons, dan penegakan otorisasi.
 
 \section{Tujuan}
 Tujuan kerja praktik adalah berkontribusi pada pengembangan sistem pengelolaan alur kerja di PT Akhdani Reka Solusi sekaligus memperoleh pengalaman bekerja dalam tim perangkat lunak. Secara lebih rinci, tujuan pekerjaan meliputi:
 \begin{enumerate}[label=\arabic*)]
 \item mengembangkan antarmuka dasbor yang menyajikan informasi melalui komponen dan layanan data yang terpisah;
 \item mengimplementasikan fitur pengelolaan peran, hubungan pengguna dengan peran, dan pengaturan hak akses;
-\item menyajikan riwayat proses agar tahapan, pelaksana, dan perpindahan keadaan pekerjaan dapat dipahami pengguna;
-\item menyusun pengujian untuk memeriksa perilaku fitur yang dikembangkan serta melakukan perbaikan berdasarkan masalah yang ditemukan; dan
+\item menyajikan riwayat proses agar tahapan, pelaksana, dan perpindahan keadaan pekerjaan dapat dipahami oleh pengguna;
+\item menyusun pengujian untuk memeriksa perilaku fitur yang dikembangkan serta melakukan perbaikan berdasarkan masalah yang ditemukan;
 \item menyesuaikan implementasi terhadap perubahan teknologi dan meningkatkan kemampuan koordinasi serta pemecahan masalah dalam pekerjaan profesional;
 \item merancang skenario pengujian fungsional dan pengujian kasus negatif berdasarkan spesifikasi kebutuhan alur kerja;
-\item membangun rangkaian otomatisasi pengujian antarmuka dan pengujian layanan API menggunakan kerangka kerja Cypress berbasis pola \textit{Page Object Model};
+\item membangun rangkaian otomasi pengujian antarmuka dan pengujian layanan API menggunakan kerangka kerja Cypress berbasis pola \textit{Page Object Model};
 \item memverifikasi keselarasan implementasi antarmuka dan layanan aplikasi serta mengidentifikasi anomali, celah otorisasi, dan regresi fungsi; serta
 \item mengomunikasikan temuan pengujian dan rekomendasi perbaikan kepada tim pengembang guna meningkatkan keandalan dan kualitas sistem secara berkelanjutan.
 \end{enumerate}
 
 \section{Sistematika Penulisan}\label{sec:sistematika}
-Bab I menjelaskan konteks dan tujuan kerja praktik. Bab II menguraikan lingkungan organisasi, pembagian tugas, tahapan pekerjaan, serta jadwal. Bab III membahas kebutuhan, rancangan, implementasi, pengujian, dan kendala pengembangan sistem. Bab IV memuat kesimpulan, evaluasi diri, serta saran. Laporan dilengkapi kerangka acuan pekerjaan atau \textit{terms of reference} (ToR), logbook, dan bagian yang perlu dilengkapi oleh mahasiswa penjaminan kualitas.
+Bab I menjelaskan konteks dan tujuan kerja praktik. Bab II menguraikan lingkungan organisasi, pembagian tugas, tahapan pekerjaan, serta jadwal. Bab III membahas kebutuhan, rancangan, implementasi, pengujian, dan kendala pengembangan sistem. Bab IV memuat kesimpulan, evaluasi diri, serta saran. Laporan dilengkapi kerangka acuan pekerjaan atau \textit{terms of reference} (ToR), \textit{logbook}, dan bagian yang perlu dilengkapi oleh mahasiswa penjaminan kualitas.

@@ -1,11 +1,11 @@
 \chapter{Pengembangan Sistem Pengelolaan Alur Kerja}
-Bab ini menjelaskan gambaran platform proses bisnis yang dikembangkan, hubungan antarmodul, serta arsitektur dan teknologi yang digunakan selama kerja praktik. Pembahasan kemudian menguraikan kontribusi pengembangan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja, diikuti pengujian, hasil, dan kendala pelaksanaannya.
+Bab ini menjelaskan gambaran platform proses bisnis yang dikembangkan, hubungan antarmodul, serta arsitektur dan teknologi yang digunakan selama kerja praktik. Pembahasan kemudian menguraikan kontribusi pengembangan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja, diikuti oleh pengujian, hasil, dan kendala pelaksanaannya.
 
 \section{Gambaran Umum Platform}\label{sec:gambaran-platform}
 \subsection{Tujuan dan Konsep Pengembangan}
-Sistem yang dikembangkan merupakan platform pengelolaan proses bisnis berbasis konfigurasi. Kebutuhan yang dituju adalah menghubungkan definisi proses, data yang diperlukan, pihak yang mengerjakan, dan perkembangan pelaksanaannya. Sebagai contoh, suatu pekerjaan dapat dimulai dari pengisian data, dilanjutkan dengan pemeriksaan dan persetujuan, kemudian diselesaikan oleh pihak yang ditugaskan. Setiap proses dapat mempunyai tahapan serta kebutuhan masukan yang berbeda.
+Sistem yang dikembangkan merupakan platform pengelolaan proses bisnis berbasis konfigurasi. Kebutuhan yang dituju adalah menghubungkan definisi proses, data yang diperlukan, pihak yang mengerjakan, dan perkembangan pelaksanaannya. Sebagai contoh, suatu pekerjaan dapat dimulai dari pengisian data, dilanjutkan dengan pemeriksaan dan persetujuan, kemudian diselesaikan oleh pihak yang ditugaskan. Setiap proses dapat memiliki tahapan serta kebutuhan masukan yang berbeda.
 
-Pendekatan berbasis konfigurasi menempatkan definisi proses dan formulir sebagai bagian yang dapat dikelola melalui aplikasi. Repositori proses bisnis menjadi sumber definisi tahapan, mesin alur kerja mengatur pelaksanaan serta perpindahannya, dan formulir dinamis menyediakan masukan sesuai konteks proses. Rancangan awal memusatkan pelaksanaan pada pengelolaan keadaan dan transisi yang dihubungkan dengan metadata proses serta formulir \citep{rancangan-awal}.
+Pendekatan berbasis konfigurasi menempatkan definisi proses dan formulir sebagai bagian yang dapat dikelola melalui aplikasi. Repositori proses bisnis menjadi sumber definisi tahapan, mesin alur kerja mengatur pelaksanaan serta perpindahannya, dan formulir dinamis menyediakan masukan sesuai dengan konteks proses. Rancangan awal memusatkan pelaksanaan pada pengelolaan keadaan dan transisi yang dihubungkan dengan metadata proses serta formulir \citep{rancangan-awal}.
 
 Dalam pembahasan ini, definisi proses dibedakan dari pekerjaan yang menjalankannya. Definisi menjelaskan susunan dan aturan proses, sedangkan satu pekerjaan merupakan pelaksanaan konkret dengan data, keadaan, serta riwayatnya sendiri. Pemisahan tersebut membantu menjelaskan mengapa sistem membutuhkan pengaturan proses sekaligus daftar pekerjaan dan fasilitas pemantauan.
 
@@ -19,7 +19,7 @@ Gambar~\ref{fig:modul-platform} memperlihatkan hubungan fungsi utama platform. R
 \label{fig:modul-platform}
 \end{figure}
 
-Layanan identitas dan hak akses menentukan pengguna yang dapat mengakses fungsi tertentu serta tindakan yang tersedia baginya. Pengelolaan berkas menyediakan lampiran dan dokumen pendukung. Notifikasi membantu menyampaikan informasi aktivitas atau perubahan, sedangkan data referensi menyediakan nilai yang digunakan bersama. Bagian-bagian tersebut menjadi layanan lintas modul sehingga fitur baru perlu mengikuti mekanisme yang telah disediakan aplikasi.
+Layanan identitas dan hak akses menentukan pengguna yang dapat mengakses fungsi tertentu serta tindakan yang tersedia baginya. Pengelolaan berkas menyediakan lampiran dan dokumen pendukung. Notifikasi membantu menyampaikan informasi aktivitas atau perubahan, sedangkan data referensi menyediakan nilai yang digunakan bersama. Bagian-bagian tersebut menjadi layanan lintas modul sehingga fitur baru perlu mengikuti mekanisme yang telah disediakan oleh aplikasi.
 
 Pada implementasi tahap awal, hubungan antarmodul terlihat melalui rute layanan proses bisnis, alur kerja, formulir, autentikasi, dan pengelolaan berkas. Repositori data relasional mendukung proses serta riwayat, sedangkan model dokumen digunakan untuk skema formulir dan nilai isian \citep{artefak-awal}. Dengan demikian, pembahasan platform mencakup hubungan antara konfigurasi, pelaksanaan, dan data yang dihasilkan, di samping antarmuka yang digunakan untuk mengaksesnya.
 
@@ -28,8 +28,8 @@ Sebagai ilustrasi yang telah digeneralisasi, pelaksanaan suatu proses dapat dije
 \begin{enumerate}[label=\arabic*)]
 \item Pengelola menyiapkan definisi proses, tahapan, peran pelaksana, serta kebutuhan formulir. Konfigurasi yang dipublikasikan menjadi acuan pelaksanaan.
 \item Pengguna membuat pekerjaan berdasarkan proses yang tersedia dan mengisi data yang diperlukan pada tahap awal.
-\item Pekerjaan diproses oleh pihak yang mempunyai kewenangan. Tindakan yang tersedia mengikuti konfigurasi tahap, misalnya mengirim, menyetujui, menolak, atau mengembalikan pekerjaan.
-\item Perubahan keadaan dicatat bersama konteks aktivitas dan pelaksananya. Data tersebut dapat digunakan untuk menelusuri jalannya pekerjaan.
+\item Pekerjaan diproses oleh pihak yang memiliki kewenangan. Tindakan yang tersedia mengikuti konfigurasi tahap, misalnya mengirim, menyetujui, menolak, atau mengembalikan pekerjaan.
+\item Perubahan keadaan dicatat bersama dengan konteks aktivitas dan pelaksananya. Data tersebut dapat digunakan untuk menelusuri jalannya pekerjaan.
 \item Pengguna memantau keadaan pekerjaan melalui daftar, riwayat, dan dasbor. Penyajian informasi disesuaikan dengan fungsi serta hak akses pengguna.
 \end{enumerate}
 Urutan tersebut menggambarkan keterkaitan modul dalam rancangan platform. Rincian tindakan setiap proses tetap bergantung pada konfigurasi yang disediakan.
@@ -53,7 +53,7 @@ Berkas dan fitur pendukung & Menyediakan lampiran, panduan, notifikasi, dan fasi
 \end{longtable}
 \endgroup
 
-Frederiko berada pada fungsi QA dalam tim proyek yang sama. Hubungan rinci antara pemeriksaan QA, modul yang diuji, dan hasilnya dilengkapi pada bagian kegiatan penjaminan kualitas. Pengujian komponen yang ditulis Ra'if tetap dicatat sebagai bagian pekerjaan pengembang.
+Frederiko berada pada fungsi QA dalam tim proyek yang sama. Hubungan rinci antara pemeriksaan QA, modul yang diuji, dan hasilnya dilengkapi pada bagian kegiatan penjaminan kualitas. Pengujian komponen yang ditulis oleh Ra'if tetap dicatat sebagai bagian dari pekerjaan pengembang.
 
 \section{Analisis Permasalahan dan Kebutuhan}
 \subsection{Deskripsi Permasalahan}
@@ -83,11 +83,11 @@ Selain fungsi tersebut, pengembangan memperhatikan kemudahan pemeliharaan dan ko
 
 \section{Perancangan Sistem dan Fitur}
 \subsection{Arsitektur dan Teknologi Tahap Awal}\label{sec:lingkungan}
-Pada tahap Juni--Juli, antarmuka web dikembangkan dengan Vue dan TypeScript. Vue menyediakan model antarmuka berbasis komponen dan keadaan reaktif \citep{vue}. Vite digunakan dalam lingkungan pengembangan dan pembangunan antarmuka, Pinia mendukung pengelolaan keadaan bersama, sedangkan FormKit tersedia sebagai bagian ekosistem formulir. Halaman dan komponen berkomunikasi dengan layanan melalui API (\textit{application programming interface}).
+Pada tahap Juni--Juli, antarmuka web dikembangkan dengan Vue dan TypeScript. Vue menyediakan model antarmuka berbasis komponen dan keadaan reaktif \citep{vue}. Vite digunakan dalam lingkungan pengembangan dan pembangunan antarmuka, Pinia mendukung pengelolaan keadaan bersama, sedangkan FormKit tersedia sebagai bagian dari ekosistem formulir. Halaman dan komponen berkomunikasi dengan layanan melalui API (\textit{application programming interface}).
 
 Layanan awal menggunakan Node.js dan Express. Express menyediakan penanganan rute serta \textit{middleware} \citep{express}. Kode aplikasi memisahkan penerimaan permintaan, logika layanan, dan akses data melalui pengendali, layanan, serta repositori. Modul proses bisnis, alur kerja, formulir, dan fungsi pendukung menggunakan struktur tersebut untuk menghubungkan tindakan pengguna dengan data aplikasi \citep{artefak-awal}.
 
-Penyimpanan data pada tahap ini mempunyai beberapa tanggung jawab. PostgreSQL digunakan untuk data relasional terkait proses, peran, transaksi pekerjaan, dan riwayat, dengan Prisma sebagai sarana aksesnya. MongoDB digunakan melalui Mongoose untuk skema formulir dan nilai isian yang berbentuk dokumen. Layanan berkas menggunakan antarmuka penyimpanan objek kompatibel S3 untuk mengakses berkas serta lampiran. Pembagian tersebut menjelaskan hubungan antara data terstruktur, data formulir, dan objek berkas dalam aplikasi.
+Penyimpanan data pada tahap ini memiliki beberapa tanggung jawab. PostgreSQL digunakan untuk data relasional terkait proses, peran, transaksi pekerjaan, dan riwayat, dengan Prisma sebagai sarana aksesnya. MongoDB digunakan melalui Mongoose untuk skema formulir dan nilai isian yang berbentuk dokumen. Layanan berkas menggunakan antarmuka penyimpanan objek yang kompatibel dengan S3 untuk mengakses berkas serta lampiran. Pembagian tersebut menjelaskan hubungan antara data terstruktur, data formulir, dan objek berkas dalam aplikasi.
 
 Gambar~\ref{fig:arsitektur} memperlihatkan gambaran logis tahap awal yang disarikan dari struktur kode. Diagram menunjukkan peran komponen dan hubungan pertukaran data, tanpa merinci topologi jaringan atau penempatan layanan produksi.
 \begin{figure}[htbp]
@@ -98,9 +98,9 @@ Gambar~\ref{fig:arsitektur} memperlihatkan gambaran logis tahap awal yang disari
 \end{figure}
 
 \subsection{Penyesuaian Arsitektur dan Teknologi pada Agustus}
-Perubahan kebutuhan setelah Juli diikuti penggunaan basis kode layanan yang berbeda. Pada akhir Agustus, repositori layanan inti dan layanan identitas mempunyai kode serta dependensi Go tersendiri. Fitur yang dipindahkan perlu mengikuti struktur permintaan, layanan, repositori, dan skema data pada lingkungan tersebut \citep{artefak-agustus}.
+Perubahan kebutuhan setelah Juli diikuti oleh penggunaan basis kode layanan yang berbeda. Pada akhir Agustus, repositori layanan inti dan layanan identitas memiliki kode serta dependensi Go tersendiri. Fitur yang dipindahkan perlu mengikuti struktur permintaan, layanan, repositori, dan skema data pada lingkungan tersebut \citep{artefak-agustus}.
 
-Implementasi layanan yang diperiksa pada periode ini menggunakan Fiber v2 dan PostgreSQL dengan pustaka \texttt{sqlx}. Pustaka \texttt{sqlx} menyediakan perluasan fasilitas akses data SQL di Go \citep{sqlx}. Goose digunakan pada pengelolaan migrasi dan data awal. Pada layanan identitas, Redis berkaitan dengan penyimpanan data autentikasi serta sesi. Antarmuka tetap menggunakan Vue dan TypeScript sehingga perubahan utama yang berkaitan dengan pemindahan fitur berada pada layanan dan akses datanya.
+Implementasi layanan yang diperiksa pada periode ini menggunakan Fiber v2 dan PostgreSQL dengan pustaka \texttt{sqlx}. Pustaka \texttt{sqlx} menyediakan perluasan fasilitas akses data SQL di Go \citep{sqlx}. Goose digunakan untuk pengelolaan migrasi dan data awal. Pada layanan identitas, Redis berkaitan dengan penyimpanan data autentikasi serta sesi. Antarmuka tetap menggunakan Vue dan TypeScript sehingga perubahan utama yang berkaitan dengan pemindahan fitur berada pada layanan dan akses datanya.
 
 Tabel~\ref{tab:perbandingan-teknologi} merangkum teknologi serta perannya pada kedua tahap. Rincian tahap awal didasarkan pada kode Juni--Juli, sedangkan tahap penyesuaian mengacu pada keadaan repositori selama Agustus. Rancangan platform yang lebih luas dan kelanjutan pengembangan tidak digunakan untuk menyatakan bahwa seluruh komponen telah selesai dipindahkan selama KP.
 
@@ -123,7 +123,7 @@ Cache dan sesi & Redis tidak tercantum sebagai dependensi utama layanan awal yan
 
 Di luar teknologi aplikasi, Git digunakan untuk mengelola perubahan kode, sedangkan Docker berkaitan dengan penyiapan lingkungan lokal. Vitest dan Vue Test Utils digunakan pada pengujian komponen antarmuka. Konfigurasi pemeriksaan kualitas kode juga tersedia dalam repositori. Alat-alat tersebut mendukung proses pengembangan dan dibedakan dari komponen yang menjalankan fungsi aplikasi.
 
-Gin, GORM, generik, dan konsep konkurensi Go muncul dalam kegiatan pembelajaran. Penyebutan materi tersebut menjelaskan proses adaptasi mahasiswa; teknologi implementasi fitur pada layanan baru mengikuti kode yang digunakan selama periode KP. Visily digunakan untuk merancang layar pada akhir periode dan tidak menjadi bagian lingkungan eksekusi aplikasi.
+Gin, GORM, generik, dan konsep konkurensi Go muncul dalam kegiatan pembelajaran. Penyebutan materi tersebut menjelaskan proses adaptasi mahasiswa; teknologi implementasi fitur pada layanan baru mengikuti kode yang digunakan selama periode KP. Visily digunakan untuk merancang layar pada akhir periode dan tidak menjadi bagian dari lingkungan eksekusi aplikasi.
 
 \subsection{Rancangan Pengelolaan Peran}
 Fitur pengelolaan peran dirancang dalam halaman daftar, pembuatan, detail, dan penyuntingan. Halaman daftar menjadi titik masuk untuk memilih peran atau menambahkan peran baru. Halaman detail menampilkan informasi peran beserta hubungan pengguna dan hak aksesnya. Halaman penyuntingan menyediakan perubahan informasi serta penetapan hak akses.
@@ -133,33 +133,33 @@ Formulir yang digunakan pada beberapa halaman disatukan menjadi komponen bersama
 Di sisi layanan, penanganan permintaan dipisahkan menjadi lapisan pengendali, layanan, dan repositori. Pengendali menerima masukan, layanan mengatur pemrosesan dan pemeriksaan yang diperlukan, sedangkan repositori mengakses data. Pemisahan ini digunakan kembali saat fitur diadaptasi ke layanan berbasis Go.
 
 \subsection{Rancangan Riwayat Alur Kerja}
-Riwayat disajikan sebagai urutan kejadian yang berkaitan dengan suatu pekerjaan. Informasi yang ditampilkan meliputi tahapan, keadaan proses, komentar, dan pelaksana. Perpindahan antara tahap turut ditampilkan agar pengguna dapat membedakan aktivitas pada suatu tahap dari perubahan tahap itu sendiri.
+Riwayat disajikan sebagai urutan kejadian yang berkaitan dengan suatu pekerjaan. Informasi yang ditampilkan meliputi tahapan, keadaan proses, komentar, dan pelaksana. Perpindahan antartahap turut ditampilkan agar pengguna dapat membedakan aktivitas pada suatu tahap dari perubahan tahap itu sendiri.
 
 Data yang diterima dari layanan perlu disiapkan menjadi urutan elemen tampilan. Dalam pengolahan tersebut, elemen aktivitas dan elemen transisi dibedakan agar masing-masing memiliki penyajian yang sesuai. Halaman juga menyediakan keadaan kosong ketika riwayat belum tersedia serta navigasi kembali ke daftar pekerjaan.
 
 \section{Proses Pengembangan}
 \subsection{Pengembangan Dasbor}\label{sec:dasbor}
-Pekerjaan awal dilakukan dengan membuat halaman dasbor dan komponen grafik. Pada 23 Juni, pengembangan dimulai dari kerangka tiga halaman. Selanjutnya, komponen diperbarui agar memperoleh data melalui layanan simulasi atau \textit{mock API}. Pemisahan tersebut memungkinkan bentuk respons dan alur pengambilan data dikembangkan tanpa menunggu seluruh layanan bisnis tersedia.
+Pekerjaan awal dilakukan dengan membuat halaman dasbor dan komponen grafik. Pada tanggal 23 Juni, pengembangan dimulai dari kerangka tiga halaman. Selanjutnya, komponen diperbarui agar memperoleh data melalui layanan simulasi atau \textit{mock API}. Pemisahan tersebut memungkinkan bentuk respons dan alur pengambilan data dikembangkan tanpa menunggu seluruh layanan bisnis tersedia.
 
 Pada tahap berikutnya, fungsi pengambilan data dipindahkan ke layanan yang dapat digunakan komponen. Rute dan menu diperbaiki agar halaman dapat diakses melalui navigasi aplikasi. Komponen tanggal dan pilihan pada bagian atas halaman juga ditambahkan untuk melengkapi interaksi dasbor. Selama proses ini, mahasiswa mempelajari penggunaan Pinia dan menyesuaikan cara pengelolaan keadaan dengan pola aplikasi.
 
 Hasil tahap ini adalah halaman dan komponen dasbor yang menggunakan data simulasi melalui pemanggilan layanan. Hasil tersebut menjadi bagian dari pengembangan antarmuka. Namun, penggunaan data simulasi belum menunjukkan bahwa seluruh sumber data operasional telah terhubung atau berfungsi.
 
 \subsection{Pengembangan Pengelolaan Peran dan Hak Akses}
-Pengembangan antarmuka pengelolaan peran dimulai pada 6 Juli. Halaman yang dibuat meliputi daftar, pembuatan, detail, dan penyuntingan peran. Pada tahap awal, halaman menggunakan layanan simulasi. Setelah struktur layanan tersedia, pemanggilan data disesuaikan dengan implementasi layanan aplikasi.
+Pengembangan antarmuka pengelolaan peran dimulai pada tanggal 6 Juli. Halaman yang dibuat meliputi daftar, pembuatan, detail, dan penyuntingan peran. Pada tahap awal, halaman menggunakan layanan simulasi. Setelah struktur layanan tersedia, pemanggilan data disesuaikan dengan implementasi layanan aplikasi.
 
 Pada sisi layanan, pekerjaan mencakup fungsi daftar dan detail peran, pembuatan, pembaruan, penghapusan, serta penyediaan data pengguna dan hak akses. Implementasi dilengkapi penanganan peran yang tidak ditemukan dan kode peran yang sudah digunakan. Data awal peran juga disiapkan agar lingkungan pengembangan memiliki data yang diperlukan untuk mencoba fitur.
 
-Selama integrasi, formulir pada beberapa halaman disatukan agar struktur masukan dan tindakannya konsisten. Pemanggilan data yang sebelumnya menggunakan mekanisme kueri tertentu disesuaikan menjadi pemanggilan asinkron sesuai pola yang digunakan tim. Penamaan rute, komponen, dan atribut diperbaiki untuk mengurangi perbedaan antara antarmuka dan layanan.
+Selama integrasi, formulir pada beberapa halaman disatukan agar struktur masukan dan tindakannya konsisten. Pemanggilan data yang sebelumnya menggunakan mekanisme kueri tertentu disesuaikan menjadi pemanggilan asinkron sesuai dengan pola yang digunakan oleh tim. Penamaan rute, komponen, dan atribut diperbaiki untuk mengurangi perbedaan antara antarmuka dan layanan.
 
-Pada akhir Juli, tampilan detail dan penyuntingan diperbarui menggunakan tab. Perbaikan juga dilakukan ketika informasi hak akses pada halaman detail masih menampilkan data lama. Persoalan ini menunjukkan bahwa keberhasilan permintaan pembaruan perlu diikuti pemuatan keadaan yang benar ketika pengguna kembali melihat detail peran.
+Pada akhir bulan Juli, tampilan detail dan penyuntingan diperbarui menggunakan tab. Perbaikan juga dilakukan ketika informasi hak akses pada halaman detail masih menampilkan data lama. Persoalan ini menunjukkan bahwa keberhasilan permintaan pembaruan perlu diikuti pemuatan keadaan yang benar ketika pengguna kembali melihat detail peran.
 
 \subsection{Integrasi Riwayat Alur Kerja}
 Pengembangan riwayat alur kerja dilakukan dengan menghubungkan halaman antarmuka ke layanan pengambilan riwayat. Integrasi awal dilanjutkan dengan penyesuaian sumber data dan struktur respons. Informasi komentar, pelaksana, dan unit pelaksana ditambahkan agar setiap kejadian memiliki konteks yang lebih jelas.
 
 Perbaikan berikutnya menyangkut judul pekerjaan, penunjuk lokasi halaman atau \textit{breadcrumb}, dan tujuan tombol kembali. Penyajian riwayat juga perlu mengikuti keadaan pekerjaan; tindakan pemrosesan disembunyikan ketika pekerjaan telah selesai. Perubahan tersebut menghubungkan informasi keadaan dari layanan dengan tindakan yang tersedia pada antarmuka.
 
-Pada 30 Juli, informasi transisi ditambahkan pada layanan dan tampilan riwayat. Elemen transisi menunjukkan perpindahan tahap, sedangkan elemen aktivitas menampilkan pelaksanaan pada tahap terkait. Penambahan ini kemudian menjadi salah satu perilaku yang diperiksa dalam pengujian komponen riwayat.
+Pada tanggal 30 Juli, informasi transisi ditambahkan pada layanan dan tampilan riwayat. Elemen transisi menunjukkan perpindahan tahap, sedangkan elemen aktivitas menampilkan pelaksanaan pada tahap terkait. Penambahan ini kemudian menjadi salah satu perilaku yang diperiksa dalam pengujian komponen riwayat.
 
 \subsection{Perbaikan Fitur Pendukung}
 Selain fitur utama, pekerjaan mencakup penyesuaian panduan pengguna agar dapat dibuka melalui tab baru, perubahan referensi berkas menjadi kunci penyimpanan, dan penambahan konfirmasi keluar. Perbaikan dilakukan pula pada pesan kesalahan agar pengguna memperoleh penjelasan yang sesuai dengan kegagalan pemrosesan layanan.
@@ -167,20 +167,20 @@ Selain fitur utama, pekerjaan mencakup penyesuaian panduan pengguna agar dapat d
 Atribut penanda elemen ditambahkan pada sejumlah komponen untuk membantu pemilihan elemen pada pengujian. Pekerjaan perapian kode meliputi format, konsistensi nama, dan pemakaian kembali komponen penanda status. Walaupun tidak menambah fungsi bisnis baru, perubahan tersebut membantu pemeliharaan dan pemeriksaan fitur yang dikerjakan bersama.
 
 \subsection{Adaptasi ke Layanan Berbasis Go}
-Pada awal Agustus, pekerjaan beralih pada pembelajaran Go. Materi yang dipelajari meliputi tipe data, struktur, antarmuka, komposisi, alur kontrol, dan konkurensi. Pembelajaran juga mencakup kerangka kerja web, penanganan permintaan, serta \textit{middleware}. Setelah itu, mahasiswa menyiapkan proyek lokal dan menelaah struktur kode layanan yang baru.
+Pada awal bulan Agustus, pekerjaan beralih ke pembelajaran Go. Materi yang dipelajari meliputi tipe data, struktur, antarmuka, komposisi, alur kontrol, dan konkurensi. Pembelajaran juga mencakup kerangka kerja web, penanganan permintaan, serta \textit{middleware}. Setelah itu, mahasiswa menyiapkan proyek lokal dan menelaah struktur kode layanan yang baru.
 
-Pemindahan fitur pengelolaan peran dilakukan dengan memetakan kebutuhan yang sebelumnya tersedia pada layanan Node.js ke struktur pengendali, layanan, dan repositori di Go. Penyesuaian mencakup data permintaan, hubungan pengguna dan peran, pengaturan hak akses, serta data awal. Pada 24 Agustus, perubahan fitur pengelolaan peran dan data awal dicatat dalam repositori layanan baru.
+Pemindahan fitur pengelolaan peran dilakukan dengan memetakan kebutuhan yang sebelumnya tersedia pada layanan Node.js ke struktur pengendali, layanan, dan repositori di Go. Penyesuaian mencakup data permintaan, hubungan pengguna dan peran, pengaturan hak akses, serta data awal. Pada tanggal 24 Agustus, perubahan fitur pengelolaan peran dan data awal dicatat dalam repositori layanan baru.
 
-Pada 25 Agustus, fungsi pengambilan peran pengguna disesuaikan dengan skema data baru. Pengujian integrasi juga ditambahkan untuk membandingkan hasil fungsi tersebut dengan hasil kueri serta memeriksa pengguna tanpa peran. Pada 26 Agustus, dependensi pengandar basis data yang tidak lagi digunakan dihapus. Pekerjaan ini menunjukkan bahwa adaptasi melibatkan penyesuaian akses data dan dependensi, selain pemindahan struktur kode.
+Pada tanggal 25 Agustus, fungsi pengambilan peran pengguna disesuaikan dengan skema data baru. Pengujian integrasi juga ditambahkan untuk membandingkan hasil fungsi tersebut dengan hasil kueri serta memeriksa pengguna tanpa peran. Pada tanggal 26 Agustus, dependensi pengandar basis data yang tidak lagi digunakan dihapus. Pekerjaan ini menunjukkan bahwa adaptasi melibatkan penyesuaian akses data dan dependensi, selain pemindahan struktur kode.
 
 \subsection{Perancangan Layar Dasbor Lanjutan}
-Pada akhir periode, mahasiswa mempelajari kebutuhan pengelolaan dasbor dan membuat rancangan layar menggunakan Visily. Layar yang dirancang meliputi daftar proses, daftar dasbor, pembuatan dasbor, pengaturan \textit{widget}, serta pembuatan komponen tabular dan non-tabular. Keluaran tahap ini berupa rancangan antarmuka untuk mendukung pembahasan pengembangan berikutnya.
+Pada akhir periode, mahasiswa mempelajari kebutuhan pengelolaan dasbor dan membuat rancangan layar menggunakan Visily. Layar yang dirancang meliputi daftar proses, daftar dasbor, pembuatan dasbor, pengaturan \textit{widget}, serta pembuatan komponen tabular dan nontabular. Keluaran tahap ini berupa rancangan antarmuka untuk mendukung pembahasan pengembangan berikutnya.
 
 \section{Pengujian dan Hasil Pekerjaan}
 \subsection{Pengujian Komponen}\label{sec:pengujian}
 Pengujian komponen disusun menggunakan Vitest dan Vue Test Utils. Vitest menyediakan fasilitas menjalankan pengujian pada lingkungan pengembangan berbasis Vite \citep{vitest}. Pada pengujian halaman, layanan dan sejumlah komponen diganti dengan \textit{mock} atau \textit{stub} agar perilaku halaman dapat diperiksa secara terpisah.
 
-Enam berkas pengujian ditambahkan untuk halaman pembuatan, detail, penyuntingan, formulir bersama, daftar peran, dan riwayat alur kerja. Tabel~\ref{tab:uji} merangkum perilaku yang dituliskan dalam kasus uji. Pengujian yang disusun mahasiswa pengembang merupakan bagian kontribusi pengembangan dan dibedakan dari kegiatan QA yang perlu dilengkapi Frederiko.
+Enam berkas pengujian ditambahkan untuk halaman pembuatan, detail, penyuntingan, formulir bersama, daftar peran, dan riwayat alur kerja. Tabel~\ref{tab:uji} merangkum perilaku yang dituliskan dalam kasus uji. Pengujian yang disusun oleh mahasiswa pengembang merupakan bagian dari kontribusi pengembangan dan dibedakan dari kegiatan QA yang dilengkapi oleh Frederiko.
 \begin{table}[htbp]
 \caption{Lingkup kasus uji komponen yang disusun}\label{tab:uji}
 \small
@@ -204,11 +204,11 @@ Hasil pekerjaan meliputi antarmuka dasbor berbasis layanan simulasi, fitur penge
 Hasil-hasil tersebut merupakan bagian dari sistem yang dikembangkan bersama tim. Dasbor awal masih menggunakan data simulasi, sedangkan rancangan layar akhir belum dinyatakan sebagai antarmuka yang telah diimplementasikan. Penyelesaian keseluruhan sistem dan penerimaan pengguna berada di luar klaim capaian bagian pekerjaan ini.
 
 \subsection{Kegiatan Penjaminan Kualitas}
-Kegiatan penjaminan kualitas menghasilkan rangkaian pengujian terotomatisasi berbasis Cypress untuk memeriksa keandalan antarmuka dan layanan pada sistem pengelolaan alur kerja \citep{artefak-awal}. Pengujian menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) dengan memadukan skenario kebutuhan pengguna dan penelusuran kode sumber aplikasi guna memetakan rute layanan, struktur data, serta selektor elemen pengujian. Lingkup pemeriksaan mencakup pengujian ujung ke ujung (\textit{end-to-end}) pada dasbor pemantauan, modul proses bisnis, autentikasi, serta operasi pengelolaan data master seperti peran, pengguna, unit organisasi, dan konfigurasi sistem. Selain pengujian antarmuka dengan pola \textit{Page Object Model}, disusun pula pengujian API untuk memverifikasi fungsionalitas CRUD, integritas validasi masukan, batas latensi respons, dan penegakan otorisasi.
+Kegiatan penjaminan kualitas menghasilkan rangkaian pengujian terotomasi berbasis Cypress untuk memeriksa keandalan antarmuka dan layanan pada sistem pengelolaan alur kerja \citep{artefak-awal}. Pengujian menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) dengan memadukan skenario kebutuhan pengguna dan penelusuran kode sumber aplikasi guna memetakan rute layanan, struktur data, serta selektor elemen pengujian. Lingkup pemeriksaan mencakup pengujian ujung ke ujung (\textit{end-to-end}) pada dasbor pemantauan, modul proses bisnis, autentikasi, serta operasi pengelolaan data \textit{master} seperti peran, pengguna, unit organisasi, dan konfigurasi sistem. Selain pengujian antarmuka dengan pola \textit{Page Object Model}, disusun pula pengujian API untuk memverifikasi fungsionalitas CRUD, integritas validasi masukan, batas latensi respons, dan penegakan otorisasi.
 
 Pelaksanaan pengujian mengidentifikasi sejumlah ketidaksesuaian implementasi dan celah teknis. Pada lapisan layanan, pemeriksaan keamanan menemukan bahwa rute pengelolaan peran belum menerapkan kendali akses berbasis peran (\textit{role-based access control}), sehingga pengguna berhak rendah secara teknis dapat memanggil aksi manipulasi data apabila memotong antarmuka. Pada lapisan antarmuka, ditemukan ketidakkonsistenan penamaan atribut selektor pengujian dinamis pada komponen penyaring tabel bersama, ketiadaan penanda pengujian pada sel aksi tabel peran, serta keterbatasan komponen menu konteks yang hanya merespons aksi klik langsung. Pengujian juga mengenali perbedaan perilaku validasi HTML5 pada komponen masukan kata sandi komposit dibandingkan dengan elemen masukan teks biasa.
 
-Hasil pengujian dieksekusi secara berkala menggunakan mode baris perintah dan dirangkum melalui laporan HTML berbasis Mochawesome, lengkap dengan rekaman video serta tangkapan layar saat terjadi kegagalan. Seluruh temuan dicatat dan dikomunikasikan kepada mahasiswa pengembang serta pembimbing teknis sebagai bahan perbaikan berkelanjutan. Sebagaimana hasil pengembangan, pengujian yang disusun berfokus pada fitur dan komponen yang menjadi tanggung jawab mahasiswa selama periode kerja praktik. Kesiapan operasional penuh dan pengujian penerimaan pengguna akhir secara menyeluruh berada di luar cakupan pekerjaan ini.
+Pengujian dieksekusi secara berkala menggunakan mode baris perintah dan hasilnya dirangkum melalui laporan HTML berbasis Mochawesome, lengkap dengan rekaman video serta tangkapan layar saat terjadi kegagalan. Seluruh temuan dicatat dan dikomunikasikan kepada mahasiswa pengembang serta pembimbing teknis sebagai bahan perbaikan berkelanjutan. Sebagaimana hasil pengembangan, pengujian yang disusun berfokus pada fitur dan komponen yang menjadi tanggung jawab mahasiswa selama periode kerja praktik. Kesiapan operasional penuh dan pengujian penerimaan pengguna akhir secara menyeluruh berada di luar cakupan pekerjaan ini.
 
 \section{Kendala dan Penyelesaiannya}
 Kendala pertama adalah penyelarasan bentuk data antara antarmuka dan layanan. Perubahan nama atribut dan struktur respons memengaruhi formulir, tabel, serta penyajian riwayat. Penanganannya dilakukan dengan menyesuaikan pemetaan data pada bagian terkait dan menyeragamkan penamaan agar perubahan tidak berhenti pada satu lapisan saja.
