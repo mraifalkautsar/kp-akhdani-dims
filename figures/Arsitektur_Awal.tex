@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+  font=\small,>=Stealth,
+  box/.style={draw,align=center,minimum height=1.05cm},
+  data/.style={box,text width=3.6cm}]
+\node[box,text width=11.6cm] (web) at (0,0)
+  {Antarmuka web: Vue dan TypeScript\\\footnotesize Halaman, komponen, pengelolaan keadaan, dan formulir};
+\node[box,text width=11.6cm] (api) at (0,-1.9)
+  {Layanan aplikasi: Node.js dan Express\\\footnotesize Rute API, pengendali, logika layanan, dan repositori};
+\draw[<->] (web) -- node[right,font=\footnotesize]{HTTP / API} (api);
+\node[data] (pg) at (-4.15,-4.1)
+  {PostgreSQL\\\footnotesize Proses, peran, transaksi, dan riwayat\\Prisma};
+\node[data] (mongo) at (0,-4.1)
+  {MongoDB\\\footnotesize Skema formulir dan nilai isian\\Mongoose};
+\node[data] (objects) at (4.15,-4.1)
+  {Penyimpanan objek\\\footnotesize Berkas dan lampiran\\Antarmuka kompatibel S3};
+\draw (api.south) -- (0,-2.8);
+\draw (-4.15,-2.8) -- (4.15,-2.8);
+\foreach \name in {pg,mongo,objects}
+  \draw[<->] (\name.north) -- (\name.north |- 0,-2.8);
+\end{tikzpicture}

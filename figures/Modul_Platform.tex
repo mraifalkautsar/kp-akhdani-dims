@@ -1,0 +1,24 @@
+\begin{tikzpicture}[
+  font=\small,>=Stealth,
+  box/.style={draw,align=center,minimum height=1.05cm},
+  flow/.style={->}]
+\node[box,text width=11.6cm] (process) at (0,0)
+  {Repositori proses bisnis\\\footnotesize Definisi proses, tahapan, konteks organisasi, dan versi};
+\node[box,text width=5cm] (workflow) at (-3.3,-1.8)
+  {Mesin alur kerja\\\footnotesize Keadaan, transisi, penugasan, dan aturan proses};
+\node[box,text width=5cm] (forms) at (3.3,-1.8)
+  {Formulir dinamis\\\footnotesize Metadata masukan, validasi, dan pengisian};
+\draw[flow] (process.south) -- ++(0,-0.3) -| (workflow.north);
+\draw[flow] (process.south) -- ++(0,-0.3) -| (forms.north);
+\draw[dashed,<->] (workflow.east) -- node[above,font=\scriptsize]{Pemetaan} (forms.west);
+\node[box,text width=11.6cm,fill=shade] (runtime) at (0,-4)
+  {Pelaksanaan pekerjaan\\\footnotesize Pengguna mengisi data dan menjalankan tindakan sesuai tahap serta kewenangan};
+\draw[flow] (workflow.south) -- ++(0,-0.3) -| (runtime.north);
+\draw[flow] (forms.south) -- ++(0,-0.3) -| (runtime.north);
+\node[box,text width=11.6cm] (monitor) at (0,-5.75)
+  {Riwayat dan pemantauan\\\footnotesize Aktivitas, perpindahan tahap, perkembangan pekerjaan, dan dasbor};
+\draw[flow] (runtime) -- (monitor);
+\node[box,text width=11.6cm] (shared) at (0,-7.45)
+  {Layanan bersama\\\footnotesize Identitas dan hak akses, pengelolaan berkas, notifikasi, serta data referensi};
+\draw[dashed,->] (shared.east) -- ++(0.55,0) |- (runtime.east);
+\end{tikzpicture}

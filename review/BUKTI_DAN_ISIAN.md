@@ -58,3 +58,34 @@ Pemeriksaan pelaksanaan pada 10 November 2026:
 - Validasi data menolak tanggal ganda, tanggal di luar periode, teks melampaui 1024 karakter, serta entri bertanda belum lengkap yang keliru dimasukkan sebagai entri final.
 - Pemindaian teks PDF tidak menemukan nama internal yang diperiksa atau kata berakhir tanda hubung akibat pemenggalan. Sampul, beberapa halaman bab, bagan organisasi, tabel logbook, dan pengesahan ToR diperiksa secara visual.
 - Workflow GitHub Actions disiapkan pada sumber; belum dijalankan di GitHub karena tidak ada push yang dilakukan.
+
+## Revisi gambaran organisasi dan platform — 11 November 2026
+
+### Organisasi dan penempatan
+
+- Klarifikasi penulis: EM mengelola engineer lintas proyek, termasuk pembahasan kinerja dan koordinasi kebutuhan personel dengan PM. EM tidak ditempatkan sebagai pengelola atau atasan struktural proyek pada bagan revisi.
+- `references/organisasi/COMPANY PROFILE ONBOARDING.pdf`, hlm. 5 dan 7: bidang layanan perusahaan; Dewan Direksi; EM Alpha, Bravo, Charlie; Supporting Group dengan administrasi keuangan dan Human Capital. Bagan digambar ulang untuk menunjukkan pengelolaan personel tanpa menyalin pengelompokan PM sebagai proyek di dalam kelompok EM.
+- `references/organisasi/CULTURE & CORE VALUE.pdf`, terutama hlm. 7–18: prinsip pengerjaan, pembelajaran, penyelesaian, dan nilai budaya kerja. Ringkasan dalam laporan tidak memuat aturan remunerasi atau rincian operasional internal.
+- `references/organisasi/Organogram.jpeg` berasal dari teman pada proyek berbeda, sesuai klarifikasi penulis. Sorotan EM Charlie dan posisi intern di gambar tersebut tidak dipakai untuk menyimpulkan penempatan Ra'if maupun Frederiko.
+- `references/project_related/[PLN DIMS] Gambar dan Diagram.pdf`, hlm. 10: Gita sebagai PM, Ervan sebagai Team Lead Dev, Usgan pada kelompok Senior Dev, Ra'if pada kelompok Junior Dev, dan Frederiko pada cabang QA. Diagram halaman lain memiliki susunan berbeda; halaman 10 dipakai karena secara eksplisit memuat kedua mahasiswa.
+- Sebutan Junior Dev dipakai sebagai kelompok penempatan pada sumber; jabatan kerja praktik Ra'if tetap Software Engineer Intern. Pendampingan Usgan kepada Ra'if mengikuti konfirmasi penulis, terpisah dari garis pengelompokan peran.
+- Kelompok EM Ra'if belum terkonfirmasi. Hubungan fungsional QA dengan EM juga tidak diasumsikan. Kedua hal ini tidak diisi menggunakan bagan proyek teman.
+
+### Platform dan teknologi
+
+| Acuan | Bagian yang digunakan | Batas penafsiran |
+| --- | --- | --- |
+| `references/project_related/[PLN DIMS] Technical Design.pdf`, 7 Juni 2026, terutama hlm. 1, 3–5 | Konsep platform proses bisnis berbasis metadata; repositori proses, mesin keadaan/alur kerja, formulir, pelaksanaan, dan pemantauan | Dokumen riset/rancangan, bukan bukti bahwa seluruh rekomendasi telah diimplementasikan. NestJS, Fastify, dan alternatif lain yang tercantum tidak diubah menjadi teknologi implementasi. |
+| `references/project_related/[PLN DIMS] Project Charter.md`, rancangan 19 Juni | Konteks tujuan dan cakupan proyek serta daftar fungsi tim | Nama klien, unit, proses spesifik, dan judul asli tidak ditampilkan dalam laporan. |
+| `references/project_related/[PLN DIMS] DPPL.md`, November 2026 | Pembanding untuk mengenali perubahan cakupan dan teknologi setelah KP | Fiber v3 dan keadaan November tidak menjadi acuan implementasi Agustus. Tidak dijadikan dasar klaim kesiapan seluruh modul. |
+| `old_repos/dims-fe`, `bc14ca7` | Vue, TypeScript, Vite, Pinia, FormKit, dan pengujian komponen | Dependensi antarmuka tidak dianggap sebagai bukti implementasi seluruh pembangkit formulir oleh mahasiswa. |
+| `old_repos/dims-be`, `7f6421c` | Express; rute proses, alur kerja, formulir, autentikasi, dan berkas; Prisma/PostgreSQL; model dan repositori MongoDB; klien penyimpanan S3 | Arsitektur logis aplikasi, tanpa menyalin topologi produksi, konfigurasi koneksi, atau kredensial. MinIO pada rancangan tidak dipastikan sebagai produk penyimpanan yang dideploy hanya dari keberadaan SDK S3. |
+| `new_repos/dims-core`, `6fa0e1c` | Go, Fiber v2, sqlx, PostgreSQL, dan Goose | Pemindahan pengelolaan peran dan data awal; tidak menyatakan seluruh platform sudah selesai dipindahkan. |
+| `new_repos/dims-auth`, `04c6166` | Go/Fiber v2, sqlx, serta penggunaan Redis untuk autentikasi dan sesi | Penggunaan Redis diperiksa pada bootstrap, middleware, dan layanan autentikasi/sesi; isi koneksi dan data internal tidak disalin. |
+| `new_repos/dims-web`, `9efdb26`, keadaan akhir Agustus | Vue, TypeScript, Vite, Pinia, dan FormKit | Menjelaskan teknologi repositori; tidak mengatribusikan implementasi antarmuka baru kepada Ra'if selama KP. |
+
+Semua repositori di tabel berada di bawah `references/`. Bibliografi laporan menggunakan deskripsi dokumen/artefak yang disamarkan dan tidak mencantumkan jalur repositori atau judul berafiliasi klien. Hubungan modul dan contoh alur adalah penjelasan konseptual yang digeneralisasi. Tabel kontribusi membedakan cakupan platform dari tugas mahasiswa.
+
+Perubahan terakhir penulis pada tanggal periode, judul metadata ToR, redaksi Bab II–III, dan kegiatan penutupan 31 Agustus di tabel jadwal dipertahankan. Data logbook tidak diubah dalam revisi ini; status isian 31 Agustus pada data logbook tetap mengikuti sumber data saat ini dan perlu diselaraskan tersendiri jika penulis menghendaki.
+
+Pemeriksaan revisi: `make check` lulus untuk laporan 51 halaman dan ToR 5 halaman. Referensi silang dan sitasi terselesaikan; pemindaian anonimisasi dan pemenggalan kata lulus. Bagan perusahaan, tim proyek, hubungan modul, arsitektur awal, serta tabel teknologi diperiksa secara visual. Tidak ada kotak teks melampaui batas pada log LaTeX. Tidak ada perubahan data logbook, keluaran CSV/Excel, atau pipeline.

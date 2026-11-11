@@ -1,27 +1,44 @@
 \chapter{Organisasi atau Lingkungan Kerja Praktik}
-Dalam pelaksanaan kerja praktik, mahasiswa menjadi bagian dari tim proyek PT Akhdani Reka Solusi. Bab ini menjelaskan peran yang berkaitan dengan pekerjaan mahasiswa, pembagian tanggung jawab, tahapan pekerjaan, dan jadwal pelaksanaannya.
+Dalam pelaksanaan kerja praktik, mahasiswa menjadi bagian dari tim proyek PT Akhdani Reka Solusi. Bab ini menjelaskan gambaran organisasi perusahaan, hubungan pengelolaan personel dengan pelaksanaan proyek, posisi mahasiswa, serta lingkup dan jadwal pekerjaannya.
 
-\section{Struktur dan Hubungan Kerja}
-Pembimbing perusahaan dalam kerja praktik ini adalah \NamaPembimbingPerusahaan{}, yang berperan sebagai \JabatanPembimbingPerusahaan. Pada pekerjaan teknis, mahasiswa didampingi oleh \NamaPembimbingTeknis{} dengan peran \JabatanPembimbingTeknis. Mahasiswa ditempatkan sebagai peserta magang pengembangan perangkat lunak dan penjaminan kualitas dalam tim proyek yang sama.
+\section{Profil dan Struktur Organisasi Perusahaan}\label{sec:struktur-perusahaan}
+PT Akhdani Reka Solusi bergerak dalam penyediaan layanan teknologi informasi. Bidang layanannya mencakup pengembangan dan pemeliharaan perangkat lunak, integrasi sistem dan intelijen bisnis, penyediaan tenaga teknologi informasi, serta solusi pengelolaan properti. Lingkup tersebut mempertemukan pekerjaan rekayasa perangkat lunak dengan kebutuhan operasional pelanggan, baik melalui pembangunan aplikasi maupun integrasi dengan sistem yang sudah tersedia \citep{ars-onboarding}.
 
-Gambar~\ref{fig:koordinasi} memperlihatkan hubungan koordinasi peran yang berkaitan dengan pelaksanaan kerja praktik. Posisi mahasiswa ditunjukkan dengan arsiran. Bagan tersebut dibatasi pada lingkungan tim proyek dan tidak mencakup seluruh struktur organisasi perusahaan.
+Pada tingkat perusahaan, Dewan Direksi terdiri atas fungsi \textit{President Director}, \textit{Director of Finance}, dan \textit{Director of Human Resources}. Bahan onboarding memperlihatkan tiga kelompok \textit{Engineering Manager} (EM)\label{istilah:em}, yaitu EM Alpha, EM Bravo, dan EM Charlie, serta Supporting Group. Supporting Group mencakup fungsi administrasi keuangan dan \textit{Human Capital}. Gambar~\ref{fig:struktur-perusahaan} menggambarkan susunan tersebut secara ringkas \citep[hlm.~7]{ars-onboarding}.
+
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small,box/.style={draw,align=center,text width=6.2cm,minimum height=1cm},>=Stealth]
-\node[box] (pm) {\NamaPembimbingPerusahaan\\\textit{Project Manager} / pembimbing perusahaan};
-\node[box,below=0.65cm of pm] (senior) {\NamaPembimbingTeknis\\\textit{Senior} / pembimbing teknis};
-\node[box,text width=5.5cm,fill=shade,below left=0.9cm and -2.8cm of senior] (se) {\NamaRaif\\\textit{Software Engineer Intern}};
-\node[box,text width=5.5cm,fill=shade,below right=0.9cm and -2.8cm of senior] (qa) {\NamaFrederiko\\\textit{Quality Assurance Intern}};
-\draw (pm) -- (senior);
-\draw (senior.south) -- ++(0,-0.4) -| (se.north);
-\draw (senior.south) -- ++(0,-0.4) -| (qa.north);
-\end{tikzpicture}
-\caption{Hubungan koordinasi dalam tim tempat kerja praktik}
+\input{figures/Struktur_Perusahaan}
+\caption{Gambaran struktur perusahaan dan kelompok pengelolaan personel, disarikan dari materi onboarding}
+\label{fig:struktur-perusahaan}
+\end{figure}
+
+Pengelolaan engineer oleh EM berlangsung lintas proyek. EM menjadi pihak yang diajak berkoordinasi mengenai ketersediaan engineer dan kebutuhan penempatan personel. Ketika muncul persoalan kinerja engineer, pembahasannya juga dapat melibatkan EM. Sementara itu, \textit{Project Manager} (PM)\label{istilah:pm} mengoordinasikan pelaksanaan pekerjaan pada proyek, termasuk kebutuhan personel, pembagian pekerjaan, dan perkembangan pelaksanaan. Dengan demikian, hubungan PM dengan EM merupakan koordinasi pengelolaan sumber daya manusia dan kebutuhan proyek. Perbedaan fungsi ini membantu menjelaskan bahwa seorang engineer mempunyai konteks pengelolaan personel di perusahaan sekaligus penugasan pada tim proyek.
+
+Budaya kerja perusahaan menekankan pengerjaan yang sesuai kebutuhan, pembelajaran berkelanjutan, dan penyelesaian pekerjaan dengan komunikasi yang jelas. Prinsip tersebut didukung nilai dedikasi, disiplin, akuntabilitas, sikap melayani, dan komunikasi \citep{ars-culture}. Dalam lingkungan kerja praktik, pemahaman budaya ini berkaitan dengan tanggung jawab menyampaikan perkembangan, menjelaskan kendala, serta mempelajari teknologi yang diperlukan untuk menyelesaikan penugasan.
+
+\section{Tim Proyek dan Posisi Mahasiswa}\label{sec:tim-proyek}
+Mahasiswa melaksanakan kerja praktik pada tim pengembangan sistem pengelolaan alur kerja. Struktur tim proyek memperlihatkan PM yang didukung fungsi analisis bisnis, analisis sistem, koordinasi proyek, pengembangan, DevOps, penjaminan kualitas, dan dokumentasi. Fungsi-fungsi tersebut menghubungkan kebutuhan, rancangan, implementasi, serta pemeriksaan hasil pekerjaan \citep[hlm.~10]{struktur-tim}.
+
+Gita Marshelina berperan sebagai PM dan pembimbing perusahaan. Kelompok pengembang dipimpin oleh Ervan Julianus sebagai \textit{Team Lead Dev}. Pada bagan proyek, Muhammad Usgan berada dalam kelompok \textit{Senior Dev}, sedangkan Muhammad Ra'if Alkautsar berada dalam kelompok \textit{Junior Dev}. Sebutan kelompok tersebut menjelaskan penempatan dalam tim; peran kerja praktik Ra'if adalah \textit{Software Engineer Intern}. Dalam pekerjaan teknis, Ra'if didampingi oleh Muhammad Usgan.
+
+Frederiko Eldad Mugiyono berada pada cabang \textit{Quality Assurance} (QA)\label{istilah:qa} dengan peran \textit{Quality Assurance Intern}. Penempatan ini memperlihatkan fungsi pemeriksaan kualitas yang berkoordinasi dengan pengembangan dalam proyek yang sama. Gambar~\ref{fig:koordinasi} menunjukkan posisi kedua mahasiswa dengan arsiran. Garis putus-putus menunjukkan koordinasi personel atau pendampingan teknis, sedangkan garis penuh menunjukkan pengelompokan peran dalam perusahaan atau tim proyek.
+
+\begin{figure}[htbp]
+\centering
+\input{figures/Tim_Proyek}
+\caption{Posisi mahasiswa dalam tim proyek dan hubungan koordinasi personel; bagian bertanda arsiran menunjukkan penempatan mahasiswa}
 \label{fig:koordinasi}
 \end{figure}
 
-\section{Lingkup Pekerjaan}\label{sec:unit}
-Tim tempat mahasiswa melaksanakan kerja praktik mengembangkan sistem pengelolaan alur kerja berbasis web. Pekerjaan dibagi menjadi tugas atau tiket yang berkaitan dengan fitur sistem. Penugasan dan komunikasi pekerjaan dilakukan melalui WhatsApp atau Microsoft 365, sedangkan perkembangan pekerjaan dibahas dalam rapat mingguan.
+Kelompok EM yang menaungi Ra'if belum terkonfirmasi sehingga penempatannya tidak dihubungkan dengan EM Alpha, Bravo, atau Charlie tertentu. Kedudukan Frederiko dijelaskan berdasarkan cabang QA pada struktur tim proyek; hubungan pengelolaan personelnya dengan EM tidak diasumsikan.
+
+\section{Gambaran Proyek dan Lingkup Pekerjaan}\label{sec:unit}
+Proyek yang dikerjakan tim bertujuan membangun platform untuk mendefinisikan, menjalankan, dan memantau proses bisnis melalui konfigurasi. Sebuah proses mempunyai tahapan, pelaksana, aturan perpindahan, serta data yang harus diisi. Platform menghubungkan definisi tersebut dengan formulir dinamis dan pelaksanaan pekerjaan sehingga proses yang mempunyai kebutuhan berbeda dapat menggunakan fondasi aplikasi yang sama \citep{rancangan-awal}.
+
+Secara umum, repositori proses bisnis menyimpan definisi dan versi proses. Mesin alur kerja menggunakan definisi tersebut untuk mengatur keadaan serta perpindahan tahap pada suatu pekerjaan. Formulir dinamis menyediakan masukan yang berkaitan dengan tahapan, sedangkan riwayat dan dasbor membantu pengguna menelusuri pelaksanaan serta memantau perkembangannya. Pengelolaan identitas, hak akses, berkas, notifikasi, dan data referensi menyediakan layanan pendukung bagi bagian-bagian tersebut. Hubungan antarmodul dan teknologi pengembangannya dijelaskan lebih lanjut pada Bab III.
+
+Dalam lingkungan proyek, pekerjaan dibagi menjadi tugas atau tiket yang berkaitan dengan fitur sistem. Penugasan dan komunikasi pekerjaan dilakukan melalui WhatsApp atau Microsoft 365, sedangkan perkembangan pekerjaan dibahas dalam rapat mingguan. Mahasiswa bergabung dalam pengembangan yang sudah berlangsung dan mengerjakan bagian yang ditugaskan, dengan menggunakan struktur kode serta komponen yang telah tersedia.
 
 Tabel~\ref{tab:pembagian} menunjukkan pembagian tanggung jawab kedua mahasiswa. Mahasiswa pengembang menangani perubahan antarmuka dan layanan aplikasi, sedangkan mahasiswa \textit{quality assurance} (QA) ditempatkan pada fungsi penjaminan kualitas. Rincian pekerjaan QA perlu dilengkapi oleh mahasiswa yang bersangkutan agar pembagian tugas dapat menggambarkan kontribusi masing-masing.
 \begin{table}[htbp]
@@ -34,14 +51,14 @@ Tabel~\ref{tab:pembagian} menunjukkan pembagian tanggung jawab kedua mahasiswa. 
 \end{tabularx}
 \end{table}
 
-Mahasiswa tidak mengembangkan keseluruhan sistem dari awal. Sejumlah komponen, aturan penamaan, dan struktur data telah tersedia ketika pekerjaan dimulai. Oleh karena itu, pengembangan fitur juga mencakup penyesuaian terhadap kode yang sudah ada dan integrasi dengan pekerjaan anggota tim lainnya.
+Lingkup platform lebih luas daripada kontribusi individu mahasiswa. Pengembangan repositori proses bisnis, mesin alur kerja, dan formulir dinamis menjadi pekerjaan tim secara keseluruhan. Kontribusi mahasiswa dijelaskan melalui bagian yang dikerjakan serta hubungannya dengan platform, sehingga penambahan fitur peran, riwayat, atau dasbor tidak diartikan sebagai pembangunan seluruh sistem oleh mahasiswa.
 
 \section{Deskripsi Pekerjaan}
 \subsection{Pemahaman Kebutuhan dan Kode Aplikasi}
-Tahap awal dilakukan dengan mengikuti penjelasan proyek, mempelajari alur kerja sistem, dan menelaah struktur kode antarmuka serta layanan aplikasi. Pada tahap ini, mahasiswa juga mempelajari Vue, pengelolaan keadaan aplikasi, dan teknologi penyimpanan data yang digunakan dalam repositori.
+Tahap awal dilakukan dengan mengikuti penjelasan proyek, mempelajari alur kerja sistem, dan menelaah struktur kode antarmuka serta layanan aplikasi. Pada tahap ini, mahasiswa juga mempelajari teknologi yang digunakan dalam proyek (seperti Vue), pengelolaan keadaan aplikasi, dan teknologi penyimpanan data yang digunakan dalam repositori.
 
 \subsection{Pengembangan Antarmuka dan Integrasi Data}
-Pekerjaan antarmuka dimulai dari pembuatan halaman dasbor dan komponen penyajian informasi. Data simulasi digunakan untuk mengembangkan tampilan sebelum seluruh layanan tersedia. Pekerjaan dilanjutkan dengan halaman daftar, pembuatan, detail, dan penyuntingan peran, serta penyajian riwayat alur kerja. Integrasi dilakukan dengan menyesuaikan permintaan dan respons API yang digunakan setiap halaman.
+Pekerjaan antarmuka dimulai dari pembuatan halaman dasbor dan komponen penyajian informasi. Data simulasi digunakan untuk mengembangkan tampilan sebelum seluruh layanan tersedia. Pekerjaan dilanjutkan dengan halaman daftar, pembuatan, detail, dan penyuntingan peran, serta penyajian riwayat alur kerja. Integrasi dilakukan dengan menyesuaikan permintaan dan respons API\label{istilah:api} yang digunakan setiap halaman.
 
 \subsection{Pengembangan Layanan dan Akses Data}
 Pada layanan aplikasi, pekerjaan mencakup penanganan permintaan pengelolaan peran, penyediaan data pengguna, pengaturan hak akses, dan pengambilan riwayat proses. Pengembangan juga melibatkan penyesuaian data awal, penamaan atribut, dan pesan kesalahan agar perilaku antarmuka sesuai dengan hasil pemrosesan layanan.
@@ -64,9 +81,9 @@ Pelaksanaan kerja praktik berlangsung pada \PeriodeKP. Mahasiswa bekerja secara 
 20--31 Juli & Pengembangan riwayat alur kerja, perbaikan navigasi dan panduan pengguna, serta pengujian komponen.\\
 3--14 Agustus & Pembelajaran Go dan kerangka kerja web, penyiapan proyek, serta analisis pemindahan fitur.\\
 18--28 Agustus & Adaptasi pengelolaan peran, penyesuaian autentikasi, penyiapan lingkungan lokal, dan rancangan layar.\\
-31 Agustus & \Isian{aktivitas hari terakhir}.\\
+31 Agustus & Penutupan periode kerja praktik dengan pemaparan dari President Director.\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Di luar pekerjaan teknis, mahasiswa mengikuti kegiatan internal perusahaan dalam rangka peringatan kemerdekaan pada 18 Agustus. Catatan harian pekerjaan Ra'if disajikan pada Lampiran~\ref{app:logbook}. \IsianFrederiko{lengkapi jadwal QA dan logbook pribadi pada Lampiran C}.
+Di luar pekerjaan teknis, mahasiswa mengikuti kegiatan internal perusahaan dalam rangka peringatan kemerdekaan pada 18 Agustus. Catatan harian pekerjaan Muhammad Ra'if Alkautsar disajikan pada Lampiran~\ref{app:logbook}. \IsianFrederiko{lengkapi jadwal QA dan logbook pribadi pada Lampiran C}.

@@ -1,5 +1,59 @@
 \chapter{Pengembangan Sistem Pengelolaan Alur Kerja}
-Bab ini membahas pekerjaan pengembangan yang dilakukan selama kerja praktik, mulai dari kebutuhan fitur, rancangan antarmuka dan layanan, proses implementasi, hingga pengujian serta kendala yang dihadapi. Pembahasan difokuskan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja. Bagian akhir menjelaskan penyesuaian pekerjaan setelah pergantian teknologi layanan aplikasi.
+Bab ini menjelaskan gambaran platform proses bisnis yang dikembangkan, hubungan antarmodul, serta arsitektur dan teknologi yang digunakan selama kerja praktik. Pembahasan kemudian menguraikan kontribusi pengembangan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja, diikuti pengujian, hasil, dan kendala pelaksanaannya.
+
+\section{Gambaran Umum Platform}\label{sec:gambaran-platform}
+\subsection{Tujuan dan Konsep Pengembangan}
+Sistem yang dikembangkan merupakan platform pengelolaan proses bisnis berbasis konfigurasi. Kebutuhan yang dituju adalah menghubungkan definisi proses, data yang diperlukan, pihak yang mengerjakan, dan perkembangan pelaksanaannya. Sebagai contoh, suatu pekerjaan dapat dimulai dari pengisian data, dilanjutkan dengan pemeriksaan dan persetujuan, kemudian diselesaikan oleh pihak yang ditugaskan. Setiap proses dapat mempunyai tahapan serta kebutuhan masukan yang berbeda.
+
+Pendekatan berbasis konfigurasi menempatkan definisi proses dan formulir sebagai bagian yang dapat dikelola melalui aplikasi. Repositori proses bisnis menjadi sumber definisi tahapan, mesin alur kerja mengatur pelaksanaan serta perpindahannya, dan formulir dinamis menyediakan masukan sesuai konteks proses. Rancangan awal memusatkan pelaksanaan pada pengelolaan keadaan dan transisi yang dihubungkan dengan metadata proses serta formulir \citep{rancangan-awal}.
+
+Dalam pembahasan ini, definisi proses dibedakan dari pekerjaan yang menjalankannya. Definisi menjelaskan susunan dan aturan proses, sedangkan satu pekerjaan merupakan pelaksanaan konkret dengan data, keadaan, serta riwayatnya sendiri. Pemisahan tersebut membantu menjelaskan mengapa sistem membutuhkan pengaturan proses sekaligus daftar pekerjaan dan fasilitas pemantauan.
+
+\subsection{Hubungan Antarmodul}
+Gambar~\ref{fig:modul-platform} memperlihatkan hubungan fungsi utama platform. Repositori proses bisnis menyediakan definisi dan versi yang digunakan sebagai acuan pelaksanaan. Mesin alur kerja mengatur keadaan, transisi, dan penugasan, sedangkan formulir dinamis menghubungkan kebutuhan data dengan tahapan pekerjaan. Riwayat dan dasbor menyajikan informasi yang dihasilkan dari pelaksanaan proses.
+
+\begin{figure}[htbp]
+\centering
+\input{figures/Modul_Platform}
+\caption{Hubungan fungsi utama dalam rancangan platform proses bisnis}
+\label{fig:modul-platform}
+\end{figure}
+
+Layanan identitas dan hak akses menentukan pengguna yang dapat mengakses fungsi tertentu serta tindakan yang tersedia baginya. Pengelolaan berkas menyediakan lampiran dan dokumen pendukung. Notifikasi membantu menyampaikan informasi aktivitas atau perubahan, sedangkan data referensi menyediakan nilai yang digunakan bersama. Bagian-bagian tersebut menjadi layanan lintas modul sehingga fitur baru perlu mengikuti mekanisme yang telah disediakan aplikasi.
+
+Pada implementasi tahap awal, hubungan antarmodul terlihat melalui rute layanan proses bisnis, alur kerja, formulir, autentikasi, dan pengelolaan berkas. Repositori data relasional mendukung proses serta riwayat, sedangkan model dokumen digunakan untuk skema formulir dan nilai isian \citep{artefak-awal}. Dengan demikian, pembahasan platform mencakup hubungan antara konfigurasi, pelaksanaan, dan data yang dihasilkan, di samping antarmuka yang digunakan untuk mengaksesnya.
+
+\subsection{Contoh Alur Penggunaan}
+Sebagai ilustrasi yang telah digeneralisasi, pelaksanaan suatu proses dapat dijelaskan melalui urutan berikut:
+\begin{enumerate}[label=\arabic*)]
+\item Pengelola menyiapkan definisi proses, tahapan, peran pelaksana, serta kebutuhan formulir. Konfigurasi yang dipublikasikan menjadi acuan pelaksanaan.
+\item Pengguna membuat pekerjaan berdasarkan proses yang tersedia dan mengisi data yang diperlukan pada tahap awal.
+\item Pekerjaan diproses oleh pihak yang mempunyai kewenangan. Tindakan yang tersedia mengikuti konfigurasi tahap, misalnya mengirim, menyetujui, menolak, atau mengembalikan pekerjaan.
+\item Perubahan keadaan dicatat bersama konteks aktivitas dan pelaksananya. Data tersebut dapat digunakan untuk menelusuri jalannya pekerjaan.
+\item Pengguna memantau keadaan pekerjaan melalui daftar, riwayat, dan dasbor. Penyajian informasi disesuaikan dengan fungsi serta hak akses pengguna.
+\end{enumerate}
+Urutan tersebut menggambarkan keterkaitan modul dalam rancangan platform. Rincian tindakan setiap proses tetap bergantung pada konfigurasi yang disediakan.
+
+\subsection{Cakupan Platform dan Kontribusi Mahasiswa}
+Tabel~\ref{tab:platform-kontribusi} menghubungkan bagian platform dengan pekerjaan pengembangan Ra'if. Tabel ini melengkapi pembagian tugas pada Bab II dengan memperlihatkan letak kontribusi individu terhadap sistem yang lebih luas.
+
+\begingroup\small\singlespacing\setlength{\tabcolsep}{5pt}
+\begin{longtable}{@{}P{2.6cm}P{4.7cm}P{5.9cm}@{}}
+\caption{Cakupan platform dan hubungan dengan pekerjaan pengembangan mahasiswa}\label{tab:platform-kontribusi}\\
+\toprule\textbf{Bagian platform} & \textbf{Fungsi dalam sistem} & \textbf{Keterkaitan dengan pekerjaan Ra'if}\\\midrule\endfirsthead
+\multicolumn{3}{l}{\textit{Cakupan platform dan kontribusi (lanjutan)}}\\\toprule
+\textbf{Bagian platform} & \textbf{Fungsi dalam sistem} & \textbf{Keterkaitan dengan pekerjaan Ra'if}\\\midrule\endhead
+\bottomrule\endfoot
+Repositori proses bisnis & Menyimpan definisi, tahapan, hubungan, dan versi proses. & Mempelajari struktur proses serta mengintegrasikan penyajian riwayat pada konteks pekerjaan yang dipilih.\\[5pt]
+Mesin alur kerja & Mengatur keadaan, perpindahan tahap, dan penugasan pada pelaksanaan pekerjaan. & Mengembangkan pengambilan dan tampilan riwayat, termasuk pelaksana, komentar, dan transisi.\\[5pt]
+Formulir dinamis & Mengelola skema masukan, validasi, dan nilai isian sesuai kebutuhan proses. & Memahami hubungannya dengan proses. Pengembangan mesin formulir menjadi bagian pekerjaan tim secara keseluruhan.\\[5pt]
+Identitas dan hak akses & Mengelola autentikasi, peran, hubungan pengguna, dan kewenangan. & Mengembangkan pengelolaan peran dan hak akses serta mengadaptasi pengambilan peran pada layanan baru.\\[5pt]
+Dasbor dan pemantauan & Menyajikan ringkasan serta perkembangan pekerjaan. & Mengembangkan halaman dengan layanan simulasi dan menyusun rancangan layar dasbor serta komponen visual lanjutan.\\[5pt]
+Berkas dan fitur pendukung & Menyediakan lampiran, panduan, notifikasi, dan fasilitas umum aplikasi. & Memperbaiki akses panduan pengguna, navigasi, konfirmasi keluar, dan sejumlah komponen pendukung.\\[5pt]
+\end{longtable}
+\endgroup
+
+Frederiko berada pada fungsi QA dalam tim proyek yang sama. Hubungan rinci antara pemeriksaan QA, modul yang diuji, dan hasilnya dilengkapi pada bagian kegiatan penjaminan kualitas. Pengujian komponen yang ditulis Ra'if tetap dicatat sebagai bagian pekerjaan pengembang.
 
 \section{Analisis Permasalahan dan Kebutuhan}
 \subsection{Deskripsi Permasalahan}
@@ -7,10 +61,10 @@ Sistem pengelolaan alur kerja perlu menyajikan informasi yang berbeda sesuai fun
 
 Pada tahap awal, pekerjaan dasbor memerlukan komponen visual yang dapat menggunakan data dari layanan tanpa menempatkan seluruh data langsung di dalam komponen. Fitur pengelolaan peran membutuhkan hubungan yang konsisten antara informasi peran, pengguna, dan hak aksesnya. Sementara itu, riwayat proses perlu menjelaskan urutan kejadian beserta pelaksana dan perpindahan tahapnya agar pengguna dapat memahami perkembangan pekerjaan.
 
-Persoalan pengembangan tidak hanya berada pada penambahan halaman. Terdapat pula kebutuhan untuk menyeragamkan nama atribut, menyesuaikan struktur respons, mengelola perubahan keadaan halaman, serta menampilkan pesan ketika permintaan tidak berhasil. Hal-hal tersebut menjadi bagian pekerjaan integrasi dan perbaikan sepanjang pelaksanaan kerja praktik.
+Persoalan pengembangan tidak hanya berada pada penambahan halaman atau fitur. Terdapat pula kebutuhan untuk menyeragamkan nama atribut, menyesuaikan struktur respons, mengelola perubahan keadaan halaman, serta menampilkan pesan ketika permintaan tidak berhasil. Hal-hal tersebut menjadi bagian pekerjaan integrasi dan perbaikan sepanjang pelaksanaan kerja praktik.
 
 \subsection{Kebutuhan Fungsional}
-Kebutuhan pada Tabel~\ref{tab:kebutuhan} merangkum fungsi yang berkaitan dengan penugasan pengembangan. Pengelompokan ini digunakan untuk menjelaskan hubungan antara kebutuhan dan implementasinya tanpa mencantumkan istilah bisnis internal.
+Kebutuhan pada Tabel~\ref{tab:kebutuhan} merangkum fungsi yang berkaitan dengan penugasan pengembangan mahasiswa dalam cakupan platform pada Tabel~\ref{tab:platform-kontribusi}. Pengelompokan ini digunakan untuk menjelaskan hubungan antara kebutuhan dan implementasinya tanpa mencantumkan istilah bisnis internal.
 \begin{table}[htbp]
 \caption{Kebutuhan fungsional dalam lingkup pengembangan}\label{tab:kebutuhan}
 \small
@@ -28,25 +82,48 @@ F-05 & Navigasi pendukung & Menyesuaikan tautan kembali, penunjuk lokasi halaman
 Selain fungsi tersebut, pengembangan memperhatikan kemudahan pemeliharaan dan konsistensi penggunaan. Pemakaian kembali komponen formulir dan tabel membantu mengurangi perbedaan perilaku antarlayar. Penanganan keadaan memuat, data kosong, dan kesalahan membantu pengguna membedakan proses yang masih berjalan dari permintaan yang gagal.
 
 \section{Perancangan Sistem dan Fitur}
-\subsection{Gambaran Umum dan Lingkungan Teknologi}\label{sec:lingkungan}
-Sistem terdiri atas antarmuka web yang berkomunikasi dengan layanan aplikasi melalui API (\textit{application programming interface}). Layanan memproses permintaan dan menggunakan lapisan akses data untuk membaca atau memperbarui informasi. Pembagian ini memungkinkan perubahan tampilan dan pemrosesan data dilakukan pada bagian yang sesuai.
+\subsection{Arsitektur dan Teknologi Tahap Awal}\label{sec:lingkungan}
+Pada tahap Juni--Juli, antarmuka web dikembangkan dengan Vue dan TypeScript. Vue menyediakan model antarmuka berbasis komponen dan keadaan reaktif \citep{vue}. Vite digunakan dalam lingkungan pengembangan dan pembangunan antarmuka, Pinia mendukung pengelolaan keadaan bersama, sedangkan FormKit tersedia sebagai bagian ekosistem formulir. Halaman dan komponen berkomunikasi dengan layanan melalui API (\textit{application programming interface}).
 
-Pada tahap awal, antarmuka menggunakan Vue dan TypeScript. Vue mendukung pembangunan antarmuka secara deklaratif melalui komponen dan keadaan reaktif \citep{vue}. Layanan aplikasi menggunakan Node.js dan Express untuk penanganan rute serta \textit{middleware} \citep{express}. Akses data relasional terkait peran menggunakan Prisma dan PostgreSQL. Repositori juga memiliki komponen penyimpanan berbasis MongoDB yang dipelajari saat orientasi.
+Layanan awal menggunakan Node.js dan Express. Express menyediakan penanganan rute serta \textit{middleware} \citep{express}. Kode aplikasi memisahkan penerimaan permintaan, logika layanan, dan akses data melalui pengendali, layanan, serta repositori. Modul proses bisnis, alur kerja, formulir, dan fungsi pendukung menggunakan struktur tersebut untuk menghubungkan tindakan pengguna dengan data aplikasi \citep{artefak-awal}.
 
-Setelah perubahan teknologi, layanan baru menggunakan Go dengan Fiber v2 dan \texttt{sqlx}. Pustaka \texttt{sqlx} menyediakan perluasan fasilitas akses data SQL di Go \citep{sqlx}. Gin, GORM, dan konsep konkurensi dipelajari selama masa adaptasi, sedangkan implementasi pemindahan fitur yang dibahas menggunakan struktur layanan dan pustaka akses data yang tersedia pada proyek baru.
+Penyimpanan data pada tahap ini mempunyai beberapa tanggung jawab. PostgreSQL digunakan untuk data relasional terkait proses, peran, transaksi pekerjaan, dan riwayat, dengan Prisma sebagai sarana aksesnya. MongoDB digunakan melalui Mongoose untuk skema formulir dan nilai isian yang berbentuk dokumen. Layanan berkas menggunakan antarmuka penyimpanan objek kompatibel S3 untuk mengakses berkas serta lampiran. Pembagian tersebut menjelaskan hubungan antara data terstruktur, data formulir, dan objek berkas dalam aplikasi.
 
-Gambar~\ref{fig:arsitektur} memperlihatkan pembagian tanggung jawab komponen secara konseptual. Diagram tersebut menyederhanakan hubungan antarkomponen untuk menjelaskan bagian yang dikerjakan selama kerja praktik.
+Gambar~\ref{fig:arsitektur} memperlihatkan gambaran logis tahap awal yang disarikan dari struktur kode. Diagram menunjukkan peran komponen dan hubungan pertukaran data, tanpa merinci topologi jaringan atau penempatan layanan produksi.
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small,box/.style={draw,align=center,text width=3.3cm,minimum height=1.2cm},>=Stealth]
-\node[box] (ui) {Antarmuka web\\Komponen dan halaman};
-\node[box,right=0.8cm of ui] (api) {Layanan aplikasi\\Permintaan dan logika};
-\node[box,right=0.8cm of api] (db) {Akses data\\Penyimpanan};
-\draw[<->] (ui) -- node[above]{API} (api);
-\draw[<->] (api) -- (db);
-\end{tikzpicture}
-\caption{Pembagian tanggung jawab komponen aplikasi secara konseptual}\label{fig:arsitektur}
+\input{figures/Arsitektur_Awal}
+\caption{Arsitektur logis aplikasi pada tahap Juni--Juli 2026}
+\label{fig:arsitektur}
 \end{figure}
+
+\subsection{Penyesuaian Arsitektur dan Teknologi pada Agustus}
+Perubahan kebutuhan setelah Juli diikuti penggunaan basis kode layanan yang berbeda. Pada akhir Agustus, repositori layanan inti dan layanan identitas mempunyai kode serta dependensi Go tersendiri. Fitur yang dipindahkan perlu mengikuti struktur permintaan, layanan, repositori, dan skema data pada lingkungan tersebut \citep{artefak-agustus}.
+
+Implementasi layanan yang diperiksa pada periode ini menggunakan Fiber v2 dan PostgreSQL dengan pustaka \texttt{sqlx}. Pustaka \texttt{sqlx} menyediakan perluasan fasilitas akses data SQL di Go \citep{sqlx}. Goose digunakan pada pengelolaan migrasi dan data awal. Pada layanan identitas, Redis berkaitan dengan penyimpanan data autentikasi serta sesi. Antarmuka tetap menggunakan Vue dan TypeScript sehingga perubahan utama yang berkaitan dengan pemindahan fitur berada pada layanan dan akses datanya.
+
+Tabel~\ref{tab:perbandingan-teknologi} merangkum teknologi serta perannya pada kedua tahap. Rincian tahap awal didasarkan pada kode Juni--Juli, sedangkan tahap penyesuaian mengacu pada keadaan repositori selama Agustus. Rancangan platform yang lebih luas dan kelanjutan pengembangan tidak digunakan untuk menyatakan bahwa seluruh komponen telah selesai dipindahkan selama KP.
+
+\begingroup\small\singlespacing\setlength{\tabcolsep}{5pt}
+\begin{longtable}{@{}P{2.1cm}P{5.55cm}P{5.55cm}@{}}
+\caption{Perbandingan lingkungan teknologi selama kerja praktik}\label{tab:perbandingan-teknologi}\\
+\toprule\textbf{Bagian} & \textbf{Juni--Juli} & \textbf{Penyesuaian Agustus}\\\midrule\endfirsthead
+\multicolumn{3}{l}{\textit{Perbandingan lingkungan teknologi (lanjutan)}}\\\toprule
+\textbf{Bagian} & \textbf{Juni--Juli} & \textbf{Penyesuaian Agustus}\\\midrule\endhead
+\bottomrule\endfoot
+Antarmuka & Vue, TypeScript, Vite, dan Pinia untuk halaman, komponen, pembangunan aplikasi, dan keadaan bersama. & Tetap menggunakan Vue, TypeScript, Vite, dan Pinia pada repositori antarmuka baru.\\[5pt]
+Formulir & FormKit pada antarmuka; skema dan nilai isian dokumen dikelola oleh layanan formulir. & Dependensi FormKit tersedia pada antarmuka baru. Penyelesaian pemindahan layanan formulir tidak menjadi capaian yang diklaim pada pekerjaan ini.\\[5pt]
+Layanan & Node.js dan Express, dengan pemisahan rute, pengendali, layanan, dan repositori. & Go dan Fiber v2 pada layanan inti serta layanan identitas; fitur diadaptasi mengikuti struktur yang tersedia.\\[5pt]
+Data relasional & PostgreSQL dengan Prisma untuk akses data proses, peran, dan transaksi terkait. & PostgreSQL dengan \texttt{sqlx}; Goose untuk pengelolaan migrasi dan data awal.\\[5pt]
+Data dokumen & MongoDB dan Mongoose untuk skema formulir serta nilai isian. & Penggunaannya pada layanan Go selama Agustus belum terkonfirmasi dari bagian kode yang menjadi acuan pemindahan fitur.\\[5pt]
+Berkas & Antarmuka penyimpanan objek kompatibel S3 untuk berkas serta lampiran. & Pekerjaan mahasiswa berfokus pada adaptasi peran dan akses data; pemindahan penyimpanan berkas tidak dinyatakan selesai.\\[5pt]
+Cache dan sesi & Redis tidak tercantum sebagai dependensi utama layanan awal yang diperiksa. & Redis pada layanan identitas untuk data autentikasi dan sesi.\\[5pt]
+\end{longtable}
+\endgroup
+
+Di luar teknologi aplikasi, Git digunakan untuk mengelola perubahan kode, sedangkan Docker berkaitan dengan penyiapan lingkungan lokal. Vitest dan Vue Test Utils digunakan pada pengujian komponen antarmuka. Konfigurasi pemeriksaan kualitas kode juga tersedia dalam repositori. Alat-alat tersebut mendukung proses pengembangan dan dibedakan dari komponen yang menjalankan fungsi aplikasi.
+
+Gin, GORM, generik, dan konsep konkurensi Go muncul dalam kegiatan pembelajaran. Penyebutan materi tersebut menjelaskan proses adaptasi mahasiswa; teknologi implementasi fitur pada layanan baru mengikuti kode yang digunakan selama periode KP. Visily digunakan untuk merancang layar pada akhir periode dan tidak menjadi bagian lingkungan eksekusi aplikasi.
 
 \subsection{Rancangan Pengelolaan Peran}
 Fitur pengelolaan peran dirancang dalam halaman daftar, pembuatan, detail, dan penyuntingan. Halaman daftar menjadi titik masuk untuk memilih peran atau menambahkan peran baru. Halaman detail menampilkan informasi peran beserta hubungan pengguna dan hak aksesnya. Halaman penyuntingan menyediakan perubahan informasi serta penetapan hak akses.
@@ -66,7 +143,7 @@ Pekerjaan awal dilakukan dengan membuat halaman dasbor dan komponen grafik. Pada
 
 Pada tahap berikutnya, fungsi pengambilan data dipindahkan ke layanan yang dapat digunakan komponen. Rute dan menu diperbaiki agar halaman dapat diakses melalui navigasi aplikasi. Komponen tanggal dan pilihan pada bagian atas halaman juga ditambahkan untuk melengkapi interaksi dasbor. Selama proses ini, mahasiswa mempelajari penggunaan Pinia dan menyesuaikan cara pengelolaan keadaan dengan pola aplikasi.
 
-Hasil tahap ini adalah halaman dan komponen dasbor yang menggunakan data simulasi melalui pemanggilan layanan. Hasil tersebut menjadi bagian pengembangan antarmuka; penggunaan data simulasi belum menunjukkan bahwa seluruh sumber data operasional telah terhubung.
+Hasil tahap ini adalah halaman dan komponen dasbor yang menggunakan data simulasi melalui pemanggilan layanan. Hasil tersebut menjadi bagian dari pengembangan antarmuka. Namun, penggunaan data simulasi belum menunjukkan bahwa seluruh sumber data operasional telah terhubung atau berfungsi.
 
 \subsection{Pengembangan Pengelolaan Peran dan Hak Akses}
 Pengembangan antarmuka pengelolaan peran dimulai pada 6 Juli. Halaman yang dibuat meliputi daftar, pembuatan, detail, dan penyuntingan peran. Pada tahap awal, halaman menggunakan layanan simulasi. Setelah struktur layanan tersedia, pemanggilan data disesuaikan dengan implementasi layanan aplikasi.

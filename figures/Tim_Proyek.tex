@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+  font=\small,>=Stealth,
+  box/.style={draw,align=center,minimum height=1cm},
+  coordination/.style={dashed,<->}]
+\node[box,text width=5.4cm] (pm) at (0,0)
+  {\textit{Project Manager}\\Gita Marshelina};
+\node[box,text width=2.5cm] (em) at (-5.15,0) {\textit{Engineering Manager}};
+\node[box,text width=2.8cm,font=\footnotesize] (functions) at (5.05,0)
+  {Analisis bisnis dan sistem\\PMO / Asisten PM\\DevOps / Dokumentasi};
+\draw[coordination] (em.east) -- node[above,font=\scriptsize]{SDM} (pm.west);
+\draw (pm.east) -- (functions.west);
+\node[box,text width=5.3cm] (lead) at (-3.35,-2.15)
+  {\textit{Team Lead Dev}\\Ervan Julianus};
+\node[box,text width=5.3cm,fill=shade] (qa) at (3.35,-2.15)
+  {\textit{Quality Assurance}\\\NamaFrederiko\\\footnotesize Quality Assurance Intern};
+\draw (pm.south) -- (0,-0.95);
+\draw (lead.north) -- (lead.north |- 0,-0.95) -- (qa.north |- 0,-0.95) -- (qa.north);
+\node[box,text width=3.35cm] (senior) at (-4.9,-4.4)
+  {\textit{Senior Dev}\\Muhammad Usgan\\\footnotesize Pendamping teknis Ra'if};
+\node[box,text width=4.5cm,fill=shade] (junior) at (-0.2,-4.4)
+  {Kelompok \textit{Junior Dev}\\\NamaRaif\\\footnotesize Software Engineer Intern};
+\draw (lead.south) -- (-3.35,-3.2);
+\draw (senior.north) -- (senior.north |- 0,-3.2) -- (junior.north |- 0,-3.2) -- (junior.north);
+\draw[dashed,->] (senior.south) -- ++(0,-0.65)
+  -| node[pos=0.25,below,font=\scriptsize]{Pendampingan teknis} (junior.south);
+\end{tikzpicture}
