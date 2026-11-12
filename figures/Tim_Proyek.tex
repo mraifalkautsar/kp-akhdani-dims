@@ -1,26 +1,32 @@
 \begin{tikzpicture}[
-  font=\small,>=Stealth,
-  box/.style={draw,align=center,minimum height=1cm},
+  font=\footnotesize,>=Stealth,
+  box/.style={draw,align=center,inner xsep=3pt,inner ysep=4pt,minimum height=1.1cm},
   coordination/.style={dashed,<->}]
-\node[box,text width=5.4cm] (pm) at (0,0)
+\node[box,text width=4.8cm] (pm) at (0,0)
   {\textit{Project Manager}\\Gita Marshelina};
-\node[box,text width=2.5cm] (em) at (-5.15,0) {\textit{Engineering Manager}};
-\node[box,text width=2.8cm,font=\footnotesize] (functions) at (5.05,0)
+\node[box,text width=2.3cm] (em) at (-4.7,0) {\textit{Engineering}\\\textit{Manager}};
+\node[box,text width=2.8cm,font=\scriptsize] (functions) at (4.7,0)
   {Analisis bisnis dan sistem\\PMO / Asisten PM\\DevOps / Dokumentasi};
 \draw[coordination] (em.east) -- node[above,font=\scriptsize]{SDM} (pm.west);
 \draw (pm.east) -- (functions.west);
-\node[box,text width=5.3cm] (lead) at (-3.35,-2.15)
+
+\node[box,text width=4.4cm,minimum height=1.3cm] (lead) at (-3.05,-2.0)
   {\textit{Team Lead Dev}\\Ervan Julianus};
-\node[box,text width=5.3cm,fill=shade] (qa) at (3.35,-2.15)
-  {\textit{Quality Assurance}\\\NamaFrederiko\\\footnotesize Quality Assurance Intern};
-\draw (pm.south) -- (0,-0.95);
-\draw (lead.north) -- (lead.north |- 0,-0.95) -- (qa.north |- 0,-0.95) -- (qa.north);
-\node[box,text width=3.35cm] (senior) at (-4.9,-4.4)
-  {\textit{Senior Dev}\\Muhammad Usgan\\\footnotesize Pendamping teknis Ra'if};
-\node[box,text width=4.5cm,fill=shade] (junior) at (-0.2,-4.4)
-  {Kelompok \textit{Junior Dev}\\\NamaRaif\\\footnotesize Software Engineer Intern};
-\draw (lead.south) -- (-3.35,-3.2);
-\draw (senior.north) -- (senior.north |- 0,-3.2) -- (junior.north |- 0,-3.2) -- (junior.north);
-\draw[dashed,->] (senior.south) -- ++(0,-0.65)
+\node[box,text width=4.4cm,minimum height=1.3cm] (seniorqa) at (3.0,-2.0)
+  {\textit{Senior QA}\\Nova Dinda\\\scriptsize Pendamping teknis Frederiko};
+\draw (pm.south) -- (0,-0.9);
+\draw (lead.north) -- (lead.north |- 0,-0.9) -- (seniorqa.north |- 0,-0.9) -- (seniorqa.north);
+
+\node[box,text width=2.8cm,minimum height=1.8cm] (senior) at (-4.85,-4.3)
+  {\textit{Senior Dev}\\Muhammad Usgan\\\scriptsize Pendamping teknis Ra'if};
+\node[box,text width=3.6cm,fill=shade,minimum height=1.8cm] (junior) at (-1.25,-4.3)
+  {Kelompok \textit{Junior Dev}\\\NamaRaif\\\scriptsize Software Engineer Intern};
+\draw (lead.south) -- (-3.05,-3.1);
+\draw (senior.north) -- (senior.north |- 0,-3.1) -- (junior.north |- 0,-3.1) -- (junior.north);
+\draw[dashed,->] (senior.south) -- ++(0,-0.55)
   -| node[pos=0.25,below,font=\scriptsize]{Pendampingan teknis} (junior.south);
+
+\node[box,text width=4.0cm,fill=shade,minimum height=1.8cm] (qa) at (3.0,-4.3)
+  {Kelompok \textit{QA}\\\NamaFrederiko\\\scriptsize Quality Assurance Intern};
+\draw (seniorqa.south) -- (qa.north);
 \end{tikzpicture}
