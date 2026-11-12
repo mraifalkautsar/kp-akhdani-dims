@@ -61,10 +61,12 @@ Pada tahap awal, antarmuka dikembangkan menggunakan Vue dan TypeScript, dengan N
 
 Pada tahap penyesuaian Agustus, layanan menggunakan Go, Fiber v2, dan \texttt{sqlx}, dengan mekanisme migrasi serta data awal yang mengikuti struktur proyek baru. Git digunakan untuk pengelolaan perubahan, Docker untuk pekerjaan penyiapan lingkungan lokal, dan Visily untuk rancangan layar pada akhir periode. Komunikasi penugasan menggunakan WhatsApp atau Microsoft 365.
 
-\Isian{spesifikasi perangkat pengembangan Ra'if jika disyaratkan}. Pengujian penjaminan kualitas dijalankan pada komputer jinjing bersistem operasi Linux, menggunakan kerangka kerja otomasi Cypress, pustaka pelaporan Mochawesome, linter dan pemformat kode Biome, serta peramban web Chromium dan Google Chrome.
+Perangkat pengembangan Ra'if menggunakan prosesor AMD Ryzen 5 5600H (sekitar 3,3~GHz), RAM 16~GB, GPU NVIDIA GeForce RTX 3050 Laptop GPU, dan SSD 512~GB.
+
+Pengujian penjaminan kualitas dijalankan pada komputer jinjing bersistem operasi Linux, menggunakan kerangka kerja otomasi Cypress, pustaka pelaporan Mochawesome, linter dan pemformat kode Biome, serta peramban web Chromium dan Google Chrome.
 
 \section*{8. Jadwal}
-Periode kerja praktik adalah \PeriodeKP. Tabel~\ref{tab:tor-jadwal} menunjukkan pengelompokan tahapan pengembangan dan penyesuaian yang terjadi selama pelaksanaan. Minggu 1 dimulai pada 22 Juni; minggu 6 berakhir pada 31 Juli; minggu 7--10 mencakup 3--28 Agustus. Aktivitas 31 Agustus masih perlu dilengkapi.
+Periode kerja praktik adalah \PeriodeKP. Tabel~\ref{tab:tor-jadwal} menunjukkan pengelompokan tahapan pengembangan dan penyesuaian yang terjadi selama pelaksanaan. Minggu 1 dimulai pada 22 Juni; minggu 6 berakhir pada 31 Juli; minggu 7--10 mencakup 3--28 Agustus. Pada 31 Agustus, periode kerja praktik ditutup dengan pemaparan dari \textit{President Director}.
 
 \begin{table}[htbp]
 \caption{Jadwal tahapan pekerjaan pengembangan}\label{tab:tor-jadwal}
@@ -116,9 +118,7 @@ Adaptasi lingkungan dan laporan & & & & & & & & & \AktifQA & \AktifQA\\
 Pembimbing akademik adalah \NamaDosenPembimbing{} dari Program Studi Teknik Informatika Institut Teknologi Bandung.
 
 \section*{10. Mekanisme Pengendalian dan Pemantauan}
-Tugas atau tiket berkaitan dengan fitur sistem disampaikan melalui WhatsApp atau Microsoft 365. Rapat mingguan dilaksanakan setiap Selasa pukul 09.30 untuk membahas perkembangan dan kebutuhan koordinasi. Perubahan kode dikelola melalui Git, sedangkan kegiatan serta hasil harian dicatat dalam logbook.
-
-Pemantauan diarahkan pada kesesuaian pekerjaan dengan tugas, masalah yang menghambat, dan penyesuaian yang diperlukan. Penyampaian hasil akhir meliputi laporan serta logbook kerja praktik. \Isian{jadwal presentasi atau penyerahan akhir apabila ditetapkan perusahaan atau program studi}.
+Tugas atau tiket berkaitan dengan fitur sistem disampaikan melalui WhatsApp atau Microsoft 365. Rapat mingguan dilaksanakan setiap Selasa pukul 09.30 untuk membahas perkembangan dan kebutuhan koordinasi. Perubahan kode dikelola melalui Git, sedangkan kegiatan serta hasil harian dicatat dalam logbook. Pemantauan diarahkan pada kesesuaian pekerjaan dengan tugas, masalah yang menghambat, dan penyesuaian yang diperlukan. Penyampaian hasil akhir dari kerja praktik untuk pihak akademik meliputi laporan serta logbook kerja praktik.
 
 \section*{11. Pengelolaan Risiko}
 Risiko pekerjaan meliputi perubahan kebutuhan, perbedaan struktur data antarlapisan, pergantian teknologi, serta ketergantungan pada lingkungan pengujian. Penanganannya dilakukan melalui klarifikasi tugas, penyesuaian pemetaan data, pembelajaran bertahap, dan pemisahan pengujian komponen dari pemeriksaan yang memerlukan layanan nyata. Risiko pengungkapan informasi ditangani melalui anonimisasi dokumen akademik dan penggunaan ilustrasi yang tidak menyalin artefak internal.

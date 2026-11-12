@@ -67,9 +67,10 @@ yang sama dengan build lokal, dan tidak menerbitkan situs web.
 - Sumber logbook: `data/logbook_raif.json`; hasil CSV/Excel: `deliverables/`.
 - Pengaturan LaTeX bersama: `shared/preamble.tex`; pengaturan build: `.latexmkrc`.
 
-Logbook Ra'if memiliki 50 entri: 49 tersedia untuk ditinjau sebelum impor dan satu
-entri, 31 Agustus, perlu dilengkapi. CSV memuat semuanya; Excel memisahkan entri
-belum lengkap pada sheet **Perlu Dilengkapi**. Impor hanya sheet **Template Logbook**.
+Logbook Ra'if memiliki 50 entri yang tersedia untuk ditinjau sebelum impor. Entri
+31 Agustus memuat kegiatan penutupan kerja praktik dengan pemaparan dari President
+Director. CSV dan sheet **Template Logbook** pada Excel memuat seluruh entri;
+sheet **Perlu Dilengkapi** saat ini kosong. Impor hanya sheet **Template Logbook**.
 Entri 25 Agustus direkonstruksi dari perubahan kode milik Ra'if. Template Excel
 Frederiko disediakan kosong agar ia mengisi kegiatannya sendiri. Perubahan data
 logbook otomatis digunakan saat `make`, sehingga CSV, Excel, dan lampiran laporan

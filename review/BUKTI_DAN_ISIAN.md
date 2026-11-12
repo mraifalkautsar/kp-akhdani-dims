@@ -37,13 +37,13 @@ Repositori baru memuat pekerjaan setelah akhir KP. Tidak ada kontribusi Ra'if pa
 
 ## Bagian yang masih memerlukan penulis
 
-1. Lengkapi kegiatan dan hasil 31 Agustus 2026. Entri ini tidak masuk lembar impor Excel; setelah dikonfirmasi, perbarui teks dan status pada `data/logbook_raif.json` lalu jalankan `make`.
-2. Frederiko melengkapi lingkup QA, pendekatan, kasus uji, temuan, pengujian ulang, hasil, jadwal, evaluasi diri, dan logbook. Gunakan penanda `ISIAN FREDERIKO` pada sumber LaTeX untuk menemukan lokasinya. Template Excel tersedia pada `deliverables/template_logbook_frederiko.xlsx`.
-3. Lengkapi tanggal pengesahan dan tanggal penyelesaian laporan. NIP/NIDN dosen hanya dicantumkan bila disyaratkan dan telah diketahui.
-4. Lengkapi spesifikasi perangkat pada ToR bila diperlukan. Jangan mengambil spesifikasi perangkat dari contoh mahasiswa tahun sebelumnya atau mesin saat ini sebagai fakta perangkat saat KP.
-5. Lengkapi jadwal presentasi/penyerahan akhir bila ada. Tidak ada tanggal atau frekuensi rapat harian yang diasumsikan.
-6. Tinjau refleksi Ra'if sebagai draf berdasarkan pengalaman teknis yang tercatat. Tidak ada konflik interpersonal atau umpan balik pembimbing yang dikarang.
-7. Tinjau seluruh entri logbook sebelum impor. Rekonstruksi hasil kegiatan ditulis berdasarkan aktivitas dan perubahan kode; ketiadaan rekaman hasil eksekusi tidak ditulis sebagai keberhasilan pengujian.
+Catatan 12 November 2026: entri 31 Agustus telah diselaraskan dengan kegiatan penutupan pada jadwal Bab II. Seluruh 50 entri logbook Ra'if kini masuk lembar impor Excel; kegiatan dan hasil hari lain dipertahankan.
+1. Frederiko melengkapi lingkup QA, pendekatan, kasus uji, temuan, pengujian ulang, hasil, jadwal, evaluasi diri, dan logbook. Gunakan penanda `ISIAN FREDERIKO` pada sumber LaTeX untuk menemukan lokasinya. Template Excel tersedia pada `deliverables/template_logbook_frederiko.xlsx`.
+2. Lengkapi tanggal pengesahan dan tanggal penyelesaian laporan. NIP/NIDN dosen hanya dicantumkan bila disyaratkan dan telah diketahui.
+
+3. Lengkapi jadwal presentasi/penyerahan akhir bila ada. Tidak ada tanggal atau frekuensi rapat harian yang diasumsikan.
+4. Tinjau refleksi Ra'if sebagai draf berdasarkan pengalaman teknis yang tercatat. Tidak ada konflik interpersonal atau umpan balik pembimbing yang dikarang.
+5. Tinjau seluruh entri logbook sebelum impor. Rekonstruksi hasil kegiatan ditulis berdasarkan aktivitas dan perubahan kode; ketiadaan rekaman hasil eksekusi tidak ditulis sebagai keberhasilan pengujian.
 
 ## Pemeriksaan hasil
 
@@ -89,3 +89,11 @@ Semua repositori di tabel berada di bawah `references/`. Bibliografi laporan men
 Perubahan terakhir penulis pada tanggal periode, judul metadata ToR, redaksi Bab II–III, dan kegiatan penutupan 31 Agustus di tabel jadwal dipertahankan. Data logbook tidak diubah dalam revisi ini; status isian 31 Agustus pada data logbook tetap mengikuti sumber data saat ini dan perlu diselaraskan tersendiri jika penulis menghendaki.
 
 Pemeriksaan revisi: `make check` lulus untuk laporan 51 halaman dan ToR 5 halaman. Referensi silang dan sitasi terselesaikan; pemindaian anonimisasi dan pemenggalan kata lulus. Bagan perusahaan, tim proyek, hubungan modul, arsitektur awal, serta tabel teknologi diperiksa secara visual. Tidak ada kotak teks melampaui batas pada log LaTeX. Tidak ada perubahan data logbook, keluaran CSV/Excel, atau pipeline.
+
+## Penyelarasan logbook: 12 November 2026
+
+Atas permintaan penulis, kegiatan dan hasil logbook Ra'if pada 31 Agustus diisi berdasarkan catatan penutupan dengan pemaparan President Director pada Bab II. Status berubah dari `perlu_dilengkapi` menjadi `tercatat`. Kegiatan presentasi dalam logbook Frederiko tidak dipindahkan menjadi kegiatan Ra'if. Entri 25 Agustus tetap berstatus `rekonstruksi`; 49 entri lain tidak diubah. CSV, Excel, lampiran laporan, dan keterangan terkait pada ToR diperbarui melalui pipeline.
+
+## Spesifikasi perangkat: 12 November 2026
+
+Ra'if mengonfirmasi perangkat dengan prosesor AMD Ryzen 5 5600H (sekitar 3,3 GHz), RAM 16 GB, NVIDIA GeForce RTX 3050 Laptop GPU, dan SSD 512 GB. Spesifikasi ini menggantikan isian perangkat pada sumber ToR bersama, sehingga digunakan pada PDF ToR dan lampiran laporan. Sistem operasi tidak ditambahkan karena belum disebutkan oleh penulis.
