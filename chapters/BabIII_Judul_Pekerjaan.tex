@@ -1,5 +1,5 @@
 \chapter{Pengembangan Sistem Pengelolaan Alur Kerja}
-Bab ini menjelaskan gambaran platform proses bisnis yang dikembangkan, hubungan antarmodul, serta arsitektur dan teknologi yang digunakan selama kerja praktik. Pembahasan kemudian menguraikan kontribusi pengembangan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja, diikuti oleh pengujian, hasil, dan kendala pelaksanaannya.
+Bab ini menjelaskan gambaran  atau \textit{workflow engine} yang dikembangkan, hubungan antarmodul, serta arsitektur dan teknologi yang digunakan selama kerja praktik. Pembahasan kemudian menguraikan kontribusi pengembangan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja, diikuti oleh pengujian, hasil, dan kendala pelaksanaannya.
 
 \section{Gambaran Umum Platform}\label{sec:gambaran-platform}
 \subsection{Tujuan dan Konsep Pengembangan}
@@ -53,7 +53,7 @@ Berkas dan fitur pendukung & Menyediakan lampiran, panduan, notifikasi, dan fasi
 \end{longtable}
 \endgroup
 
-Frederiko berada pada fungsi QA dalam tim proyek yang sama. Hubungan rinci antara pemeriksaan QA, modul yang diuji, dan hasilnya dilengkapi pada bagian kegiatan penjaminan kualitas. Pengujian komponen yang ditulis oleh Ra'if tetap dicatat sebagai bagian dari pekerjaan pengembang.
+Frederiko berada pada fungsi QA dalam tim proyek yang sama. Hubungan rinci antara pemeriksaan QA, modul yang diuji, dan hasilnya dilengkapi pada bagian kegiatan penjaminan kualitas.
 
 \section{Analisis Permasalahan dan Kebutuhan}
 \subsection{Deskripsi Permasalahan}
@@ -89,7 +89,7 @@ Layanan awal menggunakan Node.js dan Express. Express menyediakan penanganan rut
 
 Penyimpanan data pada tahap ini memiliki beberapa tanggung jawab. PostgreSQL digunakan untuk data relasional terkait proses, peran, transaksi pekerjaan, dan riwayat, dengan Prisma sebagai sarana aksesnya. MongoDB digunakan melalui Mongoose untuk skema formulir dan nilai isian yang berbentuk dokumen. Layanan berkas menggunakan antarmuka penyimpanan objek yang kompatibel dengan S3 untuk mengakses berkas serta lampiran. Pembagian tersebut menjelaskan hubungan antara data terstruktur, data formulir, dan objek berkas dalam aplikasi.
 
-Gambar~\ref{fig:arsitektur} memperlihatkan gambaran logis tahap awal yang disarikan dari struktur kode. Diagram menunjukkan peran komponen dan hubungan pertukaran data, tanpa merinci topologi jaringan atau penempatan layanan produksi.
+Gambar~\ref{fig:arsitektur} memperlihatkan gambaran atau arsitektur logis dari proyek.
 \begin{figure}[htbp]
 \centering
 \input{figures/Arsitektur_Awal}
@@ -102,7 +102,7 @@ Perubahan kebutuhan setelah Juli diikuti oleh penggunaan basis kode layanan yang
 
 Implementasi layanan yang diperiksa pada periode ini menggunakan Fiber v2 dan PostgreSQL dengan pustaka \texttt{sqlx}. Pustaka \texttt{sqlx} menyediakan perluasan fasilitas akses data SQL di Go \citep{sqlx}. Goose digunakan untuk pengelolaan migrasi dan data awal. Pada layanan identitas, Redis berkaitan dengan penyimpanan data autentikasi serta sesi. Antarmuka tetap menggunakan Vue dan TypeScript sehingga perubahan utama yang berkaitan dengan pemindahan fitur berada pada layanan dan akses datanya.
 
-Tabel~\ref{tab:perbandingan-teknologi} merangkum teknologi serta perannya pada kedua tahap. Rincian tahap awal didasarkan pada kode Juni--Juli, sedangkan tahap penyesuaian mengacu pada keadaan repositori selama Agustus. Rancangan platform yang lebih luas dan kelanjutan pengembangan tidak digunakan untuk menyatakan bahwa seluruh komponen telah selesai dipindahkan selama KP.
+Seperti yang telah disebutkan, terjadi perubahan teknologi pada bulan Agustus berdasarkan permintaan klien, Tabel~\ref{tab:perbandingan-teknologi} merangkum teknologi serta perannya pada tahap awal dan tahap setelah perubahan.
 
 \begingroup\small\singlespacing\setlength{\tabcolsep}{5pt}
 \begin{longtable}{@{}P{2.1cm}P{5.55cm}P{5.55cm}@{}}
@@ -115,22 +115,20 @@ Antarmuka & Vue, TypeScript, Vite, dan Pinia untuk halaman, komponen, pembanguna
 Formulir & FormKit pada antarmuka; skema dan nilai isian dokumen dikelola oleh layanan formulir. & Dependensi FormKit tersedia pada antarmuka baru. Penyelesaian pemindahan layanan formulir tidak menjadi capaian yang diklaim pada pekerjaan ini.\\[5pt]
 Layanan & Node.js dan Express, dengan pemisahan rute, pengendali, layanan, dan repositori. & Go dan Fiber v2 pada layanan inti serta layanan identitas; fitur diadaptasi mengikuti struktur yang tersedia.\\[5pt]
 Data relasional & PostgreSQL dengan Prisma untuk akses data proses, peran, dan transaksi terkait. & PostgreSQL dengan \texttt{sqlx}; Goose untuk pengelolaan migrasi dan data awal.\\[5pt]
-Data dokumen & MongoDB dan Mongoose untuk skema formulir serta nilai isian. & Penggunaannya pada layanan Go selama Agustus belum terkonfirmasi dari bagian kode yang menjadi acuan pemindahan fitur.\\[5pt]
-Berkas & Antarmuka penyimpanan objek kompatibel S3 untuk berkas serta lampiran. & Pekerjaan mahasiswa berfokus pada adaptasi peran dan akses data; pemindahan penyimpanan berkas tidak dinyatakan selesai.\\[5pt]
+Data dokumen & MongoDB dan Mongoose untuk skema formulir serta nilai isian. & Tetap menggunakan MongoDB.\\[5pt]
+Berkas & Antarmuka penyimpanan objek kompatibel S3 untuk berkas serta lampiran. & Tetap menggunakan antarmuka penyimpanan objek kompatibel S3.\\[5pt]
 Cache dan sesi & Redis tidak tercantum sebagai dependensi utama layanan awal yang diperiksa. & Redis pada layanan identitas untuk data autentikasi dan sesi.\\[5pt]
 \end{longtable}
 \endgroup
 
-Di luar teknologi aplikasi, Git digunakan untuk mengelola perubahan kode, sedangkan Docker berkaitan dengan penyiapan lingkungan lokal. Vitest dan Vue Test Utils digunakan pada pengujian komponen antarmuka. Konfigurasi pemeriksaan kualitas kode juga tersedia dalam repositori. Alat-alat tersebut mendukung proses pengembangan dan dibedakan dari komponen yang menjalankan fungsi aplikasi.
-
-Gin, GORM, generik, dan konsep konkurensi Go muncul dalam kegiatan pembelajaran. Penyebutan materi tersebut menjelaskan proses adaptasi mahasiswa; teknologi implementasi fitur pada layanan baru mengikuti kode yang digunakan selama periode KP. Visily digunakan untuk merancang layar pada akhir periode dan tidak menjadi bagian dari lingkungan eksekusi aplikasi.
+Di luar teknologi aplikasi, Git digunakan untuk mengelola perubahan kode, sedangkan Docker berkaitan dengan penyiapan lingkungan lokal. Vitest dan Vue Test Utils digunakan pada pengujian komponen antarmuka. Konfigurasi pemeriksaan kualitas kode juga tersedia dalam repositori. Alat-alat tersebut mendukung proses pengembangan dan dibedakan dari komponen yang menjalankan fungsi aplikasi. Visily digunakan untuk merancang sejumlah layar yang akan ditampilkan kepada klien untuk memperjelas penggalian kebutuhan.
 
 \subsection{Rancangan Pengelolaan Peran}
-Fitur pengelolaan peran dirancang dalam halaman daftar, pembuatan, detail, dan penyuntingan. Halaman daftar menjadi titik masuk untuk memilih peran atau menambahkan peran baru. Halaman detail menampilkan informasi peran beserta hubungan pengguna dan hak aksesnya. Halaman penyuntingan menyediakan perubahan informasi serta penetapan hak akses.
+Fitur pengelolaan peran (\textit{master role}) mencakup halaman daftar, pembuatan, detail, dan penyuntingan. Halaman daftar menjadi titik masuk untuk memilih peran atau menambahkan peran baru. Halaman detail menampilkan informasi peran beserta hubungan pengguna dan hak aksesnya. Halaman penyuntingan menyediakan perubahan informasi serta penetapan hak akses.
 
-Formulir yang digunakan pada beberapa halaman disatukan menjadi komponen bersama. Perbedaan antara pembuatan, detail, dan penyuntingan diatur melalui mode penggunaan komponen. Dengan cara ini, perubahan susunan masukan tidak perlu diterapkan secara terpisah pada setiap halaman. Komponen tabel yang tersedia juga digunakan kembali untuk pencarian, pemuatan data, dan pembagian daftar ke beberapa halaman.
+Halaman-halaman ini memiliki struktur yang mirip, sehingga formulir yang digunakan pada beberapa halaman dapat disatukan menjadi komponen bersama. Perbedaan antara pembuatan, detail, dan penyuntingan diatur melalui mode penggunaan komponen. Dengan cara ini, perubahan susunan masukan tidak perlu diterapkan secara terpisah pada setiap halaman. Komponen tabel yang tersedia juga digunakan kembali untuk pencarian, pemuatan data, dan pembagian daftar ke beberapa halaman.
 
-Di sisi layanan, penanganan permintaan dipisahkan menjadi lapisan pengendali, layanan, dan repositori. Pengendali menerima masukan, layanan mengatur pemrosesan dan pemeriksaan yang diperlukan, sedangkan repositori mengakses data. Pemisahan ini digunakan kembali saat fitur diadaptasi ke layanan berbasis Go.
+Di sisi layanan, penanganan permintaan dipisahkan menjadi lapisan pengendali (\textit{controller}), layanan (\textit{service}), dan repositori (\textit{repository}). Pengendali menerima masukan, layanan mengatur pemrosesan dan pemeriksaan yang diperlukan, sedangkan repositori mengakses data. Pemisahan ini digunakan kembali saat fitur diadaptasi ke layanan berbasis Go.
 
 \subsection{Rancangan Riwayat Alur Kerja}
 Riwayat disajikan sebagai urutan kejadian yang berkaitan dengan suatu pekerjaan. Informasi yang ditampilkan meliputi tahapan, keadaan proses, komentar, dan pelaksana. Perpindahan antartahap turut ditampilkan agar pengguna dapat membedakan aktivitas pada suatu tahap dari perubahan tahap itu sendiri.
@@ -139,7 +137,7 @@ Data yang diterima dari layanan perlu disiapkan menjadi urutan elemen tampilan. 
 
 \section{Proses Pengembangan}
 \subsection{Pengembangan Dasbor}\label{sec:dasbor}
-Pekerjaan awal dilakukan dengan membuat halaman dasbor dan komponen grafik. Pada tanggal 23 Juni, pengembangan dimulai dari kerangka tiga halaman. Selanjutnya, komponen diperbarui agar memperoleh data melalui layanan simulasi atau \textit{mock API}. Pemisahan tersebut memungkinkan bentuk respons dan alur pengambilan data dikembangkan tanpa menunggu seluruh layanan bisnis tersedia.
+Dasbor dibutuhkan supaya berbagai pihak dapat melihat kinerja dari alur kerja atau proses bisnis. Pekerjaan awal dilakukan dengan membuat halaman dasbor dan komponen grafik. Pada tanggal 23 Juni, pengembangan dimulai dari kerangka tiga halaman. Selanjutnya, komponen diperbarui agar memperoleh data melalui layanan simulasi atau \textit{mock API}. Pemisahan tersebut memungkinkan bentuk respons dan alur pengambilan data dikembangkan tanpa menunggu seluruh layanan bisnis tersedia.
 
 Pada tahap berikutnya, fungsi pengambilan data dipindahkan ke layanan yang dapat digunakan komponen. Rute dan menu diperbaiki agar halaman dapat diakses melalui navigasi aplikasi. Komponen tanggal dan pilihan pada bagian atas halaman juga ditambahkan untuk melengkapi interaksi dasbor. Selama proses ini, mahasiswa mempelajari penggunaan Pinia dan menyesuaikan cara pengelolaan keadaan dengan pola aplikasi.
 
