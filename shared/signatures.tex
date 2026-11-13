@@ -1,0 +1,11 @@
+% Gambar dipertahankan seperti berkas asli; hanya ukuran tampil yang disesuaikan.
+% Tinggi kotak disamakan agar nama penanda tangan tetap sejajar.
+\newcommand{\TandaTangan}[1]{%
+  \parbox[c][1.8cm][c]{4.5cm}{%
+    \centering
+    \includegraphics[width=4.2cm,height=1.6cm,keepaspectratio]{figures/signatures/#1}%
+  }%
+}
+\newcommand{\TandaTanganRaif}{\TandaTangan{raif.png}}
+\newcommand{\TandaTanganFrederiko}{\TandaTangan{frederiko.jpeg}}
+\newcommand{\TandaTanganGita}{\TandaTangan{gita_marshelina.png}}

@@ -66,6 +66,7 @@ yang sama dengan build lokal, dan tidak menerbitkan situs web.
 - Isi ToR bersama: `shared/tor-body.tex`, digunakan oleh laporan dan `tor.tex`.
 - Sumber logbook: `data/logbook_raif.json`; hasil CSV/Excel: `deliverables/`.
 - Pengaturan LaTeX bersama: `shared/preamble.tex`; pengaturan build: `.latexmkrc`.
+- Tanda tangan: `figures/signatures/`, dengan ukuran tampil pada `shared/signatures.tex`.
 
 Logbook Ra'if memiliki 50 entri yang tersedia untuk ditinjau sebelum impor. Entri
 31 Agustus memuat kegiatan penutupan kerja praktik dengan pemaparan dari President
