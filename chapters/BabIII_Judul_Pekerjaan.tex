@@ -1,5 +1,5 @@
-\chapter{Pengembangan Sistem Pengelolaan Alur Kerja}
-Bab ini menjelaskan gambaran  atau \textit{workflow engine} yang dikembangkan, hubungan antarmodul, serta arsitektur dan teknologi yang digunakan selama kerja praktik. Pembahasan kemudian menguraikan kontribusi pengembangan pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja, diikuti oleh pengujian, hasil, dan kendala pelaksanaannya.
+\chapter{Pengembangan dan Penjaminan Kualitas Sistem Pengelolaan Alur Kerja}
+Bab ini menjelaskan gambaran platform atau \textit{workflow engine}, hubungan antarmodul, serta arsitektur dan teknologi yang digunakan selama kerja praktik. Pembahasan kemudian menguraikan kontribusi pengembangan oleh peran \textit{Software Engineer Intern} (SE) pada dasbor, pengelolaan peran dan hak akses, serta riwayat alur kerja, diikuti pengujian komponen pengembang, kegiatan penjaminan kualitas lintas modul oleh peran \textit{Quality Assurance Intern} (QA), serta kendala pelaksanaannya.
 
 \section{Gambaran Umum Platform}\label{sec:gambaran-platform}
 \subsection{Tujuan dan Konsep Pengembangan}
@@ -35,25 +35,25 @@ Sebagai ilustrasi yang telah digeneralisasi, pelaksanaan suatu proses dapat dije
 Urutan tersebut menggambarkan keterkaitan modul dalam rancangan platform. Rincian tindakan setiap proses tetap bergantung pada konfigurasi yang disediakan.
 
 \subsection{Cakupan Platform dan Kontribusi Mahasiswa}
-Tabel~\ref{tab:platform-kontribusi} menghubungkan bagian platform dengan pekerjaan pengembangan Ra'if. Tabel ini melengkapi pembagian tugas pada Bab II dengan memperlihatkan letak kontribusi individu terhadap sistem yang lebih luas.
+Tabel~\ref{tab:platform-kontribusi} memetakan bagian platform terhadap kontribusi kedua mahasiswa secara berdampingan, yakni pengembangan oleh \NamaRaif{} (SE) dan penjaminan kualitas oleh \NamaFrederiko{} (QA). Pemetaan ini melengkapi pembagian tugas pada Bab II dengan menunjukkan bahwa cakupan pemeriksaan QA melampaui fitur yang dikembangkan oleh Ra'if, termasuk modul lintas tim pengembang lain.
 
-\begingroup\small\singlespacing\setlength{\tabcolsep}{5pt}
-\begin{longtable}{@{}P{2.6cm}P{4.7cm}P{5.9cm}@{}}
-\caption{Cakupan platform dan hubungan dengan pekerjaan pengembangan mahasiswa}\label{tab:platform-kontribusi}\\
-\toprule\textbf{Bagian platform} & \textbf{Fungsi dalam sistem} & \textbf{Keterkaitan dengan pekerjaan Ra'if}\\\midrule\endfirsthead
-\multicolumn{3}{l}{\textit{Cakupan platform dan kontribusi (lanjutan)}}\\\toprule
-\textbf{Bagian platform} & \textbf{Fungsi dalam sistem} & \textbf{Keterkaitan dengan pekerjaan Ra'if}\\\midrule\endhead
+\begingroup\small\singlespacing\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}P{2.2cm}P{3.3cm}P{3.6cm}P{3.7cm}@{}}
+\caption{Cakupan platform serta kontribusi pengembangan (SE) dan penjaminan kualitas (QA)}\label{tab:platform-kontribusi}\\
+\toprule\textbf{Bagian platform} & \textbf{Fungsi dalam sistem} & \textbf{Kontribusi SE (Ra'if)} & \textbf{Kontribusi QA (Frederiko)}\\\midrule\endfirsthead
+\multicolumn{4}{l}{\textit{Cakupan platform serta kontribusi SE dan QA (lanjutan)}}\\\toprule
+\textbf{Bagian platform} & \textbf{Fungsi dalam sistem} & \textbf{Kontribusi SE (Ra'if)} & \textbf{Kontribusi QA (Frederiko)}\\\midrule\endhead
 \bottomrule\endfoot
-Repositori proses bisnis & Menyimpan definisi, tahapan, hubungan, dan versi proses. & Mempelajari struktur proses serta mengintegrasikan penyajian riwayat pada konteks pekerjaan yang dipilih.\\[5pt]
-Mesin alur kerja & Mengatur keadaan, perpindahan tahap, dan penugasan pada pelaksanaan pekerjaan. & Mengembangkan pengambilan dan tampilan riwayat, termasuk pelaksana, komentar, dan transisi.\\[5pt]
-Formulir dinamis & Mengelola skema masukan, validasi, dan nilai isian sesuai kebutuhan proses. & Memahami hubungannya dengan proses. Pengembangan mesin formulir menjadi bagian pekerjaan tim secara keseluruhan.\\[5pt]
-Identitas dan hak akses & Mengelola autentikasi, peran, hubungan pengguna, dan kewenangan. & Mengembangkan pengelolaan peran dan hak akses serta mengadaptasi pengambilan peran pada layanan baru.\\[5pt]
-Dasbor dan pemantauan & Menyajikan ringkasan serta perkembangan pekerjaan. & Mengembangkan halaman dengan layanan simulasi dan menyusun rancangan layar dasbor serta komponen visual lanjutan.\\[5pt]
-Berkas dan fitur pendukung & Menyediakan lampiran, panduan, notifikasi, dan fasilitas umum aplikasi. & Memperbaiki akses panduan pengguna, navigasi, konfirmasi keluar, dan sejumlah komponen pendukung.\\[5pt]
+Repositori proses bisnis & Menyimpan definisi, tahapan, hubungan, dan versi proses. & Mempelajari struktur proses serta mengintegrasikan penyajian riwayat pada konteks pekerjaan yang dipilih. & Menguji navigasi koleksi proses bisnis, filter parameter, pencarian tiket, dan penelusuran rincian.\\[5pt]
+Mesin alur kerja & Mengatur keadaan, perpindahan tahap, dan penugasan pada pelaksanaan pekerjaan. & Mengembangkan pengambilan dan tampilan riwayat, termasuk pelaksana, komentar, dan transisi. & Memverifikasi alur tahapan pekerjaan, perpindahan status, serta konsistensi tampilan rincian riwayat.\\[5pt]
+Formulir dinamis & Mengelola skema masukan, validasi, dan nilai isian sesuai kebutuhan proses. & Memahami hubungannya dengan proses. Pengembangan mesin formulir menjadi bagian pekerjaan tim secara keseluruhan. & Menguji validasi masukan, kasus batas formulir, serta penanganan galat pada halaman data \textit{master} tim.\\[5pt]
+Identitas dan hak akses & Mengelola autentikasi, peran, hubungan pengguna, dan kewenangan. & Mengembangkan pengelolaan peran dan hak akses serta mengadaptasi pengambilan peran pada layanan baru. & Menguji autentikasi, E2E dan API \textit{master} peran, \textit{master} pengguna, unit organisasi, serta celah RBAC.\\[5pt]
+Dasbor dan pemantauan & Menyajikan ringkasan serta perkembangan pekerjaan. & Mengembangkan halaman dengan layanan simulasi dan menyusun rancangan layar dasbor serta komponen visual lanjutan. & Menguji dasbor pemantauan dan analitik, termasuk metrik SLA, KPI, diagram donat, dan filter tanggal.\\[5pt]
+Berkas dan fitur pendukung & Menyediakan lampiran, panduan, notifikasi, dan fasilitas umum aplikasi. & Memperbaiki akses panduan pengguna, navigasi, konfirmasi keluar, dan sejumlah komponen pendukung. & Menguji konfigurasi sistem, data referensi operasional, pemutakhiran notifikasi, serta mekanisme keluar.\\[5pt]
 \end{longtable}
 \endgroup
 
-Frederiko berada pada fungsi QA dalam tim proyek yang sama. Hubungan rinci antara pemeriksaan QA, modul yang diuji, dan hasilnya dilengkapi pada bagian kegiatan penjaminan kualitas.
+Penjelasan rinci mengenai cakupan tujuh modul yang diuji oleh Frederiko, temuan teknis, serta artefak pengujian disajikan pada Subbab~\ref{sec:qa-bab3} dan Lampiran~\ref{app:frederiko}.
 
 \section{Analisis Permasalahan dan Kebutuhan}
 \subsection{Deskripsi Permasalahan}
@@ -64,9 +64,9 @@ Pada tahap awal, pekerjaan dasbor memerlukan komponen visual yang dapat mengguna
 Persoalan pengembangan tidak hanya berada pada penambahan halaman atau fitur. Terdapat pula kebutuhan untuk menyeragamkan nama atribut, menyesuaikan struktur respons, mengelola perubahan keadaan halaman, serta menampilkan pesan ketika permintaan tidak berhasil. Hal-hal tersebut menjadi bagian pekerjaan integrasi dan perbaikan sepanjang pelaksanaan kerja praktik.
 
 \subsection{Kebutuhan Fungsional}
-Kebutuhan pada Tabel~\ref{tab:kebutuhan} merangkum fungsi yang berkaitan dengan penugasan pengembangan mahasiswa dalam cakupan platform pada Tabel~\ref{tab:platform-kontribusi}. Pengelompokan ini digunakan untuk menjelaskan hubungan antara kebutuhan dan implementasinya tanpa mencantumkan istilah bisnis internal.
+Kebutuhan pada Tabel~\ref{tab:kebutuhan} merangkum fungsi yang berkaitan dengan penugasan pengembangan mahasiswa (SE) dalam cakupan platform pada Tabel~\ref{tab:platform-kontribusi}. Pengelompokan ini digunakan untuk menjelaskan hubungan antara kebutuhan pengembangan dan implementasinya tanpa mencantumkan istilah bisnis internal. Sementara itu, verifikasi penjaminan kualitas (QA) memeriksa fungsi-fungsi tersebut sekaligus modul lain yang dikembangkan oleh anggota tim pengembang lain, sebagaimana dirangkum pada Subbab~\ref{sec:qa-bab3}.
 \begin{table}[htbp]
-\caption{Kebutuhan fungsional dalam lingkup pengembangan}\label{tab:kebutuhan}
+\caption{Kebutuhan fungsional dalam lingkup pengembangan (SE)}\label{tab:kebutuhan}
 \small
 \begin{tabularx}{\textwidth}{@{}P{1.2cm}P{3cm}Y@{}}
 \toprule\textbf{Kode} & \textbf{Bagian} & \textbf{Kebutuhan}\\\midrule
@@ -82,6 +82,8 @@ F-05 & Navigasi pendukung & Menyesuaikan tautan kembali, penunjuk lokasi halaman
 Selain fungsi tersebut, pengembangan memperhatikan kemudahan pemeliharaan dan konsistensi penggunaan. Pemakaian kembali komponen formulir dan tabel membantu mengurangi perbedaan perilaku antarlayar. Penanganan keadaan memuat, data kosong, dan kesalahan membantu pengguna membedakan proses yang masih berjalan dari permintaan yang gagal.
 
 \section{Perancangan Sistem dan Fitur}
+Subbab 3.3.1 dan 3.3.2 menguraikan arsitektur serta teknologi aplikasi yang menjadi acuan bersama bagi pekerjaan pengembangan (SE) dan penjaminan kualitas (QA), sedangkan Subbab 3.3.3 dan 3.3.4 merinci rancangan fitur yang dikembangkan oleh peran SE.
+
 \subsection{Arsitektur dan Teknologi Tahap Awal}\label{sec:lingkungan}
 Pada tahap Juni--Juli, antarmuka web dikembangkan dengan Vue dan TypeScript. Vue menyediakan model antarmuka berbasis komponen dan keadaan reaktif \citep{vue}. Vite digunakan dalam lingkungan pengembangan dan pembangunan antarmuka, Pinia mendukung pengelolaan keadaan bersama, sedangkan FormKit tersedia sebagai bagian dari ekosistem formulir. Halaman dan komponen berkomunikasi dengan layanan melalui API (\textit{application programming interface}).
 
@@ -135,7 +137,7 @@ Riwayat disajikan sebagai urutan kejadian yang berkaitan dengan suatu pekerjaan.
 
 Data yang diterima dari layanan perlu disiapkan menjadi urutan elemen tampilan. Dalam pengolahan tersebut, elemen aktivitas dan elemen transisi dibedakan agar masing-masing memiliki penyajian yang sesuai. Halaman juga menyediakan keadaan kosong ketika riwayat belum tersedia serta navigasi kembali ke daftar pekerjaan.
 
-\section{Proses Pengembangan}
+\section{Proses Pengembangan Fitur (SE)}
 \subsection{Pengembangan Dasbor}\label{sec:dasbor}
 Dasbor dibutuhkan supaya berbagai pihak dapat melihat kinerja dari alur kerja atau proses bisnis. Pekerjaan awal dilakukan dengan membuat halaman dasbor dan komponen grafik. Pada tanggal 23 Juni, pengembangan dimulai dari kerangka tiga halaman. Selanjutnya, komponen diperbarui agar memperoleh data melalui layanan simulasi atau \textit{mock API}. Pemisahan tersebut memungkinkan bentuk respons dan alur pengambilan data dikembangkan tanpa menunggu seluruh layanan bisnis tersedia.
 
@@ -174,13 +176,13 @@ Pada tanggal 25 Agustus, fungsi pengambilan peran pengguna disesuaikan dengan sk
 \subsection{Perancangan Layar Dasbor Lanjutan}
 Pada akhir periode, mahasiswa mempelajari kebutuhan pengelolaan dasbor dan membuat rancangan layar menggunakan Visily. Layar yang dirancang meliputi daftar proses, daftar dasbor, pembuatan dasbor, pengaturan \textit{widget}, serta pembuatan komponen tabular dan nontabular. Keluaran tahap ini berupa rancangan antarmuka untuk mendukung pembahasan pengembangan berikutnya.
 
-\section{Pengujian dan Hasil Pekerjaan}
-\subsection{Pengujian Komponen}\label{sec:pengujian}
-Pengujian komponen disusun menggunakan Vitest dan Vue Test Utils. Vitest menyediakan fasilitas menjalankan pengujian pada lingkungan pengembangan berbasis Vite \citep{vitest}. Pada pengujian halaman, layanan dan sejumlah komponen diganti dengan \textit{mock} atau \textit{stub} agar perilaku halaman dapat diperiksa secara terpisah.
+\section{Pengujian Komponen dan Hasil Pengembangan (SE)}
+\subsection{Pengujian Komponen oleh Pengembang (SE)}\label{sec:pengujian}
+Pengujian komponen disusun oleh mahasiswa pengembang (SE) menggunakan Vitest dan Vue Test Utils. Vitest menyediakan fasilitas menjalankan pengujian pada lingkungan pengembangan berbasis Vite \citep{vitest}. Pada pengujian halaman, layanan dan sejumlah komponen diganti dengan \textit{mock} atau \textit{stub} agar perilaku halaman dapat diperiksa secara terpisah.
 
-Enam berkas pengujian ditambahkan untuk halaman pembuatan, detail, penyuntingan, formulir bersama, daftar peran, dan riwayat alur kerja. Tabel~\ref{tab:uji} merangkum perilaku yang dituliskan dalam kasus uji. Pengujian yang disusun oleh mahasiswa pengembang merupakan bagian dari kontribusi pengembangan dan dibedakan dari kegiatan QA yang dilengkapi oleh Frederiko.
+Enam berkas pengujian ditambahkan untuk halaman pembuatan, detail, penyuntingan, formulir bersama, daftar peran, dan riwayat alur kerja. Tabel~\ref{tab:uji} merangkum perilaku yang dituliskan dalam kasus uji. Pengujian unit dan komponen oleh pengembang ini terpisah dari pengujian antarmuka ujung ke ujung serta pengujian API yang dilaksanakan oleh Frederiko pada Subbab~\ref{sec:qa-bab3}.
 \begin{table}[htbp]
-\caption{Lingkup kasus uji komponen yang disusun}\label{tab:uji}
+\caption{Lingkup kasus uji komponen oleh pengembang (SE)}\label{tab:uji}
 \small
 \begin{tabularx}{\textwidth}{@{}P{3.2cm}Y@{}}
 \toprule\textbf{Bagian} & \textbf{Perilaku yang diperiksa}\\\midrule
@@ -196,17 +198,37 @@ Riwayat alur kerja & Data kosong, penyajian aktivitas dan transisi, navigasi kem
 
 Kasus uji integrasi pengambilan peran pada layanan Go memerlukan koneksi basis data. Keberadaan berkas pengujian tersebut menunjukkan penyiapan pemeriksaan fungsi; hasil pelaksanaannya perlu dibedakan dari sekadar tersedianya kode uji. Laporan ini tidak mencantumkan persentase cakupan atau angka kelulusan pengujian karena rekaman hasilnya belum tersedia.
 
-\subsection{Hasil Pengembangan}
-Hasil pekerjaan meliputi antarmuka dasbor berbasis layanan simulasi, fitur pengelolaan peran pada antarmuka dan layanan awal, riwayat alur kerja yang memuat aktivitas serta transisi, dan kumpulan pengujian komponen. Setelah pergantian teknologi, dihasilkan pula implementasi pengelolaan peran serta penyesuaian pengambilan peran pengguna pada layanan Go. Rancangan layar pengelolaan dasbor menjadi keluaran perancangan pada akhir periode.
+\subsection{Hasil Pekerjaan Pengembangan (SE)}
+Hasil pekerjaan pengembangan (SE) meliputi antarmuka dasbor berbasis layanan simulasi, fitur pengelolaan peran pada antarmuka dan layanan awal, riwayat alur kerja yang memuat aktivitas serta transisi, dan kumpulan pengujian komponen. Setelah pergantian teknologi, dihasilkan pula implementasi pengelolaan peran serta penyesuaian pengambilan peran pengguna pada layanan Go. Rancangan layar pengelolaan dasbor menjadi keluaran perancangan pada akhir periode.
 
 Hasil-hasil tersebut merupakan bagian dari sistem yang dikembangkan bersama tim. Dasbor awal masih menggunakan data simulasi, sedangkan rancangan layar akhir belum dinyatakan sebagai antarmuka yang telah diimplementasikan. Penyelesaian keseluruhan sistem dan penerimaan pengguna berada di luar klaim capaian bagian pekerjaan ini.
 
-\subsection{Kegiatan Penjaminan Kualitas}
-Kegiatan penjaminan kualitas menghasilkan rangkaian pengujian terotomasi berbasis Cypress untuk memeriksa keandalan antarmuka dan layanan pada sistem pengelolaan alur kerja \citep{artefak-awal}. Pengujian menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) dengan memadukan skenario kebutuhan pengguna dan penelusuran kode sumber aplikasi guna memetakan rute layanan, struktur data, serta selektor elemen pengujian. Lingkup pemeriksaan mencakup pengujian ujung ke ujung (\textit{end-to-end}) pada dasbor pemantauan, modul proses bisnis, autentikasi, serta operasi pengelolaan data \textit{master} seperti peran, pengguna, unit organisasi, dan konfigurasi sistem. Selain pengujian antarmuka dengan pola \textit{Page Object Model}, disusun pula pengujian API untuk memverifikasi fungsionalitas CRUD, integritas validasi masukan, batas latensi respons, dan penegakan otorisasi.
+\section{Penjaminan Kualitas Sistem (QA)}\label{sec:qa-bab3}
+\subsection{Pendekatan \textit{Greybox} dan Cakupan Modul (QA)}
+Kegiatan penjaminan kualitas dilaksanakan oleh \NamaFrederiko{} melalui pembangunan rangkaian pengujian terotomasi berbasis Cypress untuk memeriksa keandalan antarmuka dan layanan pada sistem pengelolaan alur kerja \citep{artefak-awal}. Pengujian menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) dengan memadukan skenario kebutuhan pengguna dan penelusuran kode sumber aplikasi guna memetakan rute layanan, struktur data, serta selektor elemen pengujian.
 
-Pelaksanaan pengujian mengidentifikasi sejumlah ketidaksesuaian implementasi dan celah teknis. Pada lapisan layanan, pemeriksaan keamanan menemukan bahwa rute pengelolaan peran belum menerapkan kendali akses berbasis peran (\textit{role-based access control}), sehingga pengguna berhak rendah secara teknis dapat memanggil aksi manipulasi data apabila memotong antarmuka. Pada lapisan antarmuka, ditemukan ketidakkonsistenan penamaan atribut selektor pengujian dinamis pada komponen penyaring tabel bersama, ketiadaan penanda pengujian pada sel aksi tabel peran, serta keterbatasan komponen menu konteks yang hanya merespons aksi klik langsung. Pengujian juga mengenali perbedaan perilaku validasi HTML5 pada komponen masukan kata sandi komposit dibandingkan dengan elemen masukan teks biasa.
+Berbeda dengan pengujian komponen SE yang berfokus pada fitur internal pengembang, pengujian QA mencakup tujuh modul dalam empat kelompok fitur utama lintas tim pengembang, sebagaimana dirangkum pada Tabel~\ref{tab:qa-cakupan-bab3}. Selain pengujian antarmuka ujung ke ujung (\textit{end-to-end}) menggunakan pola \textit{Page Object Model}, disusun pula pengujian langsung ke API untuk memverifikasi operasi CRUD, integritas validasi masukan, batas latensi respons, dan penegakan otorisasi.
 
-Pengujian dieksekusi secara berkala menggunakan mode baris perintah dan hasilnya dirangkum melalui laporan HTML berbasis Mochawesome, lengkap dengan rekaman video serta tangkapan layar saat terjadi kegagalan. Seluruh temuan dicatat dan dikomunikasikan kepada mahasiswa pengembang serta pembimbing teknis sebagai bahan perbaikan berkelanjutan. Sebagaimana hasil pengembangan, pengujian yang disusun berfokus pada fitur dan komponen yang menjadi tanggung jawab mahasiswa selama periode kerja praktik. Kesiapan operasional penuh dan pengujian penerimaan pengguna akhir secara menyeluruh berada di luar cakupan pekerjaan ini.
+\begin{table}[htbp]
+\caption{Pemetaan cakupan pengujian penjaminan kualitas (QA) per modul sistem}\label{tab:qa-cakupan-bab3}
+\small
+\begin{tabularx}{\textwidth}{@{}P{3.0cm}P{2.5cm}P{3.0cm}Y@{}}
+\toprule\textbf{Modul Sistem} & \textbf{Jenis Uji} & \textbf{Asal Implementasi} & \textbf{Fokus Pemeriksaan QA}\\\midrule
+Dasbor Pemantauan & E2E (Cypress) & Tim dan SE (Ra'if) & Metrik SLA, KPI, diagram donat, kartu indikator, dan filter.\\
+Master Peran & E2E dan API & SE (Ra'if) & Siklus CRUD, validasi formulir, celah otorisasi API, dan latensi.\\
+Master Pengguna & E2E (Cypress) & Tim pengembang lain & Siklus CRUD akun, validasi kosong, format surel, dan duplikasi.\\
+Master Entitas & E2E dan API & Tim pengembang lain & Hierarki unit dan divisi organisasi serta integritas muatan.\\
+Konfigurasi dan Referensi & E2E (Cypress) & Tim pengembang lain & Parameter operasional aplikasi dan keutuhan kamus data.\\
+Koleksi Proses Bisnis & E2E (Cypress) & Tim pengembang lain & Daftar proses, pencarian tiket, dan rincian tahapan proses.\\
+Autentikasi dan Notifikasi & E2E (Cypress) & Tim pengembang lain & Kredensial masuk/keluar, sesi, proteksi rute, dan status notifikasi.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Temuan Teknis dan Hasil Penjaminan Kualitas (QA)}
+Pelaksanaan pengujian mengidentifikasi sejumlah ketidaksesuaian implementasi dan celah teknis lintas modul. Pada lapisan layanan, pemeriksaan keamanan menemukan bahwa rute pengelolaan peran belum menerapkan kendali akses berbasis peran (\textit{role-based access control}), sehingga pengguna berhak rendah secara teknis dapat memanggil aksi manipulasi data apabila memotong antarmuka. Pada lapisan antarmuka, ditemukan ketidakkonsistenan penamaan atribut selektor pengujian dinamis pada komponen penyaring tabel bersama, ketiadaan penanda pengujian pada sel aksi tabel peran, serta keterbatasan komponen menu konteks yang hanya merespons aksi klik langsung. Pengujian juga mengenali perbedaan perilaku validasi HTML5 pada komponen masukan kata sandi komposit dibandingkan dengan elemen masukan teks biasa.
+
+Pengujian dieksekusi secara berkala melalui mode baris perintah dan hasilnya dirangkum dalam laporan HTML serta JSON menggunakan Mochawesome Reporter, lengkap dengan rekaman video serta tangkapan layar saat terjadi kegagalan. Rangkaian pengujian ini meliputi 23 berkas spesifikasi uji terstruktur serta lembar kerja induk (\textit{mastersheet}) pelacakan temuan yang dikelola pada media kolaboratif internal (Microsoft SharePoint). Seluruh temuan dikomunikasikan kepada mahasiswa pengembang serta pembimbing teknis untuk ditindaklanjuti melalui pengujian regresi, dengan rincian artefak dan temuan dimuat lengkap pada Lampiran~\ref{app:frederiko}. Kesiapan operasional penuh dan pengujian penerimaan pengguna akhir secara menyeluruh berada di luar cakupan pekerjaan ini.
 
 \section{Kendala dan Penyelesaiannya}
 Kendala pertama adalah penyelarasan bentuk data antara antarmuka dan layanan. Perubahan nama atribut dan struktur respons memengaruhi formulir, tabel, serta penyajian riwayat. Penanganannya dilakukan dengan menyesuaikan pemetaan data pada bagian terkait dan menyeragamkan penamaan agar perubahan tidak berhenti pada satu lapisan saja.
@@ -215,4 +237,4 @@ Kendala kedua berkaitan dengan pemeliharaan keadaan halaman. Data hak akses yang
 
 Kendala berikutnya adalah pergantian teknologi di tengah pelaksanaan. Mahasiswa perlu mempelajari bahasa dan pustaka baru sebelum dapat memindahkan fitur. Penyelesaiannya dilakukan secara bertahap melalui pembelajaran dasar Go, percobaan layanan sederhana, penyiapan lingkungan proyek, dan pemetaan kembali fitur pengelolaan peran. Penyesuaian tersebut juga memerlukan pemahaman skema data yang berubah.
 
-Dalam penyusunan pengujian, ketergantungan antarkomponen menjadi pertimbangan. Komponen pengganti digunakan untuk membatasi lingkup pemeriksaan halaman, sedangkan pengujian integrasi tetap membutuhkan lingkungan basis data. Pemisahan ini membantu memperjelas bagian yang diperiksa oleh masing-masing jenis pengujian.
+Dalam penyusunan pengujian komponen (SE), ketergantungan antarkomponen menjadi pertimbangan; komponen pengganti digunakan untuk membatasi lingkup pemeriksaan halaman, sedangkan pengujian integrasi tetap membutuhkan lingkungan basis data. Dari sisi penjaminan kualitas (QA), kendala teknis utama muncul pada kerapuhan selektor pengujian dinamis antarkomponen dan variasi perilaku masukan komposit, yang diselesaikan melalui pembungkusan logika interaksi pada komponen pembantu \textit{TableHelper} serta kesepakatan penamaan atribut \textit{data-cy} bersama tim pengembang.

@@ -29,13 +29,19 @@ Pekerjaan pengembangan meliputi pembuatan antarmuka dasbor, pengembangan fitur p
 Dalam pelaksanaannya, mahasiswa perlu memahami struktur aplikasi, menyesuaikan pertukaran data antara antarmuka dan layanan, serta mengikuti konvensi kode yang digunakan oleh tim. Tanggung jawab mahasiswa dibatasi pada tugas yang diberikan selama periode kerja praktik. Pekerjaan penjaminan kualitas mencakup perancangan skenario pengujian fungsional dan kasus negatif, pengembangan skrip otomasi pengujian, serta verifikasi keandalan fungsional dan keamanan sistem. Pengujian difokuskan pada empat kelompok fitur utama, yaitu dasbor pemantauan dan analitik, pengelolaan data \textit{master} (peran, akun pengguna, entitas organisasi, dan konfigurasi sistem), koleksi proses bisnis, serta autentikasi dan notifikasi. Pengujian dilakukan melalui pengujian antarmuka ujung ke ujung (\textit{end-to-end}) menggunakan Cypress berbasis pola \textit{Page Object Model} dan pengujian langsung pada antarmuka pemrograman aplikasi (API) untuk memvalidasi fungsionalitas CRUD, batas latensi respons, dan penegakan otorisasi.
 
 \section{Tujuan}
-Tujuan kerja praktik adalah berkontribusi pada pengembangan sistem pengelolaan alur kerja di PT Akhdani Reka Solusi sekaligus memperoleh pengalaman bekerja dalam tim perangkat lunak. Secara lebih rinci, tujuan pekerjaan meliputi:
+Tujuan kerja praktik adalah berkontribusi pada pengembangan dan penjaminan kualitas sistem pengelolaan alur kerja di PT Akhdani Reka Solusi sekaligus memperoleh pengalaman bekerja dalam tim perangkat lunak. Secara lebih rinci, tujuan pekerjaan terbagi menurut peran mahasiswa sebagai berikut:
+
+\noindent\textbf{Bidang Pengembangan Perangkat Lunak (SE):}
 \begin{enumerate}[label=\arabic*)]
 \item mengembangkan antarmuka dasbor yang menyajikan informasi melalui komponen dan layanan data yang terpisah;
 \item mengimplementasikan fitur pengelolaan peran, hubungan pengguna dengan peran, dan pengaturan hak akses;
 \item menyajikan riwayat proses agar tahapan, pelaksana, dan perpindahan keadaan pekerjaan dapat dipahami oleh pengguna;
-\item menyusun pengujian untuk memeriksa perilaku fitur yang dikembangkan serta melakukan perbaikan berdasarkan masalah yang ditemukan;
+\item menyusun pengujian komponen untuk memeriksa perilaku fitur yang dikembangkan serta melakukan perbaikan berdasarkan masalah yang ditemukan;
 \item menyesuaikan implementasi terhadap perubahan teknologi dan meningkatkan kemampuan koordinasi serta pemecahan masalah dalam pekerjaan profesional;
+\end{enumerate}
+
+\noindent\textbf{Bidang Penjaminan Kualitas (QA):}
+\begin{enumerate}[label=\arabic*),resume]
 \item merancang skenario pengujian fungsional dan pengujian kasus negatif berdasarkan spesifikasi kebutuhan alur kerja;
 \item membangun rangkaian otomasi pengujian antarmuka dan pengujian layanan API menggunakan kerangka kerja Cypress berbasis pola \textit{Page Object Model};
 \item memverifikasi keselarasan implementasi antarmuka dan layanan aplikasi serta mengidentifikasi anomali, celah otorisasi, dan regresi fungsi; serta
@@ -43,4 +49,4 @@ Tujuan kerja praktik adalah berkontribusi pada pengembangan sistem pengelolaan a
 \end{enumerate}
 
 \section{Sistematika Penulisan}\label{sec:sistematika}
-Bab I menjelaskan konteks dan tujuan kerja praktik. Bab II menguraikan lingkungan organisasi, pembagian tugas, tahapan pekerjaan, serta jadwal. Bab III membahas kebutuhan, rancangan, implementasi, pengujian, dan kendala pengembangan sistem. Bab IV memuat kesimpulan, evaluasi diri, serta saran. Laporan dilengkapi kerangka acuan pekerjaan atau \textit{terms of reference} (ToR), \textit{logbook}, dan bagian yang perlu dilengkapi oleh mahasiswa penjaminan kualitas.
+Bab I menjelaskan konteks dan tujuan kerja praktik. Bab II menguraikan lingkungan organisasi, pembagian tugas, tahapan pekerjaan, serta jadwal. Bab III membahas kebutuhan, rancangan, implementasi pengembangan (SE), kegiatan penjaminan kualitas (QA), pengujian, dan kendala pelaksanaan. Bab IV memuat kesimpulan, evaluasi diri masing-masing mahasiswa, serta saran. Laporan dilengkapi kerangka acuan pekerjaan atau \textit{terms of reference} (ToR) pada Lampiran~\ref{app:tor}, \textit{logbook} pengembangan pada Lampiran~\ref{app:logbook}, serta catatan kontribusi teknis, artefak pengujian, dan \textit{logbook} penjaminan kualitas pada Lampiran~\ref{app:frederiko}.
