@@ -68,6 +68,16 @@ yang sama dengan build lokal, dan tidak menerbitkan situs web.
 - Pengaturan LaTeX bersama: `shared/preamble.tex`; pengaturan build: `.latexmkrc`.
 - Tanda tangan: `figures/signatures/`, dengan ukuran tampil pada `shared/signatures.tex`.
 
+Untuk portal yang hanya menerima satu berkas Excel, gunakan
+**`deliverables/logbook_gabungan.xlsx`**. Berkas ini memiliki satu sheet
+**Template Logbook** dengan kolom `Tanggal`, `Kegiatan`, dan `Hasil`, serta satu
+baris untuk setiap tanggal. Pada kolom kegiatan dan hasil, catatan disusun sebagai
+`Raif: ...` lalu `Riko: ...` pada baris baru dalam sel yang sama. Teks sumber
+dipertahankan dan setiap sel tetap dibatasi maksimal 1.024 karakter.
+Catatan Riko untuk 1 Juli dan 25 Agustus belum tersedia; kedua tanggal tetap
+dicantumkan dengan keterangan tersebut. `make generate` memperbarui berkas gabungan
+bersama keluaran logbook individual.
+
 Logbook Ra'if memiliki 50 entri yang tersedia untuk ditinjau sebelum impor. Entri
 31 Agustus memuat kegiatan penutupan kerja praktik dengan pemaparan dari President
 Director. CSV dan sheet **Template Logbook** pada Excel memuat seluruh entri;

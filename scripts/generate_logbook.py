@@ -39,7 +39,7 @@ def xml_bytes(element):
     return ET.tostring(element, encoding="utf-8", xml_declaration=True)
 
 
-def sheet(rows, table=False):
+def sheet(rows, table=False, fit_rows=False):
     ET.register_namespace("", NS)
     root = ET.Element(f"{{{NS}}}worksheet")
     views = ET.SubElement(root, "sheetViews")
@@ -50,7 +50,13 @@ def sheet(rows, table=False):
         ET.SubElement(columns, "col", min=str(index), max=str(index), width=str(width), customWidth="1")
     data = ET.SubElement(root, "sheetData")
     for number, values in enumerate(rows, 1):
-        row = ET.SubElement(data, "row", r=str(number))
+        attributes = {"r": str(number)}
+        if fit_rows and table and number > 1:
+            # Sisakan ruang untuk pergantian baris dan pembungkusan teks di Excel.
+            line_count = max(sum(max(1, (len(line)+64)//65) for line in str(value).split("\n"))
+                             for value in values[1:])
+            attributes.update(ht=str(line_count*15+6), customHeight="1")
+        row = ET.SubElement(data, "row", **attributes)
         for index, value in enumerate(values):
             cell = ET.SubElement(row, "c", r=f"{chr(65+index)}{number}", t="inlineStr", s="1" if number == 1 else "2")
             text = ET.SubElement(ET.SubElement(cell, "is"), "t")
@@ -61,7 +67,7 @@ def sheet(rows, table=False):
     return xml_bytes(root)
 
 
-def xlsx(sheets):
+def xlsx(sheets, fit_rows=False):
     """Tulis workbook OOXML sederhana menggunakan pustaka standar Python."""
     buffer = io.BytesIO()
     with ZipFile(buffer, "w", ZIP_DEFLATED) as archive:
@@ -89,7 +95,7 @@ def xlsx(sheets):
         for index, (name, rows, table) in enumerate(sheets, 1):
             ET.SubElement(children, "sheet", name=name, sheetId=str(index), **{f"{{{reltype[:-1]}}}id": f"rId{index}"})
             ET.SubElement(rels, "Relationship", Id=f"rId{index}", Type=reltype+"worksheet", Target=f"worksheets/sheet{index}.xml")
-            add(f"xl/worksheets/sheet{index}.xml", sheet(rows, table))
+            add(f"xl/worksheets/sheet{index}.xml", sheet(rows, table, fit_rows))
         ET.SubElement(rels, "Relationship", Id=f"rId{len(sheets)+1}", Type=reltype+"styles", Target="styles.xml")
         add("xl/workbook.xml", xml_bytes(workbook))
         add("xl/_rels/workbook.xml.rels", xml_bytes(rels))
@@ -139,6 +145,26 @@ def write_if_changed(path, content):
         temporary.replace(path)
 
 
+def combined_logbook_rows(entries_raif, entries_frederiko):
+    by_person = [("Raif", {entry["tanggal"]: entry for entry in entries_raif}),
+                 ("Riko", {entry["tanggal"]: entry for entry in entries_frederiko})]
+    days = sorted(set().union(*(entries.keys() for _, entries in by_person)))
+    rows = [HEADERS]
+    for day in days:
+        values = [day]
+        for field in ("kegiatan", "hasil"):
+            parts = []
+            for name, entries in by_person:
+                value = entries[day][field] if day in entries else f"Catatan {field} belum tersedia untuk tanggal ini."
+                parts.append(f"{name}: {value}")
+            combined = "\n".join(parts)
+            if len(combined) > 1024:
+                raise ValueError(f"{day}: gabungan {field} melebihi 1024 karakter ({len(combined)})")
+            values.append(combined)
+        rows.append(values)
+    return rows
+
+
 def main():
     entries_raif = load_entries("data/logbook_raif.json")
     rows_raif = [HEADERS] + [(entry["tanggal"], entry["kegiatan"], entry["hasil"]) for entry in entries_raif]
@@ -174,6 +200,11 @@ def main():
             ("Template Logbook", rows_frederiko, True), ("Petunjuk", instructions_frederiko, False)]))
         write_if_changed(ROOT / "generated/logbook_frederiko.tex", tex(entries_frederiko, "Logbook kegiatan Frederiko Eldad Mugiyono", "tab:logbook-frederiko"))
         print(f"Logbook Frederiko: {len(entries_frederiko)} entri berhasil diproses.")
+
+        combined = combined_logbook_rows(entries_raif, entries_frederiko)
+        write_if_changed(ROOT / "deliverables/logbook_gabungan.xlsx", xlsx([
+            ("Template Logbook", combined, True)], fit_rows=True))
+        print(f"Logbook gabungan Raif dan Riko: {len(combined)-1} tanggal unik dalam satu sheet.")
 
 
 if __name__ == "__main__":

@@ -40,6 +40,28 @@ def main():
     assert pending[1:] == expected_pending, "Entri belum lengkap harus terpisah dari lembar impor"
     assert spreadsheet_rows(Path("deliverables/template_logbook_frederiko.xlsx"), 1) == [headers], "Template Frederiko harus kosong"
 
+    frederiko_source = Path("data/logbook_frederiko.json")
+    if frederiko_source.exists():
+        people = [("Raif", {entry["tanggal"]: entry for entry in entries}),
+                  ("Riko", {entry["tanggal"]: entry for entry in json.loads(frederiko_source.read_text())})]
+        combined_path = Path("deliverables/logbook_gabungan.xlsx")
+        combined = spreadsheet_rows(combined_path, 1)
+        assert combined[0] == headers, "Nama kolom logbook gabungan berubah"
+        days = sorted(set().union(*(records.keys() for _, records in people)))
+        assert [row[0] for row in combined[1:]] == days, "Tanggal gabungan harus unik dan mencakup kedua logbook"
+        for row in combined[1:]:
+            for index, field in enumerate(("kegiatan", "hasil"), 1):
+                expected = "\n".join(f"{name}: " + (records[row[0]][field] if row[0] in records
+                                     else f"Catatan {field} belum tersedia untuk tanggal ini.")
+                                     for name, records in people)
+                assert row[index] == expected, f"Isi gabungan berbeda dari sumber: {row[0]} {field}"
+                assert len(row[index]) <= 1024, f"Gabungan terlalu panjang: {row[0]} {field}"
+        with ZipFile(combined_path) as archive:
+            ns = {"s": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+            workbook = ET.fromstring(archive.read("xl/workbook.xml"))
+            assert len(workbook.findall("s:sheets/s:sheet", ns)) == 1, "Berkas gabungan harus berisi satu sheet"
+        print(f"Logbook gabungan konsisten: {len(combined)-1} tanggal unik, dua nama pada baris terpisah.")
+
     if shutil.which("pdftotext"):
         for name in ("main", "tor"):
             text = subprocess.check_output(["pdftotext", "-layout", f"build/{name}.pdf", "-"], text=True)
