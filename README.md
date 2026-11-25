@@ -74,18 +74,18 @@ Untuk portal yang hanya menerima satu berkas Excel, gunakan
 baris untuk setiap tanggal. Pada kolom kegiatan dan hasil, catatan disusun sebagai
 `Raif: ...` lalu `Riko: ...` pada baris baru dalam sel yang sama. Teks sumber
 dipertahankan dan setiap sel tetap dibatasi maksimal 1.024 karakter.
-Catatan Riko untuk 1 Juli dan 25 Agustus belum tersedia; kedua tanggal tetap
-dicantumkan dengan keterangan tersebut. `make generate` memperbarui berkas gabungan
-bersama keluaran logbook individual.
+Kedua logbook mencakup 51 tanggal Senin sampai Jumat. Entri Riko pada 1 Juli
+direkonstruksi dari catatan 30 Juni. Kedua logbook mencantumkan libur nasional
+pada 17 Agustus. Catatan Riko pada 25 Agustus mencantumkan libur nasional,
+sementara catatan Ra'if pada tanggal itu memuat pekerjaan dari riwayat kode.
+`make generate` memperbarui berkas gabungan dan keluaran logbook individual.
 
-Logbook Ra'if memiliki 50 entri yang tersedia untuk ditinjau sebelum impor. Entri
+Logbook Ra'if memiliki 51 entri yang tersedia untuk ditinjau sebelum impor. Entri
 31 Agustus memuat kegiatan penutupan kerja praktik dengan pemaparan dari President
 Director. CSV dan sheet **Template Logbook** pada Excel memuat seluruh entri;
 sheet **Perlu Dilengkapi** saat ini kosong. Impor hanya sheet **Template Logbook**.
-Entri 25 Agustus direkonstruksi dari perubahan kode milik Ra'if. Template Excel
-Frederiko disediakan kosong agar ia mengisi kegiatannya sendiri. Perubahan data
-logbook otomatis digunakan saat `make`, sehingga CSV, Excel, dan lampiran laporan
-tetap berasal dari satu sumber. Jangan menyunting berkas di `generated/`.
+CSV, Excel, dan lampiran laporan dibuat dari sumber yang sama saat `make`
+dijalankan. Perbarui catatan di `data/` untuk mengubah ketiga keluaran tersebut.
 
 Proses build memakai penguncian berkas, sehingga `make` atau `make check` tetap
 dapat dijalankan saat pratinjau aktif. PDF pada root diganti secara atomik setelah

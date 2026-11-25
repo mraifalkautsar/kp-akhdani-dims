@@ -42,6 +42,12 @@
     "status": "tercatat"
   },
   {
+    "tanggal": "2026-07-01",
+    "kegiatan": "Rekonstruksi dari catatan 30 Juni: melanjutkan penyusunan skenario pengujian antarmuka dasbor alur pengajuan dan dasbor pemantauan utama.",
+    "hasil": "Catatan 30 Juni memuat rumusan skenario pengujian antarmuka dasbor. Hasil khusus pada 1 Juli tidak tercatat.",
+    "status": "rekonstruksi"
+  },
+  {
     "tanggal": "2026-07-02",
     "kegiatan": "Menyusun skenario pengujian modul dasbor pemantauan hingga modul informasi anggaran serta menambahkan skenario pengujian negatif. Memperbaiki fungsi masuk (login) pada kerangka kerja Cypress agar modular dan membuat skrip otomasi pengujian diagram donat pada dasbor operasional.",
     "hasil": "Penambahan skenario uji negatif pada modul pemantauan, fungsi masuk Cypress yang modular, serta tersedianya skrip pengujian otomatis pertama untuk diagram donat dasbor operasional.",
@@ -109,7 +115,7 @@
   },
   {
     "tanggal": "2026-07-17",
-    "kegiatan": "Mengembangkan skrip otomasi pengujian untuk submenu realisasi pada dasbor pemantauan, menyusun pengujian antarmuka untuk fitur master peran, serta menulis pengujian API terotomatisasi untuk rute pengelolaan peran (keamanan, validasi muatan, CRUD, dan batas performa).",
+    "kegiatan": "Mengembangkan skrip otomasi pengujian untuk submenu realisasi pada dasbor pemantauan, menyusun pengujian antarmuka untuk fitur master peran, serta menulis pengujian API terotomatisasi untuk rute pengelolaan peran (keamanan, validasi muatan, dan CRUD).",
     "hasil": "Tersedia rangkaian pengujian antarmuka untuk submenu realisasi dan master peran, serta pengujian API komprehensif yang mengidentifikasi ketiadaan middleware otorisasi pada endpoint peran.",
     "status": "tercatat"
   },
@@ -234,6 +240,12 @@
     "status": "tercatat"
   },
   {
+    "tanggal": "2026-08-17",
+    "kegiatan": "Libur nasional Hari Kemerdekaan Republik Indonesia.",
+    "hasil": "Tidak ada hasil kegiatan yang tercatat pada tanggal ini.",
+    "status": "tercatat"
+  },
+  {
     "tanggal": "2026-08-18",
     "kegiatan": "Mengikuti kegiatan internal perusahaan dalam rangka memperingati Hari Kemerdekaan Republik Indonesia bersama seluruh karyawan dan peserta magang.",
     "hasil": "Partisipasi dalam kegiatan kebersamaan dan pengenalan budaya kerja internal perusahaan.",
@@ -261,6 +273,12 @@
     "tanggal": "2026-08-24",
     "kegiatan": "Mempelajari struktur purwarupa antarmuka pengguna yang baru untuk mengidentifikasi perubahan tata letak, komponen masukan, dan rencana penempatan atribut selektor pengujian.",
     "hasil": "Diperoleh pemahaman terhadap rancangan antarmuka baru untuk persiapan penyesuaian skrip otomasi pengujian.",
+    "status": "tercatat"
+  },
+  {
+    "tanggal": "2026-08-25",
+    "kegiatan": "Libur nasional Maulid Nabi Muhammad saw.",
+    "hasil": "Tidak ada hasil kegiatan yang tercatat pada tanggal ini.",
     "status": "tercatat"
   },
   {

@@ -1,19 +1,19 @@
-\chapter{Kontribusi Teknis dan Logbook Frederiko Eldad Mugiyono}\label{app:frederiko}
+\chapter{Kontribusi Teknis dan \textit{Logbook} Frederiko Eldad Mugiyono}\label{app:frederiko}
 Lampiran ini mendokumentasikan penugasan teknis, lingkup pengujian, temuan, artefak yang dihasilkan, serta catatan kegiatan harian (\textit{logbook}) \NamaFrederiko{} (\NIMFrederiko) sebagai \textit{Quality Assurance Intern} selama kerja praktik di \TempatKP.
 
 \section{Penugasan dan Hasil}
-Selama pelaksanaan kerja praktik pada \PeriodeKP, penugasan penjaminan kualitas difokuskan pada perancangan skenario, implementasi skrip otomatisasi pengujian, serta verifikasi keandalan fungsional dan keamanan sistem pengelolaan alur kerja. Pengujian dilakukan secara independen terhadap antarmuka dan layanan aplikasi yang dikembangkan oleh tim pengembang.
+Selama pelaksanaan kerja praktik pada \PeriodeKP, penugasan penjaminan kualitas difokuskan pada perancangan skenario, implementasi skrip otomasi pengujian, serta verifikasi keandalan fungsional dan keamanan sistem pengelolaan alur kerja. Pengujian dilakukan secara independen terhadap antarmuka dan layanan aplikasi yang dikembangkan oleh tim pengembang.
 
 \subsection*{Lingkup Penugasan dan Jenis Pengujian}
 Penugasan penjaminan kualitas mencakup pengujian fungsionalitas, validasi masukan, interaksi antarmuka pengguna, serta keamanan akses data pada empat kelompok fitur utama:
 \begin{enumerate}[label=\arabic*)]
 \item \textbf{Dasbor Pemantauan dan Analitik}: Memeriksa penyajian metrik pemantauan pekerjaan, akurasi diagram donat sebaran data, kartu indikator tahapan alur kerja, ringkasan permohonan, efektivitas capaian SLA, grafik distribusi tahapan, serta metrik evaluasi KPI berkala.
-\item \textbf{Pengelolaan Data Master}: Menguji operasi pembuatan, pembacaan, pembaruan, dan penghapusan (\textit{CRUD}) serta integritas aturan validasi pada master peran pengguna (\textit{role}), master akun pengguna (\textit{user}), master unit dan divisi organisasi, konfigurasi sistem, serta data referensi operasional.
+\item \textbf{Pengelolaan Data Induk}: Menguji operasi pembuatan, pembacaan, pembaruan, dan penghapusan (CRUD) serta integritas aturan validasi pada peran, akun pengguna, unit dan divisi organisasi, konfigurasi sistem, serta data referensi operasional.
 \item \textbf{Koleksi Proses Bisnis}: Memeriksa tabel koleksi proses bisnis, filter parameter, pencarian tiket alur kerja, dan pembukaan rincian riwayat tahapan pekerjaan.
 \item \textbf{Autentikasi dan Notifikasi}: Memverifikasi proses masuk dan keluar pengguna, pengelolaan sesi peramban, penolakan akses rute tanpa kredensial sah, serta pemutakhiran status penandaan notifikasi dalam aplikasi.
 \end{enumerate}
 
-Pengujian menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) yang mengombinasikan skenario kebutuhan bisnis dengan analisis kode sumber untuk mengenali rute layanan, struktur muatan data, dan penanda elemen antarmuka (\textit{data-cy}). Pengujian dibagi menjadi dua tingkatan, yaitu pengujian antarmuka ujung ke ujung (\textit{end-to-end}) berbasis peramban dengan pola \textit{Page Object Model} (POM) dan pengujian langsung ke antarmuka pemrograman aplikasi (\textit{API testing}) untuk memverifikasi fungsionalitas CRUD, batas latensi respons di bawah dua detik, serta pemeriksaan celah otorisasi.
+Pengujian menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) yang mengombinasikan skenario kebutuhan bisnis dengan analisis kode sumber untuk mengenali rute layanan, struktur muatan data, dan penanda elemen antarmuka (\textit{data-cy}). Pengujian antarmuka ujung ke ujung (\textit{end-to-end}) dilakukan melalui peramban dengan pola \textit{Page Object Model} (POM). Pengujian langsung pada antarmuka pemrograman aplikasi (API) memeriksa operasi CRUD dan penegakan otorisasi.
 
 Tabel~\ref{tab:qa-ringkasan-penugasan} merangkum lingkup penugasan, modul yang diperiksa, jenis pengujian, serta artefak pengujian yang dihasilkan.
 
@@ -23,12 +23,12 @@ Tabel~\ref{tab:qa-ringkasan-penugasan} merangkum lingkup penugasan, modul yang d
 \begin{tabularx}{\textwidth}{@{}P{3.2cm}P{2.6cm}P{3.4cm}Y@{}}
 \toprule\textbf{Modul Sistem} & \textbf{Jenis Pengujian} & \textbf{Artefak Uji} & \textbf{Cakupan Pemeriksaan}\\\midrule
 Dasbor Pemantauan & Antarmuka (E2E) & Spesifikasi uji Cypress dasbor pemantauan & Diagram analitik, filter tanggal dan status, metrik SLA, serta kartu ringkasan KPI.\\
-Master Peran & E2E dan Layanan (API) & Skrip uji antarmuka dan skrip uji API peran & Alur CRUD peran antarmuka, pengujian keamanan otorisasi API, dan batas latensi.\\
-Master Pengguna & Antarmuka (E2E) & Skrip uji antarmuka master pengguna & Siklus CRUD pengguna, validasi masukan kosong, format surel, dan keunikan identitas.\\
-Master Entitas & E2E dan Layanan (API) & Skrip uji antarmuka dan API entitas & Relasi hierarki unit dan divisi organisasi serta validasi muatan data.\\
+Peran & E2E dan Layanan (API) & Skrip uji antarmuka dan skrip uji API peran & Alur CRUD peran pada antarmuka dan pemeriksaan otorisasi API.\\
+Akun Pengguna & Antarmuka (E2E) & Skrip uji antarmuka akun pengguna & Siklus CRUD pengguna, validasi masukan kosong, format surel, dan keunikan identitas.\\
+Entitas Organisasi & E2E dan Layanan (API) & Skrip uji antarmuka dan API entitas & Relasi hierarki unit dan divisi organisasi serta validasi muatan data.\\
 Konfigurasi dan Referensi & Antarmuka (E2E) & Skrip uji referensi dan konfigurasi sistem & Pemeliharaan parameter operasional aplikasi dan integritas nilai kamus data.\\
 Proses Bisnis & Antarmuka (E2E) & Skrip uji koleksi proses bisnis & Navigasi daftar proses, pencarian tiket alur kerja, dan penelusuran rincian proses.\\
-Autentikasi dan Notifikasi & Antarmuka (E2E) & Skrip uji login, logout, dan notifikasi & Keabsahan kredensial, pembatasan navigasi, serta pemutakhiran status notifikasi.\\
+Autentikasi dan Notifikasi & Antarmuka (E2E) & Skrip uji masuk, keluar, dan notifikasi & Keabsahan kredensial, pembatasan navigasi, serta pemutakhiran status notifikasi.\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -36,8 +36,8 @@ Autentikasi dan Notifikasi & Antarmuka (E2E) & Skrip uji login, logout, dan noti
 \subsection*{Temuan dan Tindak Lanjut}
 Rangkaian pengujian otomatis yang dijalankan berhasil mengidentifikasi sejumlah anomali teknis dan perbedaan perilaku implementasi:
 \begin{enumerate}[label=\alph*)]
-\item \textbf{Celah Otorisasi Endpoint Layanan}: Pengujian API pada rute pengelolaan peran menemukan bahwa layanan belum menerapkan middleware otorisasi berbasis peran (\textit{Role-Based Access Control}). Pengguna dengan token berhak rendah dapat melakukan pemanggilan manipulasi data secara langsung. Temuan ini didokumentasikan sebagai rekomendasi pengetatan otorisasi di sisi peladen.
-\item \textbf{Penamaan Selektor Pengujian Dinamis}: Pada komponen tabel terpadu, tombol penyaring menerapkan atribut selektor dinamis yang bergantung pada parameter modul, sementara sel menu aksi pada tabel master peran belum dilengkapi atribut pengujian khusus. Skrip otomatisasi disesuaikan dengan penelusuran struktur simpul tabel sebelum standardisasi atribut diterapkan pengembang.
+\item \textbf{Celah Otorisasi pada Rute Layanan}: Pengujian API pada rute pengelolaan peran menemukan bahwa layanan belum menerapkan \textit{middleware} otorisasi berbasis peran (\textit{Role-Based Access Control}). Pengguna dengan token berhak rendah dapat melakukan pemanggilan manipulasi data secara langsung. Temuan ini didokumentasikan sebagai rekomendasi pengetatan otorisasi di sisi peladen.
+\item \textbf{Penamaan Selektor Pengujian Dinamis}: Pada komponen tabel terpadu, tombol penyaring menerapkan atribut selektor dinamis yang bergantung pada parameter modul, sementara sel menu aksi pada tabel peran belum dilengkapi atribut pengujian khusus. Skrip otomatisasi disesuaikan dengan penelusuran struktur simpul tabel sebelum standardisasi atribut diterapkan pengembang.
 \item \textbf{Penanganan Peristiwa Navigasi Menu Konteks}: Pada antarmuka proses bisnis, komponen menu konteks hanya mengeksekusi perpindahan halaman saat menerima aksi klik langsung peramban, sedangkan simulasi penekanan tombol Enter pada elemen daftar tidak memicu pustaka perutean. Skrip pengujian diselaraskan dengan menargetkan tautan aksi secara langsung.
 \item \textbf{Perilaku Validasi Komponen Masukan Komposit}: Komponen kata sandi membungkus masukan dalam elemen kontainer div, sehingga status keabsahan HTML5 (:invalid) tidak melekat pada pengenal terluar sebagaimana komponen teks biasa. Skrip pengujian diarahkan secara spesifik ke elemen masukan internal.
 \end{enumerate}
@@ -47,15 +47,15 @@ Seluruh temuan dicatat dalam dokumen pelacakan pengujian dan dikomunikasikan sec
 \subsection*{Hasil yang Dapat Dibuktikan}
 Luaran nyata dari kegiatan penjaminan kualitas selama kerja praktik meliputi:
 \begin{enumerate}[label=\arabic*)]
-\item Tersedianya repositori kerangka kerja otomatisasi pengujian berbasis Cypress yang mencakup 23 berkas spesifikasi pengujian antarmuka dan API terstruktur.
-\item Komponen pembantu otomasi berbasis Page Object Model yang dapat digunakan kembali, termasuk \textit{TableHelper} untuk tabel data terpadu dan pembantu interaksi navigasi.
+\item Tersedianya repositori kerangka kerja otomasi pengujian berbasis Cypress yang mencakup 23 berkas spesifikasi pengujian antarmuka dan API terstruktur.
+\item Komponen pembantu otomasi berbasis \textit{Page Object Model} yang dapat digunakan kembali, termasuk \textit{TableHelper} untuk tabel data terpadu dan pembantu interaksi navigasi.
 \item Kumpulan skenario pengujian fungsional dan pengujian kasus negatif yang diselaraskan dengan dokumen spesifikasi kebutuhan alur kerja.
 \item Lembar kerja induk (\textit{mastersheet}) pengujian dan pelaporan hasil uji yang dikelola secara terpusat pada media penyimpanan kolaboratif internal perusahaan (Microsoft SharePoint), memuat matriks skenario, status eksekusi, serta pelacakan temuan untuk koordinasi tim.
 \item Pelaporan hasil pengujian terotomatisasi dalam format HTML dan JSON menggunakan Mochawesome Reporter, dilengkapi perekaman tangkapan layar dan video saat terjadi kegagalan untuk memfasilitasi diagnosis regresi.
 \end{enumerate}
 
-\section{Logbook}\label{sec:logbook-frederiko}
+\section{\textit{Logbook}}\label{sec:logbook-frederiko}
 Periode kerja praktik: \PeriodeKP.
 
-Logbook berikut memuat catatan kegiatan harian penjaminan kualitas dan hasilnya selama masa kerja praktik di \TempatKP.
+\textit{Logbook} berikut memuat catatan kegiatan harian penjaminan kualitas dan hasilnya selama masa kerja praktik di \TempatKP. Entri 1 Juli direkonstruksi berdasarkan catatan 30 Juni. Tanggal 17 dan 25 Agustus dicantumkan sebagai libur nasional.
 \input{generated/logbook_frederiko}

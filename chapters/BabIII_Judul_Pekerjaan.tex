@@ -46,8 +46,8 @@ Tabel~\ref{tab:platform-kontribusi} memetakan bagian platform terhadap kontribus
 \bottomrule\endfoot
 Repositori proses bisnis & Menyimpan definisi, tahapan, hubungan, dan versi proses. & Mempelajari struktur proses serta mengintegrasikan penyajian riwayat pada konteks pekerjaan yang dipilih. & Menguji navigasi koleksi proses bisnis, filter parameter, pencarian tiket, dan penelusuran rincian.\\[5pt]
 Mesin alur kerja & Mengatur keadaan, perpindahan tahap, dan penugasan pada pelaksanaan pekerjaan. & Mengembangkan pengambilan dan tampilan riwayat, termasuk pelaksana, komentar, dan transisi. & Memverifikasi alur tahapan pekerjaan, perpindahan status, serta konsistensi tampilan rincian riwayat.\\[5pt]
-Formulir dinamis & Mengelola skema masukan, validasi, dan nilai isian sesuai kebutuhan proses. & Memahami hubungannya dengan proses. Pengembangan mesin formulir menjadi bagian pekerjaan tim secara keseluruhan. & Menguji validasi masukan, kasus batas formulir, serta penanganan galat pada halaman data \textit{master} tim.\\[5pt]
-Identitas dan hak akses & Mengelola autentikasi, peran, hubungan pengguna, dan kewenangan. & Mengembangkan pengelolaan peran dan hak akses serta mengadaptasi pengambilan peran pada layanan baru. & Menguji autentikasi, E2E dan API \textit{master} peran, \textit{master} pengguna, unit organisasi, serta celah RBAC.\\[5pt]
+Formulir dinamis & Mengelola skema masukan, validasi, dan nilai isian sesuai kebutuhan proses. & Memahami hubungannya dengan proses. Pengembangan mesin formulir menjadi bagian pekerjaan tim secara keseluruhan. & Menguji validasi masukan, kasus batas formulir, serta penanganan galat pada halaman data induk tim.\\[5pt]
+Identitas dan hak akses & Mengelola autentikasi, peran, hubungan pengguna, dan kewenangan. & Mengembangkan pengelolaan peran dan hak akses serta mengadaptasi pengambilan peran pada layanan baru. & Menguji autentikasi, E2E dan API pengelolaan peran, akun pengguna, unit organisasi, serta celah RBAC.\\[5pt]
 Dasbor dan pemantauan & Menyajikan ringkasan serta perkembangan pekerjaan. & Mengembangkan halaman dengan layanan simulasi dan menyusun rancangan layar dasbor serta komponen visual lanjutan. & Menguji dasbor pemantauan dan analitik, termasuk metrik SLA, KPI, diagram donat, dan filter tanggal.\\[5pt]
 Berkas dan fitur pendukung & Menyediakan lampiran, panduan, notifikasi, dan fasilitas umum aplikasi. & Memperbaiki akses panduan pengguna, navigasi, konfirmasi keluar, dan sejumlah komponen pendukung. & Menguji konfigurasi sistem, data referensi operasional, pemutakhiran notifikasi, serta mekanisme keluar.\\[5pt]
 \end{longtable}
@@ -104,7 +104,7 @@ Perubahan kebutuhan setelah Juli diikuti oleh penggunaan basis kode layanan yang
 
 Implementasi layanan yang diperiksa pada periode ini menggunakan Fiber v2 dan PostgreSQL dengan pustaka \texttt{sqlx}. Pustaka \texttt{sqlx} menyediakan perluasan fasilitas akses data SQL di Go. Goose digunakan untuk pengelolaan migrasi dan data awal. Pada layanan identitas, Redis berkaitan dengan penyimpanan data autentikasi serta sesi. Antarmuka tetap menggunakan Vue dan TypeScript sehingga perubahan utama yang berkaitan dengan pemindahan fitur berada pada layanan dan akses datanya.
 
-Seperti yang telah disebutkan, terjadi perubahan teknologi pada bulan Agustus berdasarkan permintaan klien, Tabel~\ref{tab:perbandingan-teknologi} merangkum teknologi serta perannya pada tahap awal dan tahap setelah perubahan.
+Perubahan teknologi pada bulan Agustus terjadi berdasarkan permintaan klien. Tabel~\ref{tab:perbandingan-teknologi} merangkum teknologi serta perannya pada tahap awal dan tahap setelah perubahan.
 
 \begingroup\small\singlespacing\setlength{\tabcolsep}{5pt}
 \begin{longtable}{@{}P{2.1cm}P{5.55cm}P{5.55cm}@{}}
@@ -207,7 +207,7 @@ Hasil-hasil tersebut merupakan bagian dari sistem yang dikembangkan bersama tim.
 \subsection{Pendekatan \textit{Greybox} dan Cakupan Modul (QA)}
 Kegiatan penjaminan kualitas dilaksanakan oleh \NamaFrederiko{} melalui pembangunan rangkaian pengujian terotomasi berbasis Cypress untuk memeriksa keandalan antarmuka dan layanan pada sistem pengelolaan alur kerja. Pengujian menerapkan pendekatan kotak abu-abu (\textit{greybox testing}) dengan memadukan skenario kebutuhan pengguna dan penelusuran kode sumber aplikasi guna memetakan rute layanan, struktur data, serta selektor elemen pengujian.
 
-Berbeda dengan pengujian komponen SE yang berfokus pada fitur internal pengembang, pengujian QA mencakup tujuh modul dalam empat kelompok fitur utama lintas tim pengembang, sebagaimana dirangkum pada Tabel~\ref{tab:qa-cakupan-bab3}. Selain pengujian antarmuka ujung ke ujung (\textit{end-to-end}) menggunakan pola \textit{Page Object Model}, disusun pula pengujian langsung ke API untuk memverifikasi operasi CRUD, integritas validasi masukan, batas latensi respons, dan penegakan otorisasi.
+Berbeda dengan pengujian komponen SE yang berfokus pada fitur internal pengembang, pengujian QA mencakup tujuh modul dalam empat kelompok fitur utama lintas tim pengembang, sebagaimana dirangkum pada Tabel~\ref{tab:qa-cakupan-bab3}. Selain pengujian antarmuka ujung ke ujung (\textit{end-to-end}) menggunakan pola \textit{Page Object Model}, disusun pula pengujian langsung ke API untuk memverifikasi operasi CRUD, validasi masukan, dan penegakan otorisasi.
 
 \begin{table}[htbp]
 \caption{Pemetaan cakupan pengujian penjaminan kualitas (QA) per modul sistem}\label{tab:qa-cakupan-bab3}
@@ -215,9 +215,9 @@ Berbeda dengan pengujian komponen SE yang berfokus pada fitur internal pengemban
 \begin{tabularx}{\textwidth}{@{}P{3.0cm}P{2.5cm}P{3.0cm}Y@{}}
 \toprule\textbf{Modul Sistem} & \textbf{Jenis Uji} & \textbf{Asal Implementasi} & \textbf{Fokus Pemeriksaan QA}\\\midrule
 Dasbor Pemantauan & E2E (Cypress) & Tim dan SE (Ra'if) & Metrik SLA, KPI, diagram donat, kartu indikator, dan filter.\\
-Master Peran & E2E dan API & SE (Ra'if) & Siklus CRUD, validasi formulir, celah otorisasi API, dan latensi.\\
-Master Pengguna & E2E (Cypress) & Tim pengembang lain & Siklus CRUD akun, validasi kosong, format surel, dan duplikasi.\\
-Master Entitas & E2E dan API & Tim pengembang lain & Hierarki unit dan divisi organisasi serta integritas muatan.\\
+Peran & E2E dan API & SE (Ra'if) & Siklus CRUD, validasi formulir, dan pemeriksaan otorisasi API.\\
+Akun Pengguna & E2E (Cypress) & Tim pengembang lain & Siklus CRUD akun, validasi kosong, format surel, dan duplikasi.\\
+Entitas Organisasi & E2E dan API & Tim pengembang lain & Hierarki unit dan divisi organisasi serta integritas muatan.\\
 Konfigurasi dan Referensi & E2E (Cypress) & Tim pengembang lain & Parameter operasional aplikasi dan keutuhan kamus data.\\
 Koleksi Proses Bisnis & E2E (Cypress) & Tim pengembang lain & Daftar proses, pencarian tiket, dan rincian tahapan proses.\\
 Autentikasi dan Notifikasi & E2E (Cypress) & Tim pengembang lain & Kredensial masuk/keluar, sesi, proteksi rute, dan status notifikasi.\\

@@ -117,7 +117,7 @@ def escape_tex(text):
     return "".join(replacements.get(character, character) for character in text)
 
 
-def tex(entries, caption=r"Logbook kegiatan Muhammad Ra'if Alkautsar", label="tab:logbook-raif"):
+def tex(entries, caption=r"\textit{Logbook} kegiatan Muhammad Ra'if Alkautsar", label="tab:logbook-raif"):
     lines = [r"% Dihasilkan dari data JSON; jangan sunting berkas ini.",
              r"\begingroup\footnotesize\singlespacing\setlength{\tabcolsep}{4pt}",
              r"\setlength{\parindent}{0pt}",
@@ -183,7 +183,7 @@ def main():
         ("Template Logbook", [HEADERS], True),
         ("Petunjuk", [("Logbook Frederiko Eldad Mugiyono (13523147)",), ("Isi satu baris setiap hari; jangan memasukkan kegiatan Ra'if sebagai kegiatan sendiri.",),
                       ("Kolom: Tanggal (YYYY-MM-DD), Kegiatan, Hasil. Maksimal 1024 karakter per kegiatan dan hasil.",)], False)]))
-    write_if_changed(ROOT / "generated/logbook_raif.tex", tex(entries_raif, "Logbook kegiatan Muhammad Ra'if Alkautsar", "tab:logbook-raif"))
+    write_if_changed(ROOT / "generated/logbook_raif.tex", tex(entries_raif, "\\textit{Logbook} kegiatan Muhammad Ra'if Alkautsar", "tab:logbook-raif"))
     print(f"Logbook Ra'if: {len(entries_raif)} entri; {len(complete_raif)-1} siap ditinjau untuk impor, {len(pending_raif)-1} belum lengkap.")
 
     frederiko_json = ROOT / "data/logbook_frederiko.json"
@@ -198,7 +198,7 @@ def main():
                                   ("Tanggal menggunakan YYYY-MM-DD. Kegiatan dan Hasil maksimal 1024 karakter masing-masing.",)]
         write_if_changed(ROOT / "deliverables/logbook_frederiko.xlsx", xlsx([
             ("Template Logbook", rows_frederiko, True), ("Petunjuk", instructions_frederiko, False)]))
-        write_if_changed(ROOT / "generated/logbook_frederiko.tex", tex(entries_frederiko, "Logbook kegiatan Frederiko Eldad Mugiyono", "tab:logbook-frederiko"))
+        write_if_changed(ROOT / "generated/logbook_frederiko.tex", tex(entries_frederiko, "\\textit{Logbook} kegiatan Frederiko Eldad Mugiyono", "tab:logbook-frederiko"))
         print(f"Logbook Frederiko: {len(entries_frederiko)} entri berhasil diproses.")
 
         combined = combined_logbook_rows(entries_raif, entries_frederiko)
